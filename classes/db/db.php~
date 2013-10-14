@@ -12,7 +12,7 @@ class DBconn {
 private $hostname = "localhost";
 private $dbname = "kotkiDB";
 private $username= "root";
-private $password = "iChuj";
+private $password = "bitchfrom666";
 
 //TUTAJ PRZESTAN
 //######################################//
@@ -163,6 +163,37 @@ $row = $count->fetch();
 return $row;
 
 }
+
+//===============================================================================//
+
+public function getimgrate($fid){
+
+$count = $this->dbh->query("SELECT `rate` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
+$row = $count->fetch();
+
+return $row["rate"];
+
+}
+
+//===============================================================================//
+
+public function setimgrate($fid, $note){
+
+$ratecount = $this->getimgrate($fid);
+
+
+if ($note == 1){
+$rate = $ratecount + 1;
+}
+
+if ($note == 2){
+$rate = $ratecount - 1;
+}
+$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `rate` = '$rate' WHERE `fileid` = '$fid'");
+
+}
+
+//================================================================================//
 
 
 }//end of DBconn class

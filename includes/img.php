@@ -5,15 +5,30 @@ require_once('includes/show.php');
 require_once('classes/db/db.php');
 $baza = new DBconn;
 $baza->connect();
-$latest = $baza->getlatest();
 
-echo "<br />";
+if (isset($_GET['fileid']))
+{
+$latest = $_GET['fileid'];
+
+if (isset($_GET['rate'])){
+$baza->setimgrate($latest, $_GET['rate']);
+}
+
+} 
+else {
+$latest = $baza->getlatest();
+}
+
+echo '<div id="img">';
 $img = showcat($latest);
 echo $img;
+echo '</div>';
 
 $description = showcatdesc($latest);
 
-require_once('classes/imgrate/imgrate.php');
+require_once('classes/rate/imgrate.php');
+$imgrate = showrateicons($latest);
+echo $imgrate;
 
 echo '
 <table align="center">
@@ -65,7 +80,7 @@ Dodane przez:
 ';
 
 require_once('classes/comments/addcomment.php');
-require_once('classes/comments/showcomments.php');
+//require_once('classes/comments/showcomments.php');
 
 
 ?>

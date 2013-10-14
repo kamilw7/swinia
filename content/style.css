@@ -49,6 +49,31 @@ height: 15px;
 text-align: right;
 }
 
+#rate{
+display: inline-block;
+color: black;
+margin: 0 auto;
+margin-bottom: 0px;
+width: 600px;
+//background-color: pink;
+text-align: right;
+}
+
+#ratecount{
+display: inline-block;
+font-size: 20px;
+//background-color: pink;
+vertical-align: middle;
+}
+
+#img{
+color: black;
+margin: 0 auto;
+margin-top: 20px;
+font-size: 12px;
+width: 600px;
+}
+
 #ip{
 color: pink;
 margin-top:12px;

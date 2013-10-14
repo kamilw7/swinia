@@ -164,6 +164,37 @@ return $row;
 
 }
 
+//===============================================================================//
+
+public function getimgrate($fid){
+
+$count = $this->dbh->query("SELECT `rate` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
+$row = $count->fetch();
+
+return $row["rate"];
+
+}
+
+//===============================================================================//
+
+public function setimgrate($fid, $note){
+
+$ratecount = $this->getimgrate($fid);
+
+
+if ($note == "git"){
+$rate = $ratecount + 1;
+}
+
+if ($note == "shit"){
+$rate = $ratecount - 1;
+}
+$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `rate` = '$rate' WHERE `fileid` = '$fid'");
+
+}
+
+//================================================================================//
+
 
 }//end of DBconn class
 
