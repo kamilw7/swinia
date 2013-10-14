@@ -110,6 +110,38 @@ if (!$stmt)
 
 //=============================================================================//
 
+public function addcomment($fileid, $text){
+
+$author = "Anonymous";
+$added = time();
+$visible = 1;
+$points = 0;
+
+$stmt = $this->dbh->exec("
+INSERT INTO `kotkiDB`.`catzcomments` (
+`fileid` ,
+`text` ,
+`author` ,
+`added` ,
+`visible`,
+`points`
+)
+VALUES (
+'$fileid' , '$text', '$author', '$added', '$visible', '$points'
+);
+");
+//echo $stmt['description'];
+
+if (!$stmt)
+	echo "Failed to prepare statement: (". print_r($this->dbh->errorInfo()).")\n";
+
+}
+
+//=============================================================================//
+
+
+//=============================================================================//
+
 public function isuser($ausername, $apassword){
 $loggedcond = 0;
 
@@ -139,6 +171,17 @@ $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY `id` DESC LI
 $row = $count->fetch();
 
 return $row["fileid"];
+
+}
+
+//===============================================================================//
+
+public function getcomments(){
+
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` ORDER BY `id`");
+$row = $count->fetchAll();
+
+return $row;
 
 }
 

@@ -80,7 +80,17 @@ Dodane przez:
 ';
 
 require_once('classes/comments/addcomment.php');
-//require_once('classes/comments/showcomments.php');
+showform($latest);
+if (isset($_GET['action'])){
+if ($_GET['action'] == "add"){
+
+$baza->addcomment($latest, $_POST['kitten_comment']);
+echo "Komentarz dodany";
+}
+}
+
+
+require_once('classes/comments/showcomments.php');
 
 
 ?>
