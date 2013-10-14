@@ -1,0 +1,17 @@
+<?php
+
+$db_host = "localhost";
+$db_name = "kotkiDB";
+$db_user = "root";
+$db_pass = "bitchfrom666";
+
+
+
+try { 
+    $dbh=new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+		echo "mysql:host=$this->hostname;dbname=$this->dbname";
+}
+catch (PDOException $e) { 
+    echo $e->getMessage(); 
+} 
+?>

@@ -1,0 +1,39 @@
+<?php
+
+//header('Content-type: image/jpg');
+
+require_once("classes/db/db.php");
+
+function showcat($filename){
+	
+$baza = new DBconn;
+$baza->connect();
+
+//$filename = $_GET['imgid'];
+
+$imgid = $baza->getimg($filename);
+$plik = fopen($imgid, 'rb');
+$obrazek = fread($plik, filesize($imgid));
+fclose($plik);
+
+$doret =  '<img src="data:image/jpg;base64,'.base64_encode($obrazek).'" width="600" /><br /><br />';
+
+return $doret;
+
+}
+
+function showcatdesc($filename){
+
+$baza = new DBconn;
+$baza->connect();
+
+$imgid = $baza->getrecord($filename);
+
+return $imgid;
+}
+
+
+?>
+
+
+

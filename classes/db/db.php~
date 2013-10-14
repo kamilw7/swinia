@@ -1,0 +1,170 @@
+<?php
+
+/**
+* DATABASE CONF HERE:
+**/
+
+class DBconn {
+
+//######################################//
+//EDYTUJ TYLKO TUTAJ:
+
+private $hostname = "localhost";
+private $dbname = "kotkiDB";
+private $username= "root";
+private $password = "iChuj";
+
+//TUTAJ PRZESTAN
+//######################################//
+
+public $dbh = null;
+
+//=========================================================================//
+
+public function connect(){
+
+$db_host = $this->hostname;
+$db_name = $this->dbname;
+$db_user = $this->username;
+$db_pass = $this->password;
+
+/**
+*użyj tego jesli chcesz podac adres socketa:
+
+try { 
+    $dbh=new PDO("mysql:unix_socket=/var/run/mysqld/mysqld.sock;host=$db_host;dbname='$db_name", $db_user, $db_pass);
+	echo "mysql:host=$this->hostname;dbname=$this->dbname";
+
+} 
+*
+**/
+
+try { 
+    $this->dbh=new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+	//echo "mysql:host=$this->hostname;dbname=$this->dbname";	
+	
+} 
+catch(PDOException $e) { 
+    echo $e->getMessage(); 
+} 
+
+
+
+
+}
+//==========================================================================//
+
+public function addcat($name, $desc, $path, $fileid, $user, $added, $pass){
+
+
+$stmt = $this->dbh->exec("
+INSERT INTO `kotkiDB`.`catz` (
+`name` ,
+`description` ,
+`path` ,
+`fileid` ,
+`user` ,
+`added`,
+`rempass`
+)
+VALUES (
+'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass'
+);
+");
+//echo $stmt['description'];
+
+if (!$stmt)
+	echo "Failed to prepare statement: (". print_r($this->dbh->errorInfo()).")\n";
+/*
+  foreach($stmt as $row)
+      {
+          echo '<li>'.$row['description'].'</li>';
+      }*/
+
+
+
+}
+
+//============================================================================//
+
+public function adduser($name, $password, $email, $ip, $registertime){
+
+$stmt = $this->dbh->exec("
+INSERT INTO `kotkiDB`.`catzusers` (
+`name` ,
+`password` ,
+`email` ,
+`ip` ,
+`registertime`
+)
+VALUES (
+'$name' , '$password', '$email', '$ip', '$registertime'
+);
+");
+//echo $stmt['description'];
+
+if (!$stmt)
+	echo "Failed to prepare statement: (". print_r($this->dbh->errorInfo()).")\n";
+
+}
+
+//=============================================================================//
+
+public function isuser($ausername, $apassword){
+$loggedcond = 0;
+
+/**
+$sql="SELECT count(*) FROM [tablename] WHERE key == ? ";
+$sth = $this->db->prepare($sql);
+$sth->execute(array($key));
+$rows = $sth->fetch(PDO::FETCH_NUM);
+echo $rows[0];
+**/
+
+$count = $this->dbh->query("SELECT COUNT(*) FROM `kotkiDB`.`catzusers` WHERE `name` = '$ausername' AND `password` = '$apassword'");
+$row = $count->fetch(PDO::FETCH_NUM);
+echo $row[0];
+
+$loggedcond = $row[0];
+
+return $loggedcond;
+
+}
+
+//===============================================================================//
+
+public function getlatest(){
+
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY `id` DESC LIMIT 1");
+$row = $count->fetch();
+
+return $row["fileid"];
+
+}
+
+//===============================================================================//
+
+public function getimg($fid){
+
+$count = $this->dbh->query("SELECT `path` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
+$row = $count->fetch();
+
+return $row["path"];
+
+}
+
+//===============================================================================//
+
+public function getrecord($fid){
+
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
+$row = $count->fetch();
+
+return $row;
+
+}
+
+
+}//end of DBconn class
+
+?>

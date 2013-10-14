@@ -1,0 +1,9 @@
+<?php
+@header('Content-type: image/jpg');
+
+$plik = @fopen('files/cat.jpg', 'rb');
+$obrazek = @fread($plik, filesize('./cat.jpg'));
+fclose($plik);
+
+echo $obrazek;
+?>
