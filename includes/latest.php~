@@ -1,3 +1,5 @@
 <div id="latest">
-slider z najnowszymi świniami
+<?php
+require_once('includes/thumbnails.php');
+?>
 </div>
