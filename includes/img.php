@@ -1,4 +1,5 @@
 <?php
+
 require_once('includes/menu.php');
 require_once('includes/show.php');
 
@@ -23,6 +24,13 @@ echo '<div id="img">';
 $img = showcat($latest);
 echo $img;
 echo '</div>';
+
+/*
+echo '<div id="img">';
+$img = showcatthumb($latest);
+echo $img;
+echo '</div>';
+*/
 
 $description = showcatdesc($latest);
 
@@ -92,6 +100,6 @@ echo "Komentarz dodany";
 
 require_once('classes/comments/showcomment.php');
 showcomment($latest);
-
+require_once("includes/popular.php");
 
 ?>

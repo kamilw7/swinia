@@ -12,7 +12,7 @@ $dane = $baza->getcomments($fileid);
 
 foreach ($dane as $komentarz){
 
-echo '<table align="center" width="600">
+echo '<table align="center" width="700">
 	<tr>
 	<td width="50" align="left" bgcolor="pink">
 	<font size="2">Świnia:</font>
@@ -28,9 +28,6 @@ echo '<table align="center" width="600">
 	</tr>
 	<tr><td colspan="2" height="20"></td></tr>
 	</table>';
-	
-
-
 }
  
 }

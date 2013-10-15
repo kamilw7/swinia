@@ -175,9 +175,9 @@ return $row["fileid"];
 
 //===============================================================================//
 
-public function getcomments(){
+public function getcomments($fileid){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments`");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid'");
 return $count;
 
 }
@@ -190,6 +190,15 @@ $count = $this->dbh->query("SELECT `path` FROM `kotkiDB`.`catz` WHERE `fileid` =
 $row = $count->fetch();
 
 return $row["path"];
+
+}
+
+//===============================================================================//
+
+public function getimgs($fid, $order){
+
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` LIMIT 1");
+return $count;
 
 }
 

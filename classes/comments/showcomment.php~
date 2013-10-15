@@ -4,11 +4,11 @@
 
 //===========================================================================//
 
-function showcomment(){
+function showcomment($fileid){
 
 $baza = new DBconn;
 $baza->connect();
-$dane = $baza->getcomments();
+$dane = $baza->getcomments($fileid);
 
 foreach ($dane as $komentarz){
 
@@ -28,9 +28,6 @@ echo '<table align="center" width="600">
 	</tr>
 	<tr><td colspan="2" height="20"></td></tr>
 	</table>';
-	
-
-
 }
  
 }

@@ -74,6 +74,25 @@ font-size: 12px;
 width: 600px;
 }
 
+#thumbnails{
+
+color: black;
+margin: 0 auto;
+font-size: 12px;
+width: 700px;
+}
+
+#thumb{
+margin: 0 auto;
+background-color: white;
+display: inline-block;
+color: black;
+margin-right: 10px;
+margin-left: 10px;
+font-size: 12px;
+width: 100px;
+}
+
 #ip{
 color: pink;
 margin-top:12px;
@@ -109,7 +128,7 @@ border: 2px dashed #ff309a;
 
 #latest{
 margin-top:10px;
-height: 95px;
+height: 115px;
 background-color: #fddddd;
 border-radius: 5px; 
 -moz-border-radius: 5px; 

@@ -195,6 +195,15 @@ return $row["path"];
 
 //===============================================================================//
 
+public function getimgs($fid, $order){
+
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` LIMIT $fid");
+return $count;
+
+}
+
+//===============================================================================//
+
 public function getrecord($fid){
 
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");

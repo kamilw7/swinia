@@ -28,3 +28,6 @@ require_once('includes/toolbar.php');
 <a href="./">
 <img src="content/images/top.png" /></a>
 </div>
+<?php
+require_once("includes/latest.php");
+?>

@@ -1,6 +1,6 @@
 <?php
-require_once("includes/menu.php");
 require_once("includes/popular.php");
+require_once("includes/menu.php");
 ?>
 
 <div id="content">

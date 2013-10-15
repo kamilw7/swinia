@@ -4,9 +4,12 @@ require_once("includes/popular.php");
 
 <div id="add">
 <?php
-if (isset($_SESSION["nick"])){
+$zmiennaa = 1;
+//if (isset($_SESSION["nick"])){
 
-session_start();
+if ($zmiennaa){
+
+//session_start();
 $captcha_cond = 666;
 if (!empty($_POST['captcha'])) {
     if (empty($_SESSION['captcha']) || trim(strtolower($_POST['captcha'])) != $_SESSION['captcha']) {
@@ -44,7 +47,7 @@ if (!isset($_FILES['nazwa_pliku'])){
 
 ?>
 
-<p align="center">Dodaj nowego kotka</p>
+<p align="center"><b>Dodaj nową świnię</b></p>
 <form enctype="multipart/form-data" action="?page=add" 
 		 method="post" >
 <input type="hidden" name="MAX_FILE_SIZE" value="5120000000" />
@@ -189,7 +192,11 @@ function add_to_db($name, $desc, $path, $pass){
 
 	$baza->connect();
 	$added = time();
+	if (!isset($_SESSION['nick'])){
+	$user = "Anonymous";
+	} else {
 	$user = $_SESSION['nick'];
+	}
 	$fileid = md5($path);
 	$baza->addcat($name, $desc, $path, $fileid, $user, $added, $pass);
 
@@ -201,23 +208,24 @@ function plik_as_poster($filename, $title, $subtitle){
 
 	$znakwodny = "content/images/watermark.png";
 	$source = $filename;
-	$dest = $filename;
+	$thumb = $filename.'thumb';
     	$dirpath = dirname($filename);
 
 	echo $dirpath;
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
+	exec('convert -geometry 50x '.$thumb.' '.$thumb);
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
 	shell_exec($command);
        
-	exec('convert '.$source.'  -bordercolor pink -border 3x3 '.$source); // add small black border
+	exec('convert '.$source.'  -bordercolor \'#ff309a\' -border 3x3 '.$source); // add small black border
         exec('convert '.$source.'  -bordercolor white -border 2x2 '.$source); // add white line around the image
-        exec('convert '.$source.'  -bordercolor pink -border 10%x10% '.$source); //add a wide black border around
+        exec('convert '.$source.'  -bordercolor \'#ff309a\' -border 10%x10% '.$source); //add a wide black border around
 
-        exec('convert '.$source.' -size 15x15 xc: pink -background pink -append  -pointsize 64 -fill white -draw "gravity South text 0,0 \'' .$title. '\'" '.$source);
-	exec('convert '.$source.'  -bordercolor pink -border 0%x5% text2.ppm'); //add a wide black border around
-        exec('convert '.$source.' -size 15x15 xc:pink -background pink -append  -pointsize 32 -fill white -draw "gravity South text 0,0 \'' .$subtitle. '\'" '.$source);
+        exec('convert '.$source.' -size 15x15 xc: \'#ff309a\' -background \'#ff309a\' -append  -pointsize 64 -fill white -draw "gravity South text 0,0 \'' .$title. '\'" '.$source);
+	exec('convert '.$source.'  -bordercolor \'#ff309a\' -border 0%x5% text2.ppm'); //add a wide black border around
+        exec('convert '.$source.' -size 15x15 xc:\'#ff309a\' -background \'#ff309a\' -append  -pointsize 32 -fill white -draw "gravity South text 0,0 \'' .$subtitle. '\'" '.$source);
    
      return $source;
 
@@ -233,27 +241,44 @@ function zapisz_plik()
 $cfg['dir_name'] = md5($_POST["kitten_name"].time());
 $cfg['file_name'] = 'index.php';
 
+
 $dir = $cfg['dir_name'];
 
 if(mkdir('files/'.$cfg['dir_name'], 0777))
 {
+
  if(touch('files/'.$cfg['dir_name'].'/'.$cfg['file_name']))
  {
   // Odczyt i zapis dla właściciela, żadnych praw dla innych
   if(chmod('files/'.$cfg['dir_name'].'/'.$cfg['file_name'], 0600))
   {
    //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
- 	echo 'Upload: OK <br />';
+ 	echo 'Upload OK <br />';
   }
   else
   {
    //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
   }
+  //---- --- -- -- - - - -- - - - - - -- - -- - - - - --- - - - - - ------//
+  if(touch('files/'.$cfg['dir_name'].'/thumb'.$cfg['file_name']))
+  {
+  // Odczyt i zapis dla właściciela, żadnych praw dla innych
+  if(chmod('files/'.$cfg['dir_name'].'/thumb'.$cfg['thumbname'], 777))
+  {
+   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
+ 	echo 'Upload OK <br />';
+  }
+  else
+  {
+   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
+  }	
  }
+}
  else
  {
   echo 'Nie udało się stworzyć pliku';
  }
+ 
 }
 else
 {
@@ -267,14 +292,20 @@ else
 		$typ = ".png";}
  
   $lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
+    $lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
 	
   if(is_uploaded_file($_FILES['nazwa_pliku']['tmp_name']))
   {
+    
     if(!move_uploaded_file($_FILES['nazwa_pliku']['tmp_name'], $lokalizacja))
     {
       echo 'problem: Nie udało się skopiować pliku do katalogu.';
         return false;  
     }
+    else {
+	exec('cp '.$lokalizacja.' '.$lokalizacja1);
+ 	}
+	
   }
   else
   {

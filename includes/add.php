@@ -208,12 +208,13 @@ function plik_as_poster($filename, $title, $subtitle){
 
 	$znakwodny = "content/images/watermark.png";
 	$source = $filename;
-	$dest = $filename;
+	$thumb = $filename.'thumb';
     	$dirpath = dirname($filename);
 
 	echo $dirpath;
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
+	exec('convert -geometry 100x '.$thumb.' '.$thumb);
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
 	shell_exec($command);
@@ -240,10 +241,12 @@ function zapisz_plik()
 $cfg['dir_name'] = md5($_POST["kitten_name"].time());
 $cfg['file_name'] = 'index.php';
 
+
 $dir = $cfg['dir_name'];
 
 if(mkdir('files/'.$cfg['dir_name'], 0777))
 {
+
  if(touch('files/'.$cfg['dir_name'].'/'.$cfg['file_name']))
  {
   // Odczyt i zapis dla właściciela, żadnych praw dla innych
@@ -256,11 +259,26 @@ if(mkdir('files/'.$cfg['dir_name'], 0777))
   {
    //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
   }
+  //---- --- -- -- - - - -- - - - - - -- - -- - - - - --- - - - - - ------//
+  if(touch('files/'.$cfg['dir_name'].'/thumb'.$cfg['file_name']))
+  {
+  // Odczyt i zapis dla właściciela, żadnych praw dla innych
+  if(chmod('files/'.$cfg['dir_name'].'/thumb'.$cfg['thumbname'], 777))
+  {
+   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
+ 	echo 'Upload OK <br />';
+  }
+  else
+  {
+   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
+  }	
  }
+}
  else
  {
   echo 'Nie udało się stworzyć pliku';
  }
+ 
 }
 else
 {
@@ -274,14 +292,20 @@ else
 		$typ = ".png";}
  
   $lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
+    $lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
 	
   if(is_uploaded_file($_FILES['nazwa_pliku']['tmp_name']))
   {
+    
     if(!move_uploaded_file($_FILES['nazwa_pliku']['tmp_name'], $lokalizacja))
     {
       echo 'problem: Nie udało się skopiować pliku do katalogu.';
         return false;  
     }
+    else {
+	exec('cp '.$lokalizacja.' '.$lokalizacja1);
+ 	}
+	
   }
   else
   {
