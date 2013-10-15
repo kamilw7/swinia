@@ -70,18 +70,22 @@ if ($spr4 < 4) {
 $komunikaty .= "Login musi mieć przynajmniej 4 znaki<br>"; }
 if ($spr5 < 4) {
 $komunikaty .= "Hasło musi mieć przynajmniej 4 znaki<br>"; }
+/*
 if ($spr1[0] >= 1) {
 $komunikaty .= "Ten login jest zajęty!<br>"; }
 if ($spr2[0] >= 1) {
 $komunikaty .= "Ten e-mail jest już używany!<br>"; }
+*/
 if ($email != $vemail) {
 $komunikaty .= "E-maile się nie zgadzają ...<br>";}
 if ($haslo != $vhaslo) {
 $komunikaty .= "Hasła się nie zgadzają ...<br>";}
 if ($pos == false OR $pos2 == false) {
 $komunikaty .= "Nieprawidłowy adres e-mail<br>"; }
+/*
 if ($spr3[0] >= 1) {
 $komunikaty .= "Nie można zarejestrować kilku kont na jedną pocztę o2.<br>"; }
+*/
 
 //jesli cos jest nie tak to blokuje rejestracje i wyswietla bledy
 if ($komunikaty) {
@@ -158,7 +162,7 @@ Przepisz kod:
 
 function adduser_echo(){
 
-echo '<br /><br /><span style="color: green; font-weight: bold;">Zostałeś zarejestrowany '.$nick.'. Teraz możesz się <a href="?page=login">zalogować</a></span><br /><br /><br>';
+echo '<br /><br /><span style="color: green; font-weight: bold;">Zostałeś zarejestrowany '.'. Teraz możesz się <a href="?page=login">zalogować</a></span><br /><br /><br>';
 
 
 }
