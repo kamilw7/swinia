@@ -54,7 +54,7 @@ catch(PDOException $e) {
 }
 //==========================================================================//
 
-public function addcat($name, $desc, $path, $fileid, $user, $added, $pass){
+public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate){
 
 
 $stmt = $this->dbh->exec("
@@ -65,10 +65,11 @@ INSERT INTO `kotkiDB`.`catz` (
 `fileid` ,
 `user` ,
 `added`,
-`rempass`
+`rempass`,
+`rate`
 )
 VALUES (
-'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass'
+'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass', '$rate'
 );
 ");
 //echo $stmt['description'];
@@ -197,8 +198,8 @@ return $row["path"];
 
 public function getimgs($fid, $order){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` LIMIT $fid");
-return $count;
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY `$order` DESC LIMIT $fid");
+return $count; 
 
 }
 

@@ -25,10 +25,12 @@ $img = showcat($latest);
 echo $img;
 echo '</div>';
 
+/*
 echo '<div id="img">';
 $img = showcatthumb($latest);
 echo $img;
 echo '</div>';
+*/
 
 $description = showcatdesc($latest);
 
@@ -39,7 +41,7 @@ echo $imgrate;
 echo '
 <table align="center">
 <tr>
-<td>
+<td align="left">
 Imie:
 </td>
 <td> '
@@ -54,15 +56,23 @@ Imie:
 '</td>
 </tr>
 <tr>
-<td>
-Opis
+<td align="left">
+Czym podpadła:
+</td>
+<td>'
+. $description["fault"] .
+'</td>
+</tr>
+<tr>
+<td align="left">
+Opis świństwa:
 </td>
 <td>'
 . $description["description"] .
 '</td>
 </tr>
 <tr>
-<td>
+<td align="left">
 Data dodania:
 </td>
 <td>'
@@ -70,7 +80,7 @@ Data dodania:
 '</td>
 </tr>
 <tr>
-<td>
+<td align="left">
 Dodane przez:
 </td>
 <td>'
@@ -79,7 +89,7 @@ Dodane przez:
 </tr>
 <tr>
 <td colspan="2">
-<font color="red"><a href="?page=remove&fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
+<font size ="1" color="red"><a href="?page=remove&fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
 </td>
 </tr>
 </table>

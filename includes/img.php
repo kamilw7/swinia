@@ -41,12 +41,12 @@ echo $imgrate;
 echo '
 <table align="center">
 <tr>
-<td>
+<td align="left">
 Imie:
 </td>
-<td> '
+<td><b>'
 . $description["name"] .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td>
@@ -56,32 +56,40 @@ Imie:
 '</td>
 </tr>
 <tr>
-<td>
-Opis
+<td align="left">
+Czym podpadła:
 </td>
-<td>'
-. $description["description"] .
-'</td>
+<td><b>'
+. $description["fault"] .
+'</b></td>
 </tr>
 <tr>
-<td>
+<td align="left">
+Opis świństwa:
+</td>
+<td><b>'
+. $description["description"] .
+'</b></td>
+</tr>
+<tr>
+<td align="left">
 Data dodania:
 </td>
-<td>'
+<td><b>'
 . @date("Y-m-d H:i:s", $description["added"]) .
-'</td>
+'</b></td>
 </tr>
 <tr>
-<td>
+<td align="left">
 Dodane przez:
 </td>
-<td>'
+<td><b>'
 . $description["user"] .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td colspan="2">
-<font color="red"><a href="?page=remove&fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
+<font size ="1" color="red"><a href="?page=remove&fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
 </td>
 </tr>
 </table>

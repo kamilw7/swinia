@@ -53,29 +53,34 @@ if (!isset($_FILES['nazwa_pliku'])){
 <input type="hidden" name="MAX_FILE_SIZE" value="5120000000" />
 <table align="center">
 <tr>
-<td>
-Nazwa świnii: </td><td> <input type="text" maxlength="12" name="kitten_name" style="width: 400px;" /> </td>
+<td align="left">
+Imię (i nazwisko) świnii: </td><td> <input type="text" maxlength="30" name="kitten_name" style="width: 400px;" /> </td>
 </tr>
 <tr>
-<td>
-Podpis na obrazek: </td><td> <input type="text" maxlength="20" name="kitten_subtitle" style="width: 400px;" /> </td>
+<td align="left">
+Podpis na obrazek: </td><td> <input type="text" maxlength="30" name="kitten_subtitle" style="width: 400px;" /> </td>
 </tr>
-<td>
-Opis świnii: </td><td>  <textarea name="kitten_desc" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"></textarea></td>
+<tr>
+<td align="left">
+Czym podpadła: </td><td>  <textarea name="kitten_fault" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"></textarea></td>
 </tr>
+<tr>
+<td align="left">
+Opis: </td><td>  <textarea name="kitten_desc" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"></textarea></td>
 </tr>
-<td>
+<tr>
+<td align="left">
 Portret świnii:
 </td>
-<td>
+<td >
 <input type="file" name="nazwa_pliku" style="width: 400px;" /></td>
 </tr>
 <tr>
-<td>
+<td align="left">
 Hasło usunięcia: </td><td> <input type="text" maxlength="12" name="kitten_password" style="width: 400px;" /> </td>
 </tr>
 <tr>
-<td>
+<td align="left">
 Kod świnii:
 </td>
 <td>
@@ -93,7 +98,7 @@ Kod świnii:
 </td>
 </tr>
 <tr>
-<td>
+<td align="left">
 Przepisz kod świnii:
 </td>
 <td>
@@ -138,6 +143,7 @@ $typcond = sprawdz_typ($typ);
 $name = $_POST["kitten_name"];
 $subtitle = $_POST["kitten_subtitle"];
 $desc = $_POST["kitten_desc"];
+$fault = $_POST["kitten_fault"];
 $pass = $_POST["kitten_password"];
 
 if ($typcond == 1){
@@ -153,24 +159,23 @@ $path = $imgpath;
 echo "Nazwa świni:";
 echo $_POST["kitten_name"];
 echo "<br />";
-echo "<br />";
 echo "Podpis obrazka:";
 echo $_POST["kitten_subtitle"];
 echo "<br />";
+echo "Czym podpadła:";
+echo $_POST["kitten_fault"];
 echo "<br />";
-echo "Opis świnii:";
+echo "Opis świństwa:";
 echo $_POST["kitten_desc"];
-echo "<br />";
 echo "<br />";
 echo "Twoje hasło usunięcia:<b>";
 echo $_POST["kitten_password"];
-echo "<br />";
 echo "<br />";
 echo "</b>Zdjęcie świnii:";
 echo '<br/ ><img src="'.$imgpath.'" />';
 
 
-add_to_db($name, $desc, $path, $pass);
+add_to_db($name, $desc, $fault, $path, $pass);
 
 }//fi captcha_cond
 else {
@@ -198,7 +203,8 @@ function add_to_db($name, $desc, $path, $pass){
 	$user = $_SESSION['nick'];
 	}
 	$fileid = md5($path);
-	$baza->addcat($name, $desc, $path, $fileid, $user, $added, $pass);
+	$rate = 0;
+	$baza->addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate);
 
 
 }
@@ -211,10 +217,10 @@ function plik_as_poster($filename, $title, $subtitle){
 	$thumb = $filename.'thumb';
     	$dirpath = dirname($filename);
 
-	echo $dirpath;
+	//echo $dirpath;
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
-	exec('convert -geometry 50x '.$thumb.' '.$thumb);
+	exec('convert -geometry 100x '.$thumb.' '.$thumb);
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
 	shell_exec($command);
@@ -259,21 +265,8 @@ if(mkdir('files/'.$cfg['dir_name'], 0777))
   {
    //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
   }
-  //---- --- -- -- - - - -- - - - - - -- - -- - - - - --- - - - - - ------//
-  if(touch('files/'.$cfg['dir_name'].'/thumb'.$cfg['file_name']))
-  {
-  // Odczyt i zapis dla właściciela, żadnych praw dla innych
-  if(chmod('files/'.$cfg['dir_name'].'/thumb'.$cfg['thumbname'], 777))
-  {
-   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
- 	echo 'Upload OK <br />';
-  }
-  else
-  {
-   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
-  }	
+
  }
-}
  else
  {
   echo 'Nie udało się stworzyć pliku';
