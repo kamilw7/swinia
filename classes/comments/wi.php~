@@ -15,7 +15,7 @@ foreach ($dane as $komentarz){
 echo '<table align="center" width="600">
 	<tr>
 	<td width="50" align="left" bgcolor="pink">
-	<font size="2">Świnia:</font>
+	<font size="2">Avatar:</font>
 	</td>
 	<td width="350" bgcolor="pink" align="left"><font size="2">Komentarz:</font></td>
 	<td bgcolor="pink" align="left"><font size="2">Dodał: '.$komentarz['author'].'</font></td>

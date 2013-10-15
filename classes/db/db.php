@@ -137,7 +137,6 @@ if (!$stmt)
 
 }
 
-//=============================================================================//
 
 
 //=============================================================================//
@@ -176,12 +175,10 @@ return $row["fileid"];
 
 //===============================================================================//
 
-public function getcomments(){
+public function getcomments($fileid){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` ORDER BY `id`");
-$row = $count->fetchAll();
-
-return $row;
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid'");
+return $count;
 
 }
 

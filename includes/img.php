@@ -90,7 +90,8 @@ echo "Komentarz dodany";
 }
 
 
-require_once('classes/comments/showcomments.php');
+require_once('classes/comments/showcomment.php');
+showcomment($latest);
 
 
 ?>
