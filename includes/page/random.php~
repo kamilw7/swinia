@@ -45,7 +45,7 @@ echo $img;
 ?>
 <div id="mainimginside">
 <div id="mainimgtext">
-<b><?php echo $thumb['name']; ?></b><br ?>
+<b><?php echo $thumb['name']; ?></b><br /><br />
 <?php echo $thumb['fault']; ?>
 </div>
 </div>

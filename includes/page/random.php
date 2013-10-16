@@ -41,7 +41,9 @@ echo '</div>';
 
 <?php
 $img = showcatmain($thumb['fileid']);
+echo '<a href="?page=show&fileid='.$thumb['fileid'].'">';
 echo $img;
+echo '</a>';
 ?>
 <div id="mainimginside">
 <div id="mainimgtext">
