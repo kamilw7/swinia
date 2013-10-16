@@ -7,7 +7,7 @@ require_once("includes/show.php");
 
 $baza = new DBconn;
 $baza->connect();
-$thb = $baza->getimgs(8,"rate");
+$thb = $baza->getimgs(7,"rate");
 
 echo '<div id="thumbnails">';
 

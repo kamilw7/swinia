@@ -42,8 +42,82 @@ HTML;
     unset($_SESSION['captcha']);
 }
 
+if (isset($_FILES['nazwa_pliku'])) {
 
-if (!isset($_FILES['nazwa_pliku'])){
+if ($captcha_cond == 1){
+/*echo "<br>";
+echo $_FILES['nazwa_pliku']['type'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['size'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['name'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['tmp_name'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['error'];
+echo "<br>";
+*/
+
+
+$blad = $_FILES['nazwa_pliku']['error'];
+sprawdz_bledy($blad);
+$typ = $_FILES['nazwa_pliku']['type'];
+$typcond = sprawdz_typ($typ);
+
+$name = $_POST["kitten_name"];
+$subtitle = $_POST["kitten_subtitle"];
+$desc = $_POST["kitten_desc"];
+$fault = $_POST["kitten_fault"];
+$pass = $_POST["kitten_password"];
+
+	if ($typcond == 1){	
+	$imgpath = zapisz_plik();
+	$imgpath = plik_as_poster($imgpath, $name, $subtitle);
+	}
+
+
+
+$path = $imgpath;
+
+echo "Nazwa świni:";
+echo $_POST["kitten_name"];
+echo "<br />";
+echo "Podpis obrazka:";
+echo $_POST["kitten_subtitle"];
+echo "<br />";
+echo "Czym podpadła:";
+echo $_POST["kitten_fault"];
+echo "<br />";
+echo "Opis świństwa:";
+echo $_POST["kitten_desc"];
+echo "<br />";
+echo "Twoje hasło usunięcia:<b>";
+echo $_POST["kitten_password"];
+echo "<br />";
+echo "</b>Zdjęcie świnii:";
+echo '<br/ ><img src="'.$imgpath.'" />';
+echo '<br /><br /><a href="./?page=show&fileid='.md5($path).'">Przejdź do strony zdjęcia</a>';
+
+
+add_to_db($name, $desc, $fault, $path, $pass);
+
+}//fi captcha_cond
+else {
+echo '<form enctype="multipart/form-data" action="?page=add" 
+		 method="post" >
+      <input type="hidden" name="form_kitten_name" value="'.$_POST["kitten_name"].'" />
+      <input type="hidden" name="form_kitten_subtitle" value="'.$_POST["kitten_subtitle"].'" />
+      <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
+      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />
+      <input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />
+      <input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />';
+echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponownie" />';
+} //esle fi captcha_cond
+
+
+}// fi isset file[nazwapliku];
+
+else {
 
 ?>
 
@@ -54,30 +128,30 @@ if (!isset($_FILES['nazwa_pliku'])){
 <table align="center">
 <tr>
 <td align="left">
-Imię (i nazwisko) świnii: </td><td> <input type="text" maxlength="30" name="kitten_name" style="width: 400px;" /> </td>
+Imię (i nazwisko) świnii: </td><td> <input type="text" maxlength="30" name="kitten_name" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_name'])) echo $_POST['form_kitten_name']; ?>" /> </td>
 </tr>
 <tr>
 <td align="left">
-Podpis na obrazek: </td><td> <input type="text" maxlength="30" name="kitten_subtitle" style="width: 400px;" /> </td>
+Podpis na obrazek: </td><td> <input type="text" maxlength="30" name="kitten_subtitle" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_subtitle'])) echo $_POST['form_kitten_subtitle']; ?>" /> </td>
 </tr>
 <tr>
 <td align="left">
-Czym podpadła: </td><td>  <textarea name="kitten_fault" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"></textarea></td>
+Czym podpadła: </td><td>  <textarea name="kitten_fault" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"><?php if (isset($_POST['form_kitten_fault'])) echo $_POST['form_kitten_fault']; ?></textarea></td>
 </tr>
 <tr>
 <td align="left">
-Opis: </td><td>  <textarea name="kitten_desc" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"></textarea></td>
+Opis: </td><td>  <textarea name="kitten_desc" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"><?php if (isset($_POST['form_kitten_desc'])) echo $_POST['form_kitten_desc']; ?></textarea></td>
 </tr>
 <tr>
 <td align="left">
 Portret świnii:
 </td>
 <td >
-<input type="file" name="nazwa_pliku" style="width: 400px;" /></td>
+<input type="file" name="nazwa_pliku" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_file'])) echo $_POST['form_kitten_file']; ?>" /></td>
 </tr>
 <tr>
 <td align="left">
-Hasło usunięcia: </td><td> <input type="text" maxlength="12" name="kitten_password" style="width: 400px;" /> </td>
+Hasło usunięcia: </td><td> <input type="text" maxlength="12" name="kitten_password" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_password'])) echo $_POST['form_kitten_password']; ?>" /> </td>
 </tr>
 <tr>
 <td align="left">
@@ -118,74 +192,10 @@ Przepisz kod świnii:
 
 <?php
 
-}
-else {
-if ($captcha_cond == 1){
-/*echo "<br>";
-echo $_FILES['nazwa_pliku']['type'];
-echo "<br>";
-echo $_FILES['nazwa_pliku']['size'];
-echo "<br>";
-echo $_FILES['nazwa_pliku']['name'];
-echo "<br>";
-echo $_FILES['nazwa_pliku']['tmp_name'];
-echo "<br>";
-echo $_FILES['nazwa_pliku']['error'];
-echo "<br>";
-*/
+} //else isset file[nazwapliku]
 
+} else { echo '<a href="?page=login&redirect=add">Zaloguj sie!</a>'; } //fi $zmiennaa
 
-$blad = $_FILES['nazwa_pliku']['error'];
-sprawdz_bledy($blad);
-$typ = $_FILES['nazwa_pliku']['type'];
-$typcond = sprawdz_typ($typ);
-
-$name = $_POST["kitten_name"];
-$subtitle = $_POST["kitten_subtitle"];
-$desc = $_POST["kitten_desc"];
-$fault = $_POST["kitten_fault"];
-$pass = $_POST["kitten_password"];
-
-if ($typcond == 1){
-$imgpath = zapisz_plik();
-$imgpath = plik_as_poster($imgpath, $name, $subtitle);
-
-}
-
-
-
-$path = $imgpath;
-
-echo "Nazwa świni:";
-echo $_POST["kitten_name"];
-echo "<br />";
-echo "Podpis obrazka:";
-echo $_POST["kitten_subtitle"];
-echo "<br />";
-echo "Czym podpadła:";
-echo $_POST["kitten_fault"];
-echo "<br />";
-echo "Opis świństwa:";
-echo $_POST["kitten_desc"];
-echo "<br />";
-echo "Twoje hasło usunięcia:<b>";
-echo $_POST["kitten_password"];
-echo "<br />";
-echo "</b>Zdjęcie świnii:";
-echo '<br/ ><img src="'.$imgpath.'" />';
-
-
-add_to_db($name, $desc, $fault, $path, $pass);
-
-}//fi captcha_cond
-else {
-echo '<a href="?page=add">Niepoprawny captcha. Wypełnij formularz ponownie</a>';
-}
-
-
-}
-
-} else { echo '<a href="?page=login&redirect=add">Zaloguj sie!</a>'; }
 //===============================================================================================//
 
 
@@ -220,7 +230,9 @@ function plik_as_poster($filename, $title, $subtitle){
 	//echo $dirpath;
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
-	exec('convert -geometry 100x '.$thumb.' '.$thumb);
+	//exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
+	exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
 	shell_exec($command);
@@ -365,3 +377,4 @@ function sprawdz_bledy($blad)
 </div>
 <?php
 require_once("includes/latest.php");
+?>

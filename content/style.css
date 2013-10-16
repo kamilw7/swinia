@@ -80,6 +80,7 @@ color: black;
 margin: 0 auto;
 font-size: 12px;
 width: 900px;
+vertical-align: top;
 }
 
 #thumb{
@@ -91,6 +92,8 @@ margin-right: 8px;
 margin-left: 8px;
 font-size: 12px;
 width: 100px;
+height: 125px;
+vertical-align: top;
 }
 
 #ip{
@@ -118,22 +121,24 @@ vertical-align: top;
 
 #popular{
 margin-top:10px;
-height: 115px;
+height: 125px;
 background-color: #fddddd;
 border-radius: 5px; 
 -moz-border-radius: 5px; 
 -webkit-border-radius: 5px; 
 border: 2px dashed #ff309a;
+vertical-align: top;
 }
 
 #latest{
 margin-top:10px;
-height: 115px;
+height: 125px;
 background-color: #fddddd;
 border-radius: 5px; 
 -moz-border-radius: 5px; 
 -webkit-border-radius: 5px; 
 border: 2px dashed #ff309a;
+vertical-align: top;
 }
 
 
