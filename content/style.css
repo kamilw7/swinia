@@ -185,32 +185,62 @@ height: 520px;
 }
 
 #pagerandom{
-float: left;
-border-radius: 5px; 
--moz-border-radius: 5px; 
--webkit-border-radius: 5px; 
-border: 2px dashed #ffffff;
-height: 400px;
-width: 755px;
-}
-
-#pagesearch{
-float: right;
-border-radius: 5px; 
--moz-border-radius: 5px; 
--webkit-border-radius: 5px; 
-border: 2px dashed #ff309a;
-height: 400px;
-width: 335px;
-}
-
-#randomlatest{
-text-align: left;
 display: inline-block;
 float: left;
 overflow: hidden;
-height: 520px;
-width: 250px;
+border-radius: 5px; 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px;
+margin-right: 1px; 
+border: 1px dashed #ff309a;
+height: 400px;
+width: 255px;
+}
+
+#pagemainimg{
+background-color: #fddddd;
+display: inline-block;
+float: left;
+overflow: hidden;
+border-radius: 5px; 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px; 
+border: 1px dashed #ff309a;
+height: 400px;
+width: 500px;
+}
+
+#mainimginside {
+    margin-top: 370px;
+    background-color: #000;
+    position: absolute;
+    height: 100px;
+    width: 500px;
+    opacity: 0.65;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #FFF;
+    top: 200px;
+    bottom: 0px;
+    text-align: left;
+}
+
+#mainimgtext{
+text-align: left;
+height: 100px;
+width: 500px;
+margin-left: 20px;
+}
+
+#pagesearch{
+display: inline-block;
+float: right;
+overflow: hidden;
+border-radius: 5px; 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px; 
+border: 1px dashed #ff309a;
+height: 400px;
+width: 335px;
 }
 
 #pagelatest{
@@ -218,12 +248,13 @@ text-align: left;
 display: inline-block;
 float: left;
 overflow: hidden;
+margin-right: 1px;
 border-radius: 5px; 
 -moz-border-radius: 5px; 
 -webkit-border-radius: 5px; 
-border: 2px dashed #ff309a;
+border: 1px dashed #ff309a;
 height: 520px;
-width: 250px;
+width: 255px;
 }
 
 #pagepopular{
@@ -234,7 +265,7 @@ display: inline-block;
 border-radius: 5px; 
 -moz-border-radius: 5px; 
 -webkit-border-radius: 5px; 
-border: 2px dashed #ff309a;
+border: 1px dashed #ff309a;
 height: 520px;
 width: 500px;
 }
@@ -246,7 +277,7 @@ display: inline-block;
 border-radius: 5px; 
 -moz-border-radius: 5px; 
 -webkit-border-radius: 5px; 
-border: 2px dashed #ff309a;
+border: 1px dashed #ff309a;
 height: 520px;
 width: 335px;
 }

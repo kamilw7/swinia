@@ -11,12 +11,7 @@ $baza = new DBconn;
 $baza->connect();
 $thb = $baza->getimgs(3,"RAND()");
 
-echo '<div id="randomlatest">';
-
 ?>
-<table width="100%">
-<tr>
-<td width="400">
 <?php
 foreach ($thb as $thumb){
 echo '<div id="pagethumb">';
@@ -38,11 +33,21 @@ echo '</td></tr></table>';
 echo '</div>';
 }
 ?>
-</td>
-<td>
-echo "aaa"
-</td></tr></table>
+</div>
+<div id="pagemainimg">
+<div id="headerbox">
+ŚWINKA DNIA:
+</div>
 
 <?php
-echo '</div>';
+$img = showcatmain($thumb['fileid']);
+echo $img;
 ?>
+<div id="mainimginside">
+<div id="mainimgtext">
+<b><?php echo $thumb['name']; ?></b><br ?>
+<?php echo $thumb['fault']; ?>
+</div>
+</div>
+
+

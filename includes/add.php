@@ -226,6 +226,7 @@ function plik_as_poster($filename, $title, $subtitle){
 	$znakwodny = "content/images/watermark.png";
 	$source = $filename;
 	$thumb = $filename.'thumb';
+	$pageimg = $filename.'main';
     	$dirpath = dirname($filename);
 
 	//echo $dirpath;
@@ -233,6 +234,7 @@ function plik_as_poster($filename, $title, $subtitle){
 	exec('convert -geometry 500x '.$source.' '.$source);
 	//exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
 	exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+	exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
@@ -299,6 +301,7 @@ else
  
   $lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
     $lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
+	    $lokalizacja2 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'main';
 	
   if(is_uploaded_file($_FILES['nazwa_pliku']['tmp_name']))
   {
@@ -310,6 +313,7 @@ else
     }
     else {
 	exec('cp '.$lokalizacja.' '.$lokalizacja1);
+	exec('cp '.$lokalizacja.' '.$lokalizacja2);
  	}
 	
   }

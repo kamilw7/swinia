@@ -41,6 +41,25 @@ return $doret;
 
 }
 
+function showcatmain($filename){
+	
+$baza = new DBconn;
+$baza->connect();
+
+//$filename = $_GET['imgid'];
+
+$imgid = $baza->getimg($filename);
+$imgid = $imgid.'main';
+$plik = fopen($imgid, 'rb');
+$obrazek = fread($plik, filesize($imgid));
+fclose($plik);
+
+$doret =  '<img src="data:image/jpg;base64,'.base64_encode($obrazek).'"  />';
+
+return $doret;
+
+}
+
 function showcatdesc($filename){
 
 $baza = new DBconn;

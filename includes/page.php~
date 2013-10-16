@@ -6,7 +6,10 @@ require_once("includes/menu.php");
 <div id="content">
    <div id="firstrow">
 	<div id="pagerandom">
-	aaa
+	<?php require_once('includes/page/random.php'); ?>
+	</div>
+	<div id="pagemainimg">
+	<?php require_once('includes/page/random.php'); ?>
 	</div>
 	<div id="pagesearch">
 	<?php require_once('includes/page/search.php'); ?>
