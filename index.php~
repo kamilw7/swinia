@@ -39,6 +39,10 @@ case "show":
 require_once('includes/img.php');
 break;
 
+case "remove":
+require_once('includes/remove.php');
+break;
+
 default:
 require_once('includes/page.php');
 break;

@@ -1,4 +1,7 @@
 <div id="latest">
+<div id="headerbox">
+NAJNOWSZE:
+</div>
 <?php
 
 require_once("classes/db/db.php");
@@ -6,7 +9,7 @@ require_once("includes/show.php");
 
 $baza = new DBconn;
 $baza->connect();
-$thb = $baza->getimgs(7,"added");
+$thb = $baza->getimgs(9,"`added`");
 
 echo '<div id="thumbnails">';
 

@@ -24,10 +24,10 @@
 require_once('includes/toolbar.php');
 ?>
 
+<div id="top1">
+
 <div id="top">
-<a href="./">
-<img src="content/images/top.png" /></a>
+<a href="./"><img src="content/images/top/top1.png" /></a>
 </div>
-<?php
-require_once("includes/latest.php");
-?>
+</div>
+

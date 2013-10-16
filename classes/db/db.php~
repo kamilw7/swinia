@@ -54,7 +54,7 @@ catch(PDOException $e) {
 }
 //==========================================================================//
 
-public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate){
+public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate, $fault){
 
 
 $stmt = $this->dbh->exec("
@@ -66,10 +66,11 @@ INSERT INTO `kotkiDB`.`catz` (
 `user` ,
 `added`,
 `rempass`,
-`rate`
+`rate`,
+`fault`
 )
 VALUES (
-'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass', '$rate'
+'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass', '$rate', '$fault'
 );
 ");
 //echo $stmt['description'];

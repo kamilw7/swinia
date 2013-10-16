@@ -1,3 +1,7 @@
+<div id="kontakt">
+<a href="?page=kontakt">Kontakt</a>
+</div>
+
 <div id="ip">
 <?php echo $_SERVER['REMOTE_ADDR']; ?>
 </div>

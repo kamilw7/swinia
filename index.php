@@ -43,6 +43,10 @@ case "remove":
 require_once('includes/remove.php');
 break;
 
+case "kontakt":
+require_once('includes/kontakt.php');
+break;
+
 default:
 require_once('includes/page.php');
 break;

@@ -1,7 +1,6 @@
-
-<div id="popular">
+<div id="latest">
 <div id="headerbox">
-POPULARNE:
+LOSOWE:
 </div>
 <?php
 
@@ -10,7 +9,7 @@ require_once("includes/show.php");
 
 $baza = new DBconn;
 $baza->connect();
-$thb = $baza->getimgs(9,"rate");
+$thb = $baza->getimgs(9,"RAND()");
 
 echo '<div id="thumbnails">';
 
@@ -20,7 +19,7 @@ echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
 echo '<table align="center"><tr><td>';
 $img = showcatthumb($thumb['fileid']);
 echo $img;
-echo '</td></tr><tr><td><font size="2">';
+echo '</td></tr><tr><td height="25" valign="middle"><font size="2">';
 echo $thumb['name'];
 echo '</font></td></tr></table>';
 echo '</a>';

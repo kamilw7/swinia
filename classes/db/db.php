@@ -199,7 +199,7 @@ return $row["path"];
 
 public function getimgs($fid, $order){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY `$order` DESC LIMIT $fid");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY $order DESC LIMIT $fid");
 return $count; 
 
 }

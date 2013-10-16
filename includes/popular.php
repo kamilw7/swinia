@@ -1,5 +1,8 @@
-Popularne:
+
 <div id="popular">
+<div id="headerbox">
+POPULARNE:
+</div>
 <?php
 
 require_once("classes/db/db.php");
@@ -7,7 +10,7 @@ require_once("includes/show.php");
 
 $baza = new DBconn;
 $baza->connect();
-$thb = $baza->getimgs(7,"rate");
+$thb = $baza->getimgs(9,"`rate`");
 
 echo '<div id="thumbnails">';
 

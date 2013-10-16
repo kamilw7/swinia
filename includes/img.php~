@@ -44,9 +44,9 @@ echo '
 <td align="left">
 Imie:
 </td>
-<td> '
+<td><b>'
 . $description["name"] .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td>
@@ -59,33 +59,33 @@ Imie:
 <td align="left">
 Czym podpadła:
 </td>
-<td>'
+<td><b>'
 . $description["fault"] .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td align="left">
 Opis świństwa:
 </td>
-<td>'
+<td><b>'
 . $description["description"] .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td align="left">
 Data dodania:
 </td>
-<td>'
+<td><b>'
 . @date("Y-m-d H:i:s", $description["added"]) .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td align="left">
 Dodane przez:
 </td>
-<td>'
+<td><b>'
 . $description["user"] .
-'</td>
+'</b></td>
 </tr>
 <tr>
 <td colspan="2">
@@ -109,5 +109,7 @@ echo "Komentarz dodany";
 require_once('classes/comments/showcomment.php');
 showcomment($latest);
 require_once("includes/popular.php");
+require_once("includes/latest.php");
+require_once("includes/random.php");
 
 ?>

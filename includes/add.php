@@ -1,4 +1,5 @@
 <?php
+require_once("includes/menu.php");
 require_once("includes/popular.php");
 ?>
 
@@ -377,4 +378,5 @@ function sprawdz_bledy($blad)
 </div>
 <?php
 require_once("includes/latest.php");
+require_once("includes/random.php");
 ?>

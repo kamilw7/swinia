@@ -1,6 +1,7 @@
 <?php
 
 require_once('includes/menu.php');
+require_once("includes/popular.php");
 require_once('includes/show.php');
 
 require_once('classes/db/db.php');
@@ -108,6 +109,7 @@ echo "Komentarz dodany";
 
 require_once('classes/comments/showcomment.php');
 showcomment($latest);
-require_once("includes/popular.php");
+require_once("includes/latest.php");
+require_once("includes/random.php");
 
 ?>
