@@ -35,8 +35,10 @@ echo '</div>';
 ?>
 </div>
 <div id="pagemainimg">
+<div id="mainheaderboxinside">
 <div id="headerbox">
 ŚWINKA DNIA:
+</div>
 </div>
 
 <?php

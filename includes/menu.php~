@@ -5,8 +5,9 @@
 <td>
 <a href="?page=add"><img src="content/images/add.png" /></a>
 </td>
+<td>&nbsp</td>
 <td valign="middle">
-<a href="?page=add"> Podłóż nową świnię teraz!</a>
+<a href="?page=add"> Podłóż komuś świnię. Teraz!</a>
 </td>
 </tr>
 </table>
