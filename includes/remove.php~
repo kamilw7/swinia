@@ -3,10 +3,22 @@
 
 require_once('includes/show.php');
 
+if (isset ($_GET["action"])){
+
+if ($_GET["action"] == "remove"){
+echo 'Zdjecie usuniete! Potwierdzono kodem:';
+echo $_GET['code'];
+}
+
+if ($_GET["action"] == "confirmation"){
+require_once('classes/cb/includes/cashbillPaycodeConfirmation.php');
+}
+
+}
+
 if (isset ($_GET["fid"])){
 
 $fileid = $_GET["fid"];
-
 
 echo "<b>Czy na pewno chcesz usunąć tego kotka?</b> <br />
 <br />";
