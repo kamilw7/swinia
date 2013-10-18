@@ -23,6 +23,10 @@ case "add":
 require_once('includes/add.php');
 break;
 
+case "all":
+require_once('content/all.php');
+break;
+
 case "login":
 require_once('classes/login/login.php');
 break;
@@ -43,8 +47,16 @@ case "remove":
 require_once('includes/remove.php');
 break;
 
-case "kontakt":
-require_once('includes/kontakt.php');
+case "mission":
+require_once('content/cel.php');
+break;
+
+case "policies":
+require_once('content/regulamin.php');
+break;
+
+case "contact":
+require_once('content/kontakt.php');
 break;
 
 default:

@@ -1,0 +1,9 @@
+<?php
+require_once('content/contentheader.php');
+?>
+<div id="cpage">
+
+</div>
+<?php
+require_once('content/contentfooter.php');
+?>
