@@ -1,5 +1,5 @@
 <?php
-require '../cashbillCode.php';
+require ('classes/cb/cashbillCode');
 
 /**
  * @TODO: uzupełnić sysid i privkey serwisu odczytany z panelu administracyjnego CashBill
