@@ -215,7 +215,10 @@ function add_to_db($name, $desc, $fault, $path, $pass){
 	}
 	$fileid = md5($path);
 	$rate = 0;
-	$baza->addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate, $fault);
+	$visible = 1;
+	$code = 00000000;
+
+	$baza->addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate, $fault, $visible, $code);
 
 
 }

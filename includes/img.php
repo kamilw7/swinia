@@ -90,7 +90,7 @@ Dodane przez:
 </tr>
 <tr>
 <td colspan="2">
-<font size ="1" color="red"><a href="?page=remove&fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
+<font size ="1" color="red"><a href="./remove.php?fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
 </td>
 </tr>
 </table>

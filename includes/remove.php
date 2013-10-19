@@ -1,63 +1,23 @@
 <div id="add">
 <?php
 
-require_once('includes/show.php');
-
-if (isset ($_GET["action"])){
-
-if ($_GET["action"] == "remove"){
-echo 'Zdjecie usuniete! Potwierdzono kodem:';
-echo $_GET['code'];
-}
-
-if ($_GET["action"] == "confirmation"){
-require_once('classes/cb/cashbillInit.php');
-if ($cashbill->checkNotifyRequest ()) {
-	$code = $_GET ['code'];
-	/*
-	 * @TODO: W tym miejscu należa aktywować kod $code
-	 */
-	$cashbill->notifySuccess ();
-} else {
-	$cashbill->notifyError ( 'Brak autoryzacji potwierdzenia' );
-}
-}
-
-}
+require_once('classes/db/db.php');
 
 if (isset ($_GET["fid"])){
 
 $fileid = $_GET["fid"];
+$code = $_GET["code"];
 
-echo "<b>Czy na pewno chcesz usunąć tego kotka?</b> <br />
-<br />";
-$img = showcat($fileid);
-echo $img;
+	$baza = new DBconn;
+	$baza->connect();
+	$kod = $baza->getimgcode($fileid);
+	
+if ($kod == $code){
 
-echo "<br /><br />*<br /><br />";
-echo "Zapłać sms:<br /><br />";
-
-require_once('classes/cb/includes/cashbillPaycodeTransaction.php');
-
-echo "<br /><br />*<br /><br />";
-
-/*echo'
-
-<form enctype="multipart/form-data" action="?page=remove" 
-		 method="post" >
-<input type="hidden" name="MAX_FILE_SIZE" value="5120000000" />
-<table align="center">
-<tr>
-<td>
-Hasło usunięcia: </td><td> <input type="text" maxlength="12" name="kitten_name" style="width: 350px;" /> <input type="submit" value="wyślij" /></td>
-</tr>
-</table>
-</form>
-';
-*/
-
-
-}//fi fid
+$baza->setimgvisibility($fileid, 0);
+echo "Wpis pomyślnie usunięty!";
+}
+}
 else {
 echo "Nie wybrano zdjecia do usuniecia";
 }

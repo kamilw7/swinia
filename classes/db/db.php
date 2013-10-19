@@ -11,8 +11,8 @@ class DBconn {
 
 private $hostname = "localhost";
 private $dbname = "kotkiDB";
-private $username= "kotkiDB";
-private $password = "UL2Q6zTnNsj6K5Sd";
+private $username= "root";
+private $password = "bitchfrom666";
 
 //TUTAJ PRZESTAN
 //######################################//
@@ -54,7 +54,7 @@ catch(PDOException $e) {
 }
 //==========================================================================//
 
-public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate, $fault){
+public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate, $fault, $visible, $code){
 
 
 $stmt = $this->dbh->exec("
@@ -67,10 +67,12 @@ INSERT INTO `kotkiDB`.`catz` (
 `added`,
 `rempass`,
 `rate`,
-`fault`
+`fault`,
+`visible`,
+`code`
 )
 VALUES (
-'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass', '$rate', '$fault'
+'$name' , '$desc', '$path', '$fileid', '$user', '$added', '$pass', '$rate', '$fault', '$visible', '$code'
 );
 ");
 //echo $stmt['description'];

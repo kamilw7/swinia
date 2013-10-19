@@ -80,11 +80,11 @@ class cCashbillCode {
 	 * @param string $ref        	
 	 * @return string
 	 */
-	public function getCodeUrl($redirectUrl, $notifyUrl, $amount, $currency = 'PLN', $ref = '') {
+	public function getCodeUrl($redirectUrl, $notifyUrl, $imgid, $amount, $currency = 'PLN', $ref = '') {
 		$code = self::generateCode ();
 		$title = 'Kod ' . $code . ' do serwisu ' . $this->sysId;
 		
-		$notifyUrl = self::fillUrl ( $notifyUrl ) . 'code=' . $code;
+		$notifyUrl = self::fillUrl ( $notifyUrl ) . 'code=' . $code . '&imgid=' . $imgid;
 		$redirectUrl = self::fillUrl ( $redirectUrl ) . 'code=' . $code;
 		
 		return $this->getTransactionUrl ( $ref, $amount, $currency, $title, $notifyUrl, $redirectUrl );
