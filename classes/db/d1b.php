@@ -11,8 +11,8 @@ class DBconn {
 
 private $hostname = "localhost";
 private $dbname = "kotkiDB";
-private $username= "kotkiDB";
-private $password = "UL2Q6zTnNsj6K5Sd";
+private $username= "root";
+private $password = "bitchfrom666";
 
 //TUTAJ PRZESTAN
 //######################################//
@@ -168,7 +168,7 @@ return $loggedcond;
 
 public function getlatest(){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `visible` = '1' ORDER BY `id` DESC LIMIT 1");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY `id` DESC LIMIT 1");
 $row = $count->fetch();
 
 return $row["fileid"];
@@ -179,7 +179,7 @@ return $row["fileid"];
 
 public function getcomments($fileid){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid'");
 return $count;
 
 }
@@ -188,7 +188,7 @@ return $count;
 
 public function getimg($fid){
 
-$count = $this->dbh->query("SELECT `path` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT `path` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
 $row = $count->fetch();
 
 return $row["path"];
@@ -199,7 +199,7 @@ return $row["path"];
 
 public function getimgs($fid, $order){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `visible` = '1' ORDER BY $order DESC LIMIT $fid");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` ORDER BY $order DESC LIMIT $fid");
 return $count; 
 
 }
@@ -208,7 +208,7 @@ return $count;
 
 public function getrecord($fid){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
 $row = $count->fetch();
 
 return $row;
@@ -241,33 +241,6 @@ if ($note == "shit"){
 $rate = $ratecount - 1;
 }
 $count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `rate` = '$rate' WHERE `fileid` = '$fid'");
-
-}
-
-//================================================================================//
-
-public function getimgcode($fid){
-
-$count = $this->dbh->query("SELECT `code` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
-$row = $count->fetch();
-
-return $row["code"];
-
-}
-
-//===============================================================================//
-
-public function setimgcode($fid, $code){
-
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `code` = '$code' WHERE `fileid` = '$fid'");
-
-}
-
-//================================================================================//
-
-public function setimgvisibility($fid, $value){
-
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `visible` = '$value' WHERE `fileid` = '$fid'");
 
 }
 
