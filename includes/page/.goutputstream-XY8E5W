@@ -1,0 +1,40 @@
+
+
+<?php
+
+if (isset($_GET["action"])){
+if ($_GET["action"] == "show"){
+
+require_once('includes/menu.php');
+echo '<div id="add">';
+
+if (isset($_POST['locale'])){
+
+echo '<b><br />';
+echo 'Wyniki wyszukiwania dla:<br /><br /></b>';
+echo 'Miasto: '.$_POST['locale']. '<br />';
+echo 'Wiek: '.$_POST['age'] . '<br />';
+echo 'Opis: '.$_POST['fraza'];
+echo '<br /><br />';
+
+
+echo '</div>';
+}
+
+}//fi show
+
+}//fi action
+else { 
+
+?>
+
+<div id="headerbox">
+SZUKAJ:
+</div>
+<div id="search">
+
+<p>Miasto:</p>
+<form method="post" action="?page=search&action=show">	
+<select name="locale">
+<option value="all"> ------ wszystkie ------ </option>
+<option value="Aleksandrów 

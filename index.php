@@ -27,6 +27,10 @@ case "all":
 require_once('content/all.php');
 break;
 
+case "search":
+require_once('includes/page/search.php');
+break;
+
 case "login":
 require_once('classes/login/login.php');
 break;

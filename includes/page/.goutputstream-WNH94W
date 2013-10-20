@@ -1,0 +1,349 @@
+
+
+<?php
+
+if (isset($_GET["action"])){
+if ($_GET["action"] == "show"){
+
+require_once('includes/menu.php');
+echo '<div id="add">';
+
+if (isset($_POST['locale'])){
+
+echo '<b><br />';
+echo 'Wyniki wyszukiwania dla:<br /><br /></b>';
+echo 'Miasto: '.$_POST['locale']. '<br />';
+echo 'Wiek: '.$_POST['age'] . '<br />';
+echo 'Opis: '.$_POST['fraza'];
+echo '<br /><br />';
+
+
+echo '</div>';
+}
+
+}//fi show
+
+}//fi action
+else { 
+
+?>
+
+<div id="headerbox">
+SZUKAJ:
+</div>
+<div id="search">
+
+<p>Miasto:</p>
+<form method="post" action="?page=search&action=show">	
+<select name="locale">
+<option value="all"> ------ wszystkie ------ </option>
+<option value="Aleksandrów Łódzki">Aleksandrów Łódzki</option>
+<option value=" ">Augustów</option>
+<option value=" ">Bełchatów</option>
+<option value=" ">Będzin</option>
+<option value=" ">Biała Podlaska</option>
+<option value=" ">Białogard</option>
+<option value=" ">Biały Bór</option>
+<option value=" ">Bielsk Podlaski</option>
+<option value=" ">Bielsko Biała</option>
+<option value=" ">Bierutów</option>
+<option value=" ">Bieżuń</option>
+<option value=" ">Bochnia</option>
+<option value=" ">Bogatynia</option>
+<option value=" ">Bolesławiec</option>
+<option value=" ">Bolków</option>
+<option value=" ">Braniewo</option>
+<option value=" ">Brodnica</option>
+<option value=" ">Brusy</option>
+<option value=" ">Brzeg</option>
+<option value=" ">Bukowno</option>
+<option value=" ">Bydgoszcz</option>
+<option value=" ">Bytom</option>
+<option value=" ">Bytów</option>
+<option value=" ">Chełm</option>
+<option value=" ">Chełmża</option>
+<option value=" ">Chocianów</option>
+<option value=" ">Chodzież</option>
+<option value=" ">Chojnów</option>
+<option value=" ">Chorzów</option>
+<option value=" ">Choszczno</option>
+<option value=" ">Ciechanów</option>
+<option value=" ">Ciechocinek</option>
+<option value=" ">Cieszyn</option>
+<option value=" ">Czechowice Dziedzice</option>
+<option value=" ">Czeladź</option>
+<option value=" ">Czersk</option>
+<option value=" ">Częstochowa</option>
+<option value=" ">Człuchów</option>
+<option value=" ">Dąbie</option>
+<option value=" ">Dąbrowa Górnicza</option>
+<option value=" ">Dęblin</option>
+<option value=" ">Dębno</option>
+<option value=" ">Dolsk</option>
+<option value=" ">Drawsko Pomorskie</option>
+<option value=" ">Dukla</option>
+<option value=" ">Działdowo</option>
+<option value=" ">Dzierżoniów</option>
+<option value=" ">Elbląg</option>
+<option value=" ">Ełk</option>
+<option value=" ">Gdańsk</option>
+<option value=" ">Gdynia</option>
+<option value=" ">Giżycko</option>
+<option value=" ">Głogów</option>
+<option value=" ">Głowno</option>
+<option value=" ">Gniezno</option>
+<option value=" ">Golub Dobrzyń</option>
+<option value=" ">Gołdap</option>
+<option value=" ">Gorzów Wielkopolski</option>
+<option value=" ">Gostyń</option>
+<option value=" ">Grajewo</option>
+<option value=" ">Grodzisk Mazowiecki</option>
+<option value=" ">Grodzisk Wielkopolski</option>
+<option value=" ">Grudziądz</option>
+<option value=" ">Iława</option>
+<option value=" ">Iłża</option>
+<option value=" ">Inowrocław</option>
+<option value=" ">Jarocin</option>
+<option value=" ">Jarosław</option>
+<option value=" ">Jasło</option>
+<option value=" ">Jastrzębie Zdrój</option>
+<option value=" ">Jawor</option>
+<option value=" ">Jaworzno</option>
+<option value=" ">Jedlina Zdrój</option>
+<option value=" ">Jelenia Góra</option>
+<option value=" ">Józefów</option>
+<option value=" ">Kalisz</option>
+<option value=" ">Kalisz Pomorski</option>
+<option value=" ">Kamień Krajeński</option>
+<option value=" ">Karpacz</option>
+<option value=" ">Kartuzy</option>
+<option value=" ">Katowice</option>
+<option value=" ">Kędzierzyn Koźle</option>
+<option value=" ">Kępice</option>
+<option value=" ">Kępno</option>
+<option value=" ">Kielce</option>
+<option value=" ">Kleczew</option>
+<option value=" ">Kluczbork</option>
+<option value=" ">Kłodzko</option>
+<option value=" ">Kolbuszowa</option>
+<option value=" ">Kolno</option>
+<option value=" ">Koło</option>
+<option value=" ">Kołobrzeg</option>
+<option value=" ">Konin</option>
+<option value=" ">Kostrzyn</option>
+<option value=" ">Koszalin</option>
+<option value=" ">Kościan</option>
+<option value=" ">Kozienice</option>
+<option value=" ">Koźmin Wielkopolski</option>
+<option value=" ">Kórnik</option>
+<option value=" ">Kraków</option>
+<option value=" ">Kraśnik</option>
+<option value=" ">Krotoszyn</option>
+<option value=" ">Kruszwica</option>
+<option value=" ">Książ Wielkopolski</option>
+<option value=" ">Kutno</option>
+<option value=" ">Kwidzyn</option>
+<option value=" ">Legionowo</option>
+<option value=" ">Legnica</option>
+<option value=" ">Leszno</option>
+<option value=" ">Leżajsk</option>
+<option value=" ">Lębork</option>
+<option value=" ">Libiąż</option>
+<option value=" ">Limanowa</option>
+<option value=" ">Lubaczów</option>
+<option value=" ">Lubań</option>
+<option value=" ">Lubartów</option>
+<option value=" ">Lubawa</option>
+<option value=" ">Lubin</option>
+<option value=" ">Lublin</option>
+<option value=" ">Lubliniec</option>
+<option value=" ">Lwówek Śląski</option>
+<option value=" ">Łaskarzew</option>
+<option value=" ">Łeba</option>
+<option value=" ">Łomża</option>
+<option value=" ">Łosice</option>
+<option value=" ">Łowicz</option>
+<option value=" ">Łódź</option>
+<option value=" ">Łuków</option>
+<option value=" ">Malbork</option>
+<option value=" ">Marki</option>
+<option value=" ">Miastko</option>
+<option value=" ">Mielec</option>
+<option value=" ">Mieszkowice</option>
+<option value=" ">Międzylesie</option>
+<option value=" ">Międzyrzec Podlaski</option>
+<option value=" ">Międzyzdroje</option>
+<option value=" ">Milanówek</option>
+<option value=" ">Mińsk Mazowiecki</option>
+<option value=" ">Mława</option>
+<option value=" ">Morąg</option>
+<option value=" ">Mrocza</option>
+<option value=" ">Mszana Dolna</option>
+<option value=" ">Mszczonów</option>
+<option value=" ">Mysłowice</option>
+<option value=" ">Myszków</option>
+<option value=" ">Myślenice</option>
+<option value=" ">Nakło</option>
+<option value=" ">Nidzica</option>
+<option value=" ">Niepołomice</option>
+<option value=" ">Nowa Dęba</option>
+<option value=" ">Nowa Ruda</option>
+<option value=" ">Nowa Sól</option>
+<option value=" ">Nowe</option>
+<option value=" ">Nowogard</option>
+<option value=" ">Nowy Sącz</option>
+<option value=" ">Nowy Tomyśl</option>
+<option value=" ">Nysa</option>
+<option value=" ">Oborniki</option>
+<option value=" ">Odolanów</option>
+<option value=" ">Oleśnica</option>
+<option value=" ">Olkusz</option>
+<option value=" ">Olsztyn</option>
+<option value=" ">Opole</option>
+<option value=" ">Ostroróg</option>
+<option value=" ">Ostrowiec Świętokrzyski</option>
+<option value=" ">Ostróda</option>
+<option value=" ">Ostrów Mazowiecka</option>
+<option value=" ">Ostrów Wielkopolski</option>
+<option value=" ">Ostrzeszów</option>
+<option value=" ">Oświęcim</option>
+<option value=" ">Otwock</option>
+<option value=" ">Pabianice</option>
+<option value=" ">Pelplin</option>
+<option value=" ">Piaseczno</option>
+<option value=" ">Piastów</option>
+<option value=" ">Piekary Śląskie</option>
+<option value=" ">Piła</option>
+<option value=" ">Piława Górna</option>
+<option value=" ">Pionki</option>
+<option value=" ">Piotrków Trybunalski</option>
+<option value=" ">Pleszew</option>
+<option value=" ">Płock</option>
+<option value=" ">Płońsk</option>
+<option value=" ">Police</option>
+<option value=" ">Polkowice</option>
+<option value=" ">Połaniec</option>
+<option value=" ">Poniec</option>
+<option value=" ">Poznań</option>
+<option value=" ">Pruszcz Gdański</option>
+<option value=" ">Przemyśl</option>
+<option value=" ">Przeworsk</option>
+<option value=" ">Puławy</option>
+<option value=" ">Puszczykowo</option>
+<option value=" ">Racibórz</option>
+<option value=" ">Radom</option>
+<option value=" ">Radomsko</option>
+<option value=" ">Radzyń Podlaski</option>
+<option value=" ">Rawa Mazowiecka</option>
+<option value=" ">Rawicz</option>
+<option value=" ">Reda</option>
+<option value=" ">Rogoźno</option>
+<option value=" ">Ruda Śląska</option>
+<option value=" ">Rumia</option>
+<option value=" ">Rybnik</option>
+<option value=" ">Rydzyna</option>
+<option value=" ">Rypin</option>
+<option value=" ">Rzeszów</option>
+<option value=" ">Sandomierz</option>
+<option value=" ">Sanok</option>
+<option value=" ">Serock</option>
+<option value=" ">Sępólno Krajeńskie</option>
+<option value=" ">Siedlce</option>
+<option value=" ">Siemianowice Śląskie</option>
+<option value=" ">Sieradz</option>
+<option value=" ">Sieraków</option>
+<option value=" ">Skarżysko Kamienna</option>
+<option value=" ">Skawina</option>
+<option value=" ">Skierniewice</option>
+<option value=" ">Skoczów</option>
+<option value=" ">Skwierzyna</option>
+<option value=" ">Słubice</option>
+<option value=" ">Słupsk</option>
+<option value=" ">Sochaczew</option>
+<option value=" ">Sokołów Podlaski</option>
+<option value=" ">Sokółka</option>
+<option value=" ">Sopot</option>
+<option value=" ">Sosnowiec</option>
+<option value=" ">Starachowice</option>
+<option value=" ">Stargard Szczeciński</option>
+<option value=" ">Starogard Gdański</option>
+<option value=" ">Stary Sącz</option>
+<option value=" ">Strzelce Krajeńskie</option>
+<option value=" ">Sulejówek</option>
+<option value=" ">Sulęcin</option>
+<option value=" ">Sulmierzyce</option>
+<option value=" ">Suwałki</option>
+<option value=" ">Swarzędz</option>
+<option value=" ">Syców</option>
+<option value=" ">Szamotuły</option>
+<option value=" ">Szczawnica</option>
+<option value=" ">Szczawno Zdrój</option>
+<option value=" ">Szczecin</option>
+<option value=" ">Szczecinek</option>
+<option value=" ">Szczytno</option>
+<option value=" ">Ślesin</option>
+<option value=" ">Śrem</option>
+<option value=" ">Świdnica</option>
+<option value=" ">Świdnik</option>
+<option value=" ">Świecie</option>
+<option value=" ">Świętochłowice</option>
+<option value=" ">Świnoujście</option>
+<option value=" ">Tarnobrzeg</option>
+<option value=" ">Tarnów</option>
+<option value=" ">Tłuszcz</option>
+<option value=" ">Tomaszów Mazowiecki</option>
+<option value=" ">Toruń</option>
+<option value=" ">Trzcianka</option>
+<option value=" ">Trzebinia</option>
+<option value=" ">Tuchola</option>
+<option value=" ">Tuczno</option>
+<option value=" ">Turek</option>
+<option value=" ">Tychy</option>
+<option value=" ">Ustka</option>
+<option value=" ">Ustroń</option>
+<option value=" ">Wałbrzych</option>
+<option value=" ">Warszawa</option>
+<option value=" ">Wąbrzeźno</option>
+<option value=" ">Wągrowiec</option>
+<option value=" ">Wejherowo</option>
+<option value=" ">Węgrów</option>
+<option value=" ">Wieliczka</option>
+<option value=" ">Wieruszów</option>
+<option value=" ">Więcbork</option>
+<option value=" ">Włocławek</option>
+<option value=" ">Wolsztyn</option>
+<option value=" ">Wołomin</option>
+<option value=" ">Września</option>
+<option value=" ">Wyrzysk</option>
+<option value=" ">Wysokie Mazowieckie</option>
+<option value=" ">Zabrze</option>
+<option value=" ">Zakopane</option>
+<option value=" ">Zambrów</option>
+<option value=" ">Zamość</option>
+<option value=" ">Zawidów</option>
+<option value=" ">Zawiercie</option>
+<option value=" ">Ząbki</option>
+<option value=" ">Zbąszynek</option>
+<option value=" ">Zduny</option>
+<option value=" ">Zduńska Wola</option>
+<option value=" ">Zelów</option>
+<option value=" ">Zgierz</option>
+<option value=" ">Zgorzelec</option>
+<option value=" ">Zielona Góra</option>
+<option value=" ">Zielonka</option>
+<option value=" ">Ziębice</option>
+<option value=" ">Złocieniec</option>
+<option value=" ">Złotoryja</option>
+<option value=" ">Złotów</option>
+<option value=" ">Żagań</option>
+<option value=" ">Żerków</option>
+<option value=" ">Żmigród</option>
+<option value=" ">Żnin</option>
+<option value=" ">Żory</option>
+<option value=" ">Żyrardów</option>
+<option value=" ">Żywiec</option>
+</select>
+
+<p>Wiek:</p>
+<select name="age" width="200">
+<option value="ka

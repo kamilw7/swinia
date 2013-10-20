@@ -70,6 +70,16 @@ $imgid = $baza->getrecord($filename);
 return $imgid;
 }
 
+function showcatmeta($filename){
+
+$baza = new DBconn;
+$baza->connect();
+
+$imgid = $baza->getimgmeta($filename);
+
+return $imgid;
+}
+
 
 ?>
 

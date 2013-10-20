@@ -24,7 +24,11 @@ require_once('includes/add.php');
 break;
 
 case "all":
-require_once('includes/all.php');
+require_once('content/all.php');
+break;
+
+case "search":
+require_once('includes/page/search.php');
 break;
 
 case "login":

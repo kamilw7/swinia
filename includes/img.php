@@ -34,6 +34,7 @@ echo '</div>';
 */
 
 $description = showcatdesc($latest);
+$meta = showcatmeta($latest);
 
 require_once('classes/rate/imgrate.php');
 $imgrate = showrateicons($latest);
@@ -72,6 +73,24 @@ Opis świństwa:
 . $description["description"] .
 '</b></td>
 </tr>
+<tr>
+<tr>
+<td align="left">
+Miasto:
+</td>
+<td><b>'
+. $meta["locale"] .
+'</b></td>
+</tr>
+<tr>
+<td align="left">
+Wiek:
+</td>
+<td><b>'
+. $meta["age"] .
+'</b></td>
+</tr>
+<tr>
 <tr>
 <td align="left">
 Data dodania:

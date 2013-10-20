@@ -1,0 +1,368 @@
+
+
+<?php
+
+if (isset($_GET["action"])){
+if ($_GET["action"] == "show"){
+
+require_once('includes/menu.php');
+echo '<div id="add">';
+
+if (isset($_POST['locale'])){
+
+echo '<b><br />';
+echo 'Wyniki wyszukiwania dla:<br /><br /></b>';
+echo 'Miasto: '.$_POST['locale']. '<br />';
+echo 'Wiek: '.$_POST['age'] . '<br />';
+echo 'Opis: '.$_POST['fraza'];
+echo '<br /><br />';
+
+
+echo '</div>';
+}
+
+}//fi show
+
+}//fi action
+else { 
+
+?>
+
+<div id="headerbox">
+SZUKAJ:
+</div>
+<div id="search">
+
+<p>Miasto:</p>
+<form method="post" action="?page=search&action=show">	
+<select name="locale">
+<option value="all"> ------ wszystkie ------ </option>
+<option value="Aleksandrów £ódzki">Aleksandrów £ódzki</option>
+<option value="Augustów">Augustów</option>
+<option value="Be³chatów">Be³chatów</option>
+<option value="Bêdzin">Bêdzin</option>
+<option value="Bia³a Podlaska">Bia³a Podlaska</option>
+<option value="Bia³ogard">Bia³ogard</option>
+<option value="Bia³y Bór">Bia³y Bór</option>
+<option value="Bielsk Podlaski">Bielsk Podlaski</option>
+<option value="Bielsko Bia³a">Bielsko Bia³a</option>
+<option value="Bierutów">Bierutów</option>
+<option value="Bie¿uñ">Bie¿uñ</option>
+<option value="Bochnia">Bochnia</option>
+<option value="Bogatynia">Bogatynia</option>
+<option value="Boles³awiec">Boles³awiec</option>
+<option value="Bolków">Bolków</option>
+<option value="Braniewo">Braniewo</option>
+<option value="Brodnica">Brodnica</option>
+<option value="Brusy">Brusy</option>
+<option value="Brzeg">Brzeg</option>
+<option value="Bukowno">Bukowno</option>
+<option value="Bydgoszcz">Bydgoszcz</option>
+<option value="Bytom">Bytom</option>
+<option value="Bytów">Bytów</option>
+<option value="Che³m">Che³m</option>
+<option value="Che³m¿a">Che³m¿a</option>
+<option value="Chocianów">Chocianów</option>
+<option value="Chodzie¿">Chodzie¿</option>
+<option value="Chojnów">Chojnów</option>
+<option value="Chorzów">Chorzów</option>
+<option value="Choszczno">Choszczno</option>
+<option value="Ciechanów">Ciechanów</option>
+<option value="Ciechocinek">Ciechocinek</option>
+<option value="Cieszyn">Cieszyn</option>
+<option value="Czechowice Dziedzice">Czechowice Dziedzice</option>
+<option value="Czelad Ÿ">Czelad Ÿ</option>
+<option value="Czersk">Czersk</option>
+<option value="Czêstochowa">Czêstochowa</option>
+<option value="Cz³uchów">Cz³uchów</option>
+<option value="D¹bie">D¹bie</option>
+<option value="D¹browa Górnicza">D¹browa Górnicza</option>
+<option value="Dêblin">Dêblin</option>
+<option value="Dêbno">Dêbno</option>
+<option value="Dolsk">Dolsk</option>
+<option value="Drawsko Pomorskie">Drawsko Pomorskie</option>
+<option value="Dukla">Dukla</option>
+<option value="Dzia³dowo">Dzia³dowo</option>
+<option value="Dzier¿oniów">Dzier¿oniów</option>
+<option value="Elbl¹g">Elbl¹g</option>
+<option value="E³k">E³k</option>
+<option value="Gdañsk">Gdañsk</option>
+<option value="Gdynia">Gdynia</option>
+<option value="Gi¿ycko">Gi¿ycko</option>
+<option value="G³ogów">G³ogów</option>
+<option value="G³owno">G³owno</option>
+<option value="Gniezno">Gniezno</option>
+<option value="Golub Dobrzyñ">Golub Dobrzyñ</option>
+<option value="Go³dap">Go³dap</option>
+<option value="Gorzów Wielkopolski">Gorzów Wielkopolski</option>
+<option value="Gostyñ">Gostyñ</option>
+<option value="Grajewo">Grajewo</option>
+<option value="Grodzisk Mazowiecki">Grodzisk Mazowiecki</option>
+<option value="Grodzisk Wielkopolski">Grodzisk Wielkopolski</option>
+<option value="Grudzi¹dz">Grudzi¹dz</option>
+<option value="I³awa">I³awa</option>
+<option value="I³¿a">I³¿a</option>
+<option value="Inowroc³aw">Inowroc³aw</option>
+<option value="Jarocin">Jarocin</option>
+<option value="Jaros³aw">Jaros³aw</option>
+<option value="Jas³o">Jas³o</option>
+<option value="Jastrzêbie Zdrój">Jastrzêbie Zdrój</option>
+<option value="Jawor">Jawor</option>
+<option value="Jaworzno">Jaworzno</option>
+<option value="Jedlina Zdrój">Jedlina Zdrój</option>
+<option value="Jelenia Góra">Jelenia Góra</option>
+<option value="Józefów">Józefów</option>
+<option value="Kalisz">Kalisz</option>
+<option value="Kalisz Pomorski">Kalisz Pomorski</option>
+<option value="Kamieñ Krajeñski">Kamieñ Krajeñski</option>
+<option value="Karpacz">Karpacz</option>
+<option value="Kartuzy">Kartuzy</option>
+<option value="Katowice">Katowice</option>
+<option value="Kêdzierzyn Ko Ÿle">Kêdzierzyn Ko Ÿle</option>
+<option value="Kêpice">Kêpice</option>
+<option value="Kêpno">Kêpno</option>
+<option value="Kielce">Kielce</option>
+<option value="Kleczew">Kleczew</option>
+<option value="Kluczbork">Kluczbork</option>
+<option value="K³odzko">K³odzko</option>
+<option value="Kolbuszowa">Kolbuszowa</option>
+<option value="Kolno">Kolno</option>
+<option value="Ko³o">Ko³o</option>
+<option value="Ko³obrzeg">Ko³obrzeg</option>
+<option value="Konin">Konin</option>
+<option value="Kostrzyn">Kostrzyn</option>
+<option value="Koszalin">Koszalin</option>
+<option value="Ko¶cian">Ko¶cian</option>
+<option value="Kozienice">Kozienice</option>
+<option value="Ko Ÿmin Wielkopolski">Ko Ÿmin Wielkopolski</option>
+<option value="Kórnik">Kórnik</option>
+<option value="Kraków">Kraków</option>
+<option value="Kra¶nik">Kra¶nik</option>
+<option value="Krotoszyn">Krotoszyn</option>
+<option value="Kruszwica">Kruszwica</option>
+<option value="Ksi¹¿ Wielkopolski">Ksi¹¿ Wielkopolski</option>
+<option value="Kutno">Kutno</option>
+<option value="Kwidzyn">Kwidzyn</option>
+<option value="Legionowo">Legionowo</option>
+<option value="Legnica">Legnica</option>
+<option value="Leszno">Leszno</option>
+<option value="Le¿ajsk">Le¿ajsk</option>
+<option value="Lêbork">Lêbork</option>
+<option value="Libi¹¿">Libi¹¿</option>
+<option value="Limanowa">Limanowa</option>
+<option value="Lubaczów">Lubaczów</option>
+<option value="Lubañ">Lubañ</option>
+<option value="Lubartów">Lubartów</option>
+<option value="Lubawa">Lubawa</option>
+<option value="Lubin">Lubin</option>
+<option value="Lublin">Lublin</option>
+<option value="Lubliniec">Lubliniec</option>
+<option value="Lwówek ¦l¹ski">Lwówek ¦l¹ski</option>
+<option value="£askarzew">£askarzew</option>
+<option value="£eba">£eba</option>
+<option value="£om¿a">£om¿a</option>
+<option value="£osice">£osice</option>
+<option value="£owicz">£owicz</option>
+<option value="£ód Ÿ">£ód Ÿ</option>
+<option value="£uków">£uków</option>
+<option value="Malbork">Malbork</option>
+<option value="Marki">Marki</option>
+<option value="Miastko">Miastko</option>
+<option value="Mielec">Mielec</option>
+<option value="Mieszkowice">Mieszkowice</option>
+<option value="Miêdzylesie">Miêdzylesie</option>
+<option value="Miêdzyrzec Podlaski">Miêdzyrzec Podlaski</option>
+<option value="Miêdzyzdroje">Miêdzyzdroje</option>
+<option value="Milanówek">Milanówek</option>
+<option value="Miñsk Mazowiecki">Miñsk Mazowiecki</option>
+<option value="M³awa">M³awa</option>
+<option value="Mor¹g">Mor¹g</option>
+<option value="Mrocza">Mrocza</option>
+<option value="Mszana Dolna">Mszana Dolna</option>
+<option value="Mszczonów">Mszczonów</option>
+<option value="Mys³owice">Mys³owice</option>
+<option value="Myszków">Myszków</option>
+<option value="My¶lenice">My¶lenice</option>
+<option value="Nak³o">Nak³o</option>
+<option value="Nidzica">Nidzica</option>
+<option value="Niepo³omice">Niepo³omice</option>
+<option value="Nowa Dêba">Nowa Dêba</option>
+<option value="Nowa Ruda">Nowa Ruda</option>
+<option value="Nowa Sól">Nowa Sól</option>
+<option value="Nowe">Nowe</option>
+<option value="Nowogard">Nowogard</option>
+<option value="Nowy S¹cz">Nowy S¹cz</option>
+<option value="Nowy Tomy¶l">Nowy Tomy¶l</option>
+<option value="Nysa">Nysa</option>
+<option value="Oborniki">Oborniki</option>
+<option value="Odolanów">Odolanów</option>
+<option value="Ole¶nica">Ole¶nica</option>
+<option value="Olkusz">Olkusz</option>
+<option value="Olsztyn">Olsztyn</option>
+<option value="Opole">Opole</option>
+<option value="Ostroróg">Ostroróg</option>
+<option value="Ostrowiec ¦wiêtokrzyski">Ostrowiec ¦wiêtokrzyski</option>
+<option value="Ostróda">Ostróda</option>
+<option value="Ostrów Mazowiecka">Ostrów Mazowiecka</option>
+<option value="Ostrów Wielkopolski">Ostrów Wielkopolski</option>
+<option value="Ostrzeszów">Ostrzeszów</option>
+<option value="O¶wiêcim">O¶wiêcim</option>
+<option value="Otwock">Otwock</option>
+<option value="Pabianice">Pabianice</option>
+<option value="Pelplin">Pelplin</option>
+<option value="Piaseczno">Piaseczno</option>
+<option value="Piastów">Piastów</option>
+<option value="Piekary ¦l¹skie">Piekary ¦l¹skie</option>
+<option value="Pi³a">Pi³a</option>
+<option value="Pi³awa Górna">Pi³awa Górna</option>
+<option value="Pionki">Pionki</option>
+<option value="Piotrków Trybunalski">Piotrków Trybunalski</option>
+<option value="Pleszew">Pleszew</option>
+<option value="P³ock">P³ock</option>
+<option value="P³oñsk">P³oñsk</option>
+<option value="Police">Police</option>
+<option value="Polkowice">Polkowice</option>
+<option value="Po³aniec">Po³aniec</option>
+<option value="Poniec">Poniec</option>
+<option value="Poznañ">Poznañ</option>
+<option value="Pruszcz Gdañski">Pruszcz Gdañski</option>
+<option value="Przemy¶l">Przemy¶l</option>
+<option value="Przeworsk">Przeworsk</option>
+<option value="Pu³awy">Pu³awy</option>
+<option value="Puszczykowo">Puszczykowo</option>
+<option value="Racibórz">Racibórz</option>
+<option value="Radom">Radom</option>
+<option value="Radomsko">Radomsko</option>
+<option value="Radzyñ Podlaski">Radzyñ Podlaski</option>
+<option value="Rawa Mazowiecka">Rawa Mazowiecka</option>
+<option value="Rawicz">Rawicz</option>
+<option value="Reda">Reda</option>
+<option value="Rogo Ÿno">Rogo Ÿno</option>
+<option value="Ruda ¦l¹ska">Ruda ¦l¹ska</option>
+<option value="Rumia">Rumia</option>
+<option value="Rybnik">Rybnik</option>
+<option value="Rydzyna">Rydzyna</option>
+<option value="Rypin">Rypin</option>
+<option value="Rzeszów">Rzeszów</option>
+<option value="Sandomierz">Sandomierz</option>
+<option value="Sanok">Sanok</option>
+<option value="Serock">Serock</option>
+<option value="Sêpólno Krajeñskie">Sêpólno Krajeñskie</option>
+<option value="Siedlce">Siedlce</option>
+<option value="Siemianowice ¦l¹skie">Siemianowice ¦l¹skie</option>
+<option value="Sieradz">Sieradz</option>
+<option value="Sieraków">Sieraków</option>
+<option value="Skar¿ysko Kamienna">Skar¿ysko Kamienna</option>
+<option value="Skawina">Skawina</option>
+<option value="Skierniewice">Skierniewice</option>
+<option value="Skoczów">Skoczów</option>
+<option value="Skwierzyna">Skwierzyna</option>
+<option value="S³ubice">S³ubice</option>
+<option value="S³upsk">S³upsk</option>
+<option value="Sochaczew">Sochaczew</option>
+<option value="Soko³ów Podlaski">Soko³ów Podlaski</option>
+<option value="Sokó³ka">Sokó³ka</option>
+<option value="Sopot">Sopot</option>
+<option value="Sosnowiec">Sosnowiec</option>
+<option value="Starachowice">Starachowice</option>
+<option value="Stargard Szczeciñski">Stargard Szczeciñski</option>
+<option value="Starogard Gdañski">Starogard Gdañski</option>
+<option value="Stary S¹cz">Stary S¹cz</option>
+<option value="Strzelce Krajeñskie">Strzelce Krajeñskie</option>
+<option value="Sulejówek">Sulejówek</option>
+<option value="Sulêcin">Sulêcin</option>
+<option value="Sulmierzyce">Sulmierzyce</option>
+<option value="Suwa³ki">Suwa³ki</option>
+<option value="Swarzêdz">Swarzêdz</option>
+<option value="Syców">Syców</option>
+<option value="Szamotu³y">Szamotu³y</option>
+<option value="Szczawnica">Szczawnica</option>
+<option value="Szczawno Zdrój">Szczawno Zdrój</option>
+<option value="Szczecin">Szczecin</option>
+<option value="Szczecinek">Szczecinek</option>
+<option value="Szczytno">Szczytno</option>
+<option value="¦lesin">¦lesin</option>
+<option value="¦rem">¦rem</option>
+<option value="¦widnica">¦widnica</option>
+<option value="¦widnik">¦widnik</option>
+<option value="¦wiecie">¦wiecie</option>
+<option value="¦wiêtoch³owice">¦wiêtoch³owice</option>
+<option value="¦winouj¶cie">¦winouj¶cie</option>
+<option value="Tarnobrzeg">Tarnobrzeg</option>
+<option value="Tarnów">Tarnów</option>
+<option value="T³uszcz">T³uszcz</option>
+<option value="Tomaszów Mazowiecki">Tomaszów Mazowiecki</option>
+<option value="Toruñ">Toruñ</option>
+<option value="Trzcianka">Trzcianka</option>
+<option value="Trzebinia">Trzebinia</option>
+<option value="Tuchola">Tuchola</option>
+<option value="Tuczno">Tuczno</option>
+<option value="Turek">Turek</option>
+<option value="Tychy">Tychy</option>
+<option value="Ustka">Ustka</option>
+<option value="Ustroñ">Ustroñ</option>
+<option value="Wa³brzych">Wa³brzych</option>
+<option value="Warszawa">Warszawa</option>
+<option value="W¹brze Ÿno">W¹brze Ÿno</option>
+<option value="W¹growiec">W¹growiec</option>
+<option value="Wejherowo">Wejherowo</option>
+<option value="Wêgrów">Wêgrów</option>
+<option value="Wieliczka">Wieliczka</option>
+<option value="Wieruszów">Wieruszów</option>
+<option value="Wiêcbork">Wiêcbork</option>
+<option value="W³oc³awek">W³oc³awek</option>
+<option value="Wolsztyn">Wolsztyn</option>
+<option value="Wo³omin">Wo³omin</option>
+<option value="Wrze¶nia">Wrze¶nia</option>
+<option value="Wyrzysk">Wyrzysk</option>
+<option value="Wysokie Mazowieckie">Wysokie Mazowieckie</option>
+<option value="Zabrze">Zabrze</option>
+<option value="Zakopane">Zakopane</option>
+<option value="Zambrów">Zambrów</option>
+<option value="Zamo¶æ">Zamo¶æ</option>
+<option value="Zawidów">Zawidów</option>
+<option value="Zawiercie">Zawiercie</option>
+<option value="Z¹bki">Z¹bki</option>
+<option value="Zb¹szynek">Zb¹szynek</option>
+<option value="Zduny">Zduny</option>
+<option value="Zduñska Wola">Zduñska Wola</option>
+<option value="Zelów">Zelów</option>
+<option value="Zgierz">Zgierz</option>
+<option value="Zgorzelec">Zgorzelec</option>
+<option value="Zielona Góra">Zielona Góra</option>
+<option value="Zielonka">Zielonka</option>
+<option value="Ziêbice">Ziêbice</option>
+<option value="Z³ocieniec">Z³ocieniec</option>
+<option value="Z³otoryja">Z³otoryja</option>
+<option value="Z³otów">Z³otów</option>
+<option value="¯agañ">¯agañ</option>
+<option value="¯erków">¯erków</option>
+<option value="¯migród">¯migród</option>
+<option value="¯nin">¯nin</option>
+<option value="¯ory">¯ory</option>
+<option value="¯yrardów">¯yrardów</option>
+<option value="¯ywiec">¯ywiec</option>
+</select>
+
+<p>Wiek:</p>
+<select name="age" width="200">
+<option value="ka¯dy"> ------ wszystkie ------ </option>
+<?php 
+for($value = 18; $value <= 100; $value++){ 
+    echo('<option value="' . $value . '">' . $value . '</option>');
+}
+
+
+?>
+</select>
+
+<p>Fraza:</p><input type="text" name="fraza" width="200">
+
+<br /><br /><br /><input type="submit" value="Szukaj">
+
+</form>
+</div>
+
+<?php
+}
+?>

@@ -1,6 +1,7 @@
 <?php
 
 require_once('includes/menu.php');
+require_once("includes/popular.php");
 require_once('includes/show.php');
 
 require_once('classes/db/db.php');
@@ -33,6 +34,7 @@ echo '</div>';
 */
 
 $description = showcatdesc($latest);
+$meta = showcatmeta($latest);
 
 require_once('classes/rate/imgrate.php');
 $imgrate = showrateicons($latest);
@@ -89,7 +91,7 @@ Dodane przez:
 </tr>
 <tr>
 <td colspan="2">
-<font size ="1" color="red"><a href="?page=remove&fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
+<font size ="1" color="red"><a href="./remove.php?fid='.$description["fileid"].'">Usuń zdjęcie</a></font>
 </td>
 </tr>
 </table>
@@ -108,7 +110,6 @@ echo "Komentarz dodany";
 
 require_once('classes/comments/showcomment.php');
 showcomment($latest);
-require_once("includes/popular.php");
 require_once("includes/latest.php");
 require_once("includes/random.php");
 
