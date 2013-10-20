@@ -120,6 +120,35 @@ if (!$stmt)
 
 //============================================================================//
 
+public function addmessage($fileid, $locale, $age){
+
+
+$stmt = $this->dbh->exec("
+INSERT INTO `kotkiDB`.`catzmessages` (
+`fileid` ,
+`locale` ,
+`age` 
+)
+VALUES (
+'$fileid' , '$locale', '$age'
+);
+");
+//echo $stmt['description'];
+
+if (!$stmt)
+	echo "Failed to prepare statement: (". print_r($this->dbh->errorInfo()).")\n";
+/*
+  foreach($stmt as $row)
+      {
+          echo '<li>'.$row['description'].'</li>';
+      }*/
+
+
+
+}
+
+//============================================================================//
+
 
 public function adduser($name, $password, $email, $ip, $registertime){
 
@@ -232,7 +261,9 @@ return $row["path"];
 public function getimgmeta($fid){
 
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `fileid` = '$fid'");
-return $count;
+$row = $count->fetch();
+
+return $row;
 
 }
 

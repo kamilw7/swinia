@@ -162,7 +162,7 @@ Przepisz kod:
 
 function adduser_echo(){
 
-echo '<br /><br /><span style="color: green; font-weight: bold;">Zostałeś zarejestrowany '.$nick.'. Teraz możesz się <a href="?page=login">zalogować</a></span><br /><br /><br>';
+echo '<br /><br /><span style="color: green; font-weight: bold;">Zostałeś zarejestrowany '.'. Teraz możesz się <a href="?page=login">zalogować</a></span><br /><br /><br>';
 
 
 }

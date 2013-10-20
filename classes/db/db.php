@@ -120,6 +120,36 @@ if (!$stmt)
 
 //============================================================================//
 
+public function addmessage($topic, $mail, $text, $added){
+
+
+$stmt = $this->dbh->exec("
+INSERT INTO `kotkiDB`.`catzmessages` (
+`topic` ,
+`mail` ,
+`text`,
+`added` 
+)
+VALUES (
+'$topic' , '$mail', '$text', '$added'
+);
+");
+//echo $stmt['description'];
+
+if (!$stmt)
+	echo "Failed to prepare statement: (". print_r($this->dbh->errorInfo()).")\n";
+/*
+  foreach($stmt as $row)
+      {
+          echo '<li>'.$row['description'].'</li>';
+      }*/
+
+
+
+}
+
+//============================================================================//
+
 
 public function adduser($name, $password, $email, $ip, $registertime){
 

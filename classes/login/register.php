@@ -153,7 +153,7 @@ Przepisz kod:
 
 
 <tr><td colspan="2" align="center"><br /><input type="submit" value="Zarejestruj"></td></tr>
-<tr><td colspan="2" align="center"><br /><font size="1"><i>Tak, zapisujemy Twoje IP</i></font></tr>
+<?php /*<tr><td colspan="2" align="center"><br /><font size="1"><i>Tak, zapisujemy Twoje IP</i></font></tr>*/ ?>
 </table></form>
 
 <?php
