@@ -13,6 +13,14 @@ if (isset ($_GET["fid"])){
 $fileid = $_GET["fid"];
 $code = $_GET["code"];
 
+if (isset($_GET["method"])){
+if ($_GET["method"] == "sms"){
+
+include('classes/sms/check.php');
+
+}
+}
+
 $baza = new DBconn;
 $baza->connect();
 $kod = $baza->getimgcode($fileid);

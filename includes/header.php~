@@ -13,26 +13,6 @@
 
 <link rel="stylesheet" type="text/css" href="content/style.css" />
 
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
-
-<script type="text/javascript">
-            var offset = $("#menubar").offset();
-            var topPadding = 10;
-            
-
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > offset.top) {
-                    $("#menubar").stop().animate({
-                        marginTop: $(window).scrollTop() - offset.top + topPadding
-                    });
-                } else {
-                    $("#menubar").stop().animate({
-                        marginTop: 0
-                    });
-                };
-            });
-</script>
-
 </head>
 
 <body  onload="document.getElementById('captcha-form').focus()" >

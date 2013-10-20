@@ -5,7 +5,7 @@
 * SUPER GALERIA PIĘKNYCH KOTKÓW
 * CATZ, KITTENZ, NO DOGZ
 */
-session_start();
+
 
 require_once('includes/header.php');
 

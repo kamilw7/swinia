@@ -5,6 +5,7 @@ require_once("includes/popular.php");
 
 <div id="add">
 <?php
+//-------------------------------------------------CAPTCHA----------------------------------------------------//
 $zmiennaa = 1;
 //if (isset($_SESSION["nick"])){
 
@@ -43,6 +44,8 @@ HTML;
     unset($_SESSION['captcha']);
 }
 
+//------------------------------------------------------------------------------------------------------------//
+
 if (isset($_FILES['nazwa_pliku'])) {
 
 if ($captcha_cond == 1){
@@ -76,8 +79,6 @@ $pass = $_POST["kitten_password"];
 	$imgpath = plik_as_poster($imgpath, $name, $subtitle);
 	}
 
-
-
 $path = $imgpath;
 
 echo "Nazwa świni:";
@@ -97,10 +98,10 @@ echo "Twoje hasło usunięcia:<b>";
 echo $_POST["kitten_password"];
 echo "<br />";
 */
-echo "Miasto: <b>";
+echo "Miasto:";
 echo $_POST["kitten_locale"];
 echo "<br />";
-echo "Miasto: <b>";
+echo "Wiek:";
 echo $_POST["kitten_age"];
 echo "<br />";
 
@@ -122,12 +123,103 @@ echo '<form enctype="multipart/form-data" action="?page=add"
       <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
       <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />
       <input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />
-      <input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />';
+      <input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />
+      <input type="hidden" name="form_kitten_alttext" value="'.$_POST["kitten_alttext"].'" />';
 echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponownie" />';
 } //esle fi captcha_cond
 
 
 }// fi isset file[nazwapliku];
+
+// ################################################################################################## //
+
+
+else if (isset($_POST['kitten_alttext'])) {
+
+if ($captcha_cond == 1){
+/*echo "<br>";
+echo $_FILES['nazwa_pliku']['type'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['size'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['name'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['tmp_name'];
+echo "<br>";
+echo $_FILES['nazwa_pliku']['error'];
+echo "<br>";
+*/
+
+
+//$blad = $_FILES['nazwa_pliku']['error'];
+//sprawdz_bledy($blad);
+//$typ = $_FILES['nazwa_pliku']['type'];
+//$typcond = sprawdz_typ($typ);
+
+$name = $_POST["kitten_name"];
+$subtitle = $_POST["kitten_subtitle"];
+$desc = $_POST["kitten_desc"];
+$fault = $_POST["kitten_fault"];
+$pass = $_POST["kitten_password"];
+$alttext = $_POST["kitten_alttext"];
+
+		
+	$imgpath = zapisz_alttext($alttext);
+	//$imgpath = plik_as_poster($imgpath, $name, $subtitle);
+	
+
+$path = $imgpath;
+
+echo "AAAAAANazwa świni:";
+echo $_POST["kitten_name"];
+echo "<br />";
+echo "Podpis obrazka:";
+echo $_POST["kitten_subtitle"];
+echo "<br />";
+echo "Czym podpadła:";
+echo $_POST["kitten_fault"];
+echo "<br />";
+echo "Opis świństwa:";
+echo $_POST["kitten_desc"];
+echo "<br />";
+/*
+echo "Twoje hasło usunięcia:<b>";
+echo $_POST["kitten_password"];
+echo "<br />";
+*/
+echo "Miasto:";
+echo $_POST["kitten_locale"];
+echo "<br />";
+echo "Wiek:";
+echo $_POST["kitten_age"];
+echo "<br />";
+
+echo "</b>Zdjęcie świnii:";
+echo '<br/ ><img src="'.$imgpath.'" />';
+echo '<br /><br /><a href="./?page=show&fileid='.md5($path).'">Przejdź do strony zdjęcia</a>';
+
+$imgid = md5($path);
+
+add_to_db($name, $desc, $fault, $path, $pass);
+add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"]);
+
+}//fi captcha_cond
+else {
+echo '<form enctype="multipart/form-data" action="?page=add" 
+		 method="post" >
+      <input type="hidden" name="form_kitten_name" value="'.$_POST["kitten_name"].'" />
+      <input type="hidden" name="form_kitten_subtitle" value="'.$_POST["kitten_subtitle"].'" />
+      <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
+      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />
+      <input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />
+      <input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />
+      <input type="hidden" name="form_kitten_alttext" value="'.$_POST["kitten_alttext"].'" />';
+echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponownie" />';
+} //esle fi captcha_cond
+
+}// else fi !isset file[nazwapliku];
+
+// #################################################################################################### //
 
 else {
 
@@ -472,7 +564,7 @@ Miasto: </td>
 </td>
 </tr>
 
-<tr>
+<tr height="30">
 <td align="left">
 Wiek: </td><td>
 
@@ -491,12 +583,17 @@ for($value = 1; $value <= 100; $value++){
 </tr>
 
 
-<tr>
+<tr height="80">
 <td align="left">
 Portret świnii:
 </td>
-<td >
-<input type="file" name="nazwa_pliku" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_file'])) echo $_POST['form_kitten_file']; ?>" /></td>
+<td width="400">
+<input type="file" name="nazwa_pliku" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_file'])) echo $_POST['form_kitten_file']; ?>" />
+<font size="2">Jeśli nie masz zdjęcia świnii, wpisz tekst alternatywny w polu poniżej - zostanie on dodany zamiast zdjęcia. </font></td>
+</tr>
+<tr>
+<td align="left">
+Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"><?php if (isset($_POST['form_kitten_alttext'])) echo $_POST['form_kitten_alttext']; ?></textarea><font size="2">To pole pozostaw puste, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
 </tr>
 <?php
 /*
@@ -700,6 +797,83 @@ else
 	echo 'Plik nie został zapisany.';
     return false;
   }
+  return $lokalizacja;
+}
+
+
+//===============================================================================================//
+
+
+function zapisz_alttext()
+{
+
+/*
+$cfg['dir_name'] = md5($_POST["kitten_name"].time());
+$cfg['file_name'] = 'index.php';
+
+
+$dir = $cfg['dir_name'];
+
+if(mkdir('files/'.$cfg['dir_name'], 0777))
+{
+
+ if(touch('files/'.$cfg['dir_name'].'/'.$cfg['file_name']))
+ {
+  // Odczyt i zapis dla właściciela, żadnych praw dla innych
+  if(chmod('files/'.$cfg['dir_name'].'/'.$cfg['file_name'], 0600))
+  {
+   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
+ 	echo 'Upload OK <br />';
+  }
+  else
+  {
+   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
+  }
+
+ }
+ else
+ {
+  echo 'Nie udało się stworzyć pliku';
+ }
+ 
+}
+else
+{
+ echo 'Nie udało się stworzyć katalogu';
+}
+ 
+ $typ = $_FILES['nazwa_pliku']['type'];
+ if ($typ == 'image/jpeg'){
+		$typ = ".jpg";}
+ else if ($typ == 'image/png'){
+		$typ = ".png";}
+ 
+  $lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
+    $lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
+	    $lokalizacja2 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'main';
+	
+  if(is_uploaded_file($_FILES['nazwa_pliku']['tmp_name']))
+  {
+    
+    if(!move_uploaded_file($_FILES['nazwa_pliku']['tmp_name'], $lokalizacja))
+    {
+      echo 'problem: Nie udało się skopiować pliku do katalogu.';
+        return false;  
+    }
+    else {
+	exec('cp '.$lokalizacja.' '.$lokalizacja1);
+	exec('cp '.$lokalizacja.' '.$lokalizacja2);
+ 	}
+	
+  }
+  else
+  {
+    echo 'problem: Możliwy atak podczas przesyłania pliku.';
+	echo 'Plik nie został zapisany.';
+    return false;
+  }
+*/
+echo "ALTTEEEEXT!!!!!!!!!!!!!!!!!!!!!!!!!!";
   return $lokalizacja;
 }
 
