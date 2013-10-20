@@ -74,7 +74,7 @@ if(isset($_POST['check']))
 	$baza->setimgcode($fileid, $aaa); 
 	echo "<br /><br />Podany kod jest poprawny";
 	$strona_ok = './return.php?fid='.$fileid.'&code='.$aaa.'&method=sms'; 
-	echo '<br /><a href="'.$strona_ok.'"><b>Przejdź dalej.</b></a>';       
+	echo '<br /><a href="'.$strona_ok.'"><b>Przejdź dalej.</b></a><br /><br /><br />';       
 	//Header("Location: $strona_ok");
         die();
     }

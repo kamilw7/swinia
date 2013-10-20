@@ -50,9 +50,9 @@ $baza->connect();
 
 $imgid = $baza->getimg($filename);
 $imgid = $imgid.'main';
-$plik = fopen($imgid, 'rb');
-$obrazek = fread($plik, filesize($imgid));
-fclose($plik);
+$plik = @fopen($imgid, 'rb');
+$obrazek = @fread($plik, filesize($imgid));
+@fclose($plik);
 
 $doret =  '<img src="data:image/jpg;base64,'.base64_encode($obrazek).'"  />';
 

@@ -42,7 +42,7 @@ echo '</div>';
 </div>
 
 <?php
-$img = showcatmain($thumb['fileid']);
+$img = @showcatmain($thumb['fileid']);
 echo '<a href="?page=show&fileid='.$thumb['fileid'].'">';
 echo $img;
 echo '</a>';
