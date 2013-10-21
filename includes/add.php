@@ -747,10 +747,12 @@ function text_as_jpg($filename, $text){
 	$pageimg = $filename.'main';
     	$dirpath = dirname($filename);
 
-	//$text = addslashes($text);
+	$text = addslashes($text);
+	$nowytekst = wordwrap($text, 25, "\n");
+
 
 	
-	exec('convert -size 400x400 xc:black -font Arial -pointsize 28 -fill \'#940081\' -gravity center -draw "text 0,0 \''.$text.'\'" '.$source);
+	exec('convert -size 400x400 xc:black -font Arial -pointsize 28 -fill \'#940081\' -gravity center -draw "text 0,0 \''.$nowytekst.'\'" '.$source);
 	exec('convert '.$source.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
 	exec('convert '.$source.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
