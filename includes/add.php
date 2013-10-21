@@ -715,8 +715,8 @@ function plik_as_poster($filename, $title, $subtitle){
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
 	//exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
-	exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
-	exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
+	//exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+	//exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
@@ -724,10 +724,10 @@ function plik_as_poster($filename, $title, $subtitle){
        
 	exec('convert '.$source.'  -bordercolor \'#940081\' -border 3x3 '.$source); // add small black border
         exec('convert '.$source.'  -bordercolor white -border 2x2 '.$source); // add white line around the image
-        exec('convert '.$source.'  -bordercolor \'#940081\' -border 10%x10% '.$source); //add a wide black border around
+        exec('convert '.$source.'  -bordercolor \'#940081\' -border 15%x15% '.$source); //add a wide black border around
 
-        exec('convert '.$source.' -size 15x15 xc: \'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity South text 0,0 \'' .$title. '\'" '.$source);
-	exec('convert '.$source.'  -bordercolor \'#940081\' -border 0%x5% text2.ppm'); //add a wide black border around
+        exec('convert '.$source.' -size 15x15 xc: \'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity North text 0,0 \'' .$title. '\'" '.$source);
+	//exec('convert '.$source.'  -bordercolor \'#940081\' -border 0%x5% text2.ppm'); //add a wide black border around
         exec('convert '.$source.' -size 15x15 xc:\'#940081\' -background \'#940081\' -append  -pointsize 32 -fill white -draw "gravity South text 0,0 \'' .$subtitle. '\'" '.$source);
    
      return $source;
@@ -747,12 +747,12 @@ function text_as_jpg($filename, $text){
 	$pageimg = $filename.'main';
     	$dirpath = dirname($filename);
 
-	$text = addslashes($text);
+	//$text = addslashes($text);
 
 	
 	exec('convert -size 400x400 xc:black -font Arial -pointsize 28 -fill \'#940081\' -gravity center -draw "text 0,0 \''.$text.'\'" '.$source);
-	//exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
-	//exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
+	exec('convert '.$source.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+	exec('convert '.$source.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
    
      return $source;
@@ -883,6 +883,8 @@ $lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
 $lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
 $lokalizacja2 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'main';
 
+
+ //-----------------------------------------------------------------------------//
  if(touch($lokalizacja))
  {
   // Odczyt i zapis dla właściciela, żadnych praw dla innych
@@ -901,10 +903,45 @@ $lokalizacja2 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'main';
  {
   echo 'Nie udało się stworzyć pliku';
  }
- 
-	exec('cp '.$lokalizacja.' '.$lokalizacja1);
-	exec('cp '.$lokalizacja.' '.$lokalizacja2);
- 	
+ //-----------------------------------------------------------------------------/
+ if(touch($lokalizacja1))
+ {
+  // Odczyt i zapis dla właściciela, żadnych praw dla innych
+  if(chmod($lokalizacja1, 0777))
+  {
+   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
+ 	echo ' ';
+  }
+  else
+  {
+   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
+  }
+
+ }
+ else
+ {
+  echo 'Nie udało się stworzyć pliku';
+ }
+ //-----------------------------------------------------------------------------/
+ if(touch($lokalizacja2))
+ {
+  // Odczyt i zapis dla właściciela, żadnych praw dla innych
+  if(chmod($lokalizacja2, 0777))
+  {
+   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
+ 	echo ' ';
+  }
+  else
+  {
+   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
+  }
+
+ }
+ else
+ {
+  echo 'Nie udało się stworzyć pliku';
+ }
+
  return $lokalizacja;
 }
 
