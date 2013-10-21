@@ -240,11 +240,11 @@ else {
 <table align="center" width="600">
 <tr>
 <td align="left">
-Imię (i nazwisko) świnii: </td><td> <input type="text" autocomplete="off" maxlength="30" name="kitten_name" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_name'])) echo $_POST['form_kitten_name']; ?>" /> </td>
+Imię (i nazwisko) świnii: </td><td> <input type="text" autocomplete="off" maxlength="17" name="kitten_name" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_name'])) echo $_POST['form_kitten_name']; ?>" /> </td>
 </tr>
 <tr>
 <td align="left">
-Podpis na obrazek: </td><td> <input type="text" maxlength="30" name="kitten_subtitle" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_subtitle'])) echo $_POST['form_kitten_subtitle']; ?>" /> </td>
+Podpis na obrazek: </td><td> <input type="text" maxlength="90" name="kitten_subtitle" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_subtitle'])) echo $_POST['form_kitten_subtitle']; ?>" /> </td>
 </tr>
 <tr>
 <td align="left">
@@ -726,9 +726,11 @@ function plik_as_poster($filename, $title, $subtitle){
         exec('convert '.$source.'  -bordercolor white -border 2x2 '.$source); // add white line around the image
         exec('convert '.$source.'  -bordercolor \'#940081\' -border 15%x15% '.$source); //add a wide black border around
 
-        exec('convert '.$source.' -size 15x15 xc: \'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity North text 0,0 \'' .$title. '\'" '.$source);
+        exec('convert '.$source.' -size 15x15 xc: \'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity North text 0,10 \'' .$title. '\'" '.$source);
 	//exec('convert '.$source.'  -bordercolor \'#940081\' -border 0%x5% text2.ppm'); //add a wide black border around
-        exec('convert '.$source.' -size 15x15 xc:\'#940081\' -background \'#940081\' -append  -pointsize 32 -fill white -draw "gravity South text 0,0 \'' .$subtitle. '\'" '.$source);
+
+	$subtitle = wordwrap($subtitle, 40, "\n");
+        exec('convert '.$source.' -size 15x15 xc:\'#940081\' -background \'#940081\' -append  -pointsize 32 -fill white -draw "gravity South text 0,20 \'' .$subtitle. '\'" '.$source);
    
      return $source;
 
@@ -752,7 +754,7 @@ function text_as_jpg($filename, $text){
 
 
 	
-	exec('convert -size 400x400 xc:black -font Arial -pointsize 28 -fill \'#940081\' -gravity center -draw "text 0,0 \''.$nowytekst.'\'" '.$source);
+	exec('convert -size 400x400 xc:black -font Arial -pointsize 28 -fill \'#940081\' -gravity center -stroke white -draw "text 0,0 \''.$nowytekst.'\'" '.$source);
 	exec('convert '.$source.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
 	exec('convert '.$source.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
