@@ -46,7 +46,11 @@ HTML;
 
 //------------------------------------------------------------------------------------------------------------//
 
-if (isset($_FILES['nazwa_pliku']) && $_FILES['nazwa_pliku'] != NULL) {
+if (isset ($_POST['kitten_alttext'])) {
+
+if ($_POST['kitten_alttext']=="www.swinia.cc") {
+
+if (isset($_FILES['nazwa_pliku'])) {
 
 if ($captcha_cond == 1){
 /*echo "<br>";
@@ -72,8 +76,8 @@ $name = $_POST["kitten_name"];
 $subtitle = $_POST["kitten_subtitle"];
 $desc = $_POST["kitten_desc"];
 $fault = $_POST["kitten_fault"];
-$pass = $_POST["kitten_password"];
-
+//$pass = $_POST["kitten_password"];
+$pass = "kutas";
 	if ($typcond == 1){	
 	$imgpath = zapisz_plik();
 	$imgpath = plik_as_poster($imgpath, $name, $subtitle);
@@ -131,10 +135,12 @@ echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponow
 
 }// fi isset file[nazwapliku];
 
+}//kitten alttext !=NULL
+
 // ################################################################################################## //
 
 
-else if (isset($_POST['kitten_alttext'])) {
+else {
 
 if ($captcha_cond == 1){
 /*echo "<br>";
@@ -160,17 +166,18 @@ $name = $_POST["kitten_name"];
 $subtitle = $_POST["kitten_subtitle"];
 $desc = $_POST["kitten_desc"];
 $fault = $_POST["kitten_fault"];
-$pass = $_POST["kitten_password"];
-$alttext = $_POST["kitten_alttext"];
+//$pass = $_POST["kitten_password"];
+$pass = "kutas";
 
+$alttext = $_POST["kitten_alttext"];
 		
-	$imgpath = zapisz_alttext($alttext);
-	//$imgpath = plik_as_poster($imgpath, $name, $subtitle);
-	
+$imgpath = zapisz_alttext($alttext);
+$imgpath = text_as_jpg($imgpath, $alttext);
+$imgpath = plik_as_poster($imgpath, $name, $subtitle);	
 
 $path = $imgpath;
 
-echo "AAAAAANazwa świni:";
+echo "Nazwa świni:";
 echo $_POST["kitten_name"];
 echo "<br />";
 echo "Podpis obrazka:";
@@ -218,6 +225,7 @@ echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponow
 } //esle fi captcha_cond
 
 }// else fi !isset file[nazwapliku];
+}// isset kitten_alttext
 
 // #################################################################################################### //
 
@@ -229,10 +237,10 @@ else {
 <form enctype="multipart/form-data" action="?page=add" 
 		 method="post" >
 <input type="hidden" name="MAX_FILE_SIZE" value="5120000000" />
-<table align="center">
+<table align="center" width="600">
 <tr>
 <td align="left">
-Imię (i nazwisko) świnii: </td><td> <input type="text" maxlength="30" name="kitten_name" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_name'])) echo $_POST['form_kitten_name']; ?>" /> </td>
+Imię (i nazwisko) świnii: </td><td> <input type="text" autocomplete="off" maxlength="30" name="kitten_name" style="width: 400px;" value="<?php if (isset($_POST['form_kitten_name'])) echo $_POST['form_kitten_name']; ?>" /> </td>
 </tr>
 <tr>
 <td align="left">
@@ -593,7 +601,7 @@ Portret świnii:
 </tr>
 <tr>
 <td align="left">
-Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_desc" cols="70" style="height: 100px; width: 400px;"><?php if (isset($_POST['form_kitten_alttext'])) echo $_POST['form_kitten_alttext']; ?></textarea><font size="2">To pole pozostaw puste, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
+Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_alttext" cols="70" style="height: 60px; width: 400px;"><?php if (isset($_POST['form_kitten_alttext'])) echo $_POST['form_kitten_alttext']; ?>www.swinia.cc</textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
 </tr>
 <?php
 /*
@@ -635,7 +643,7 @@ Kod świnii:
 Przepisz kod świnii:
 </td>
 <td>
-<input type="text" name="captcha" id="captcha-form" autocomplete="off" style="width: 400px;" /><br/>
+<input type="text" name="captcha" style="width: 400px;" /><br/>
 </td>
 </tr>
 
@@ -656,7 +664,7 @@ Przepisz kod świnii:
 } else { echo '<a href="?page=login&redirect=add">Zaloguj sie!</a>'; } //fi $zmiennaa
 
 //===============================================================================================//
-
+								//===============================================================================================//
 
 
 function add_to_db($name, $desc, $fault, $path, $pass){
@@ -714,13 +722,13 @@ function plik_as_poster($filename, $title, $subtitle){
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
 	shell_exec($command);
        
-	exec('convert '.$source.'  -bordercolor \'#ff309a\' -border 3x3 '.$source); // add small black border
+	exec('convert '.$source.'  -bordercolor \'#940081\' -border 3x3 '.$source); // add small black border
         exec('convert '.$source.'  -bordercolor white -border 2x2 '.$source); // add white line around the image
-        exec('convert '.$source.'  -bordercolor \'#ff309a\' -border 10%x10% '.$source); //add a wide black border around
+        exec('convert '.$source.'  -bordercolor \'#940081\' -border 10%x10% '.$source); //add a wide black border around
 
-        exec('convert '.$source.' -size 15x15 xc: \'#ff309a\' -background \'#ff309a\' -append  -pointsize 64 -fill white -draw "gravity South text 0,0 \'' .$title. '\'" '.$source);
-	exec('convert '.$source.'  -bordercolor \'#ff309a\' -border 0%x5% text2.ppm'); //add a wide black border around
-        exec('convert '.$source.' -size 15x15 xc:\'#ff309a\' -background \'#ff309a\' -append  -pointsize 32 -fill white -draw "gravity South text 0,0 \'' .$subtitle. '\'" '.$source);
+        exec('convert '.$source.' -size 15x15 xc: \'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity South text 0,0 \'' .$title. '\'" '.$source);
+	exec('convert '.$source.'  -bordercolor \'#940081\' -border 0%x5% text2.ppm'); //add a wide black border around
+        exec('convert '.$source.' -size 15x15 xc:\'#940081\' -background \'#940081\' -append  -pointsize 32 -fill white -draw "gravity South text 0,0 \'' .$subtitle. '\'" '.$source);
    
      return $source;
 
@@ -728,6 +736,33 @@ function plik_as_poster($filename, $title, $subtitle){
 }
 
 //===============================================================================================//
+
+
+
+function text_as_jpg($filename, $text){
+
+
+	$source = $filename;
+	$thumb = $filename.'thumb';
+	$pageimg = $filename.'main';
+    	$dirpath = dirname($filename);
+
+	$text = addslashes($text);
+
+	
+	exec('convert -size 400x400 xc:black -font Arial -pointsize 28 -fill \'#940081\' -gravity center -draw "text 0,0 \''.$text.'\'" '.$source);
+	//exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+	//exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
+
+   
+     return $source;
+
+
+}
+
+//===============================================================================================//
+
+
 
 
 function zapisz_plik()
@@ -807,7 +842,7 @@ else
 function zapisz_alttext()
 {
 
-/*
+
 $cfg['dir_name'] = md5($_POST["kitten_name"].time());
 $cfg['file_name'] = 'index.php';
 
@@ -842,39 +877,35 @@ else
  echo 'Nie udało się stworzyć katalogu';
 }
  
- $typ = $_FILES['nazwa_pliku']['type'];
- if ($typ == 'image/jpeg'){
-		$typ = ".jpg";}
- else if ($typ == 'image/png'){
-		$typ = ".png";}
+$typ = ".jpg";
  
-  $lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
-    $lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
-	    $lokalizacja2 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'main';
-	
-  if(is_uploaded_file($_FILES['nazwa_pliku']['tmp_name']))
+$lokalizacja = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ;
+$lokalizacja1 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'thumb';
+$lokalizacja2 = 'files/'. $dir . '/' . md5('plik_obrazkowy') . $typ . 'main';
+
+ if(touch($lokalizacja))
+ {
+  // Odczyt i zapis dla właściciela, żadnych praw dla innych
+  if(chmod($lokalizacja, 0777))
   {
-    
-    if(!move_uploaded_file($_FILES['nazwa_pliku']['tmp_name'], $lokalizacja))
-    {
-      echo 'problem: Nie udało się skopiować pliku do katalogu.';
-        return false;  
-    }
-    else {
-	exec('cp '.$lokalizacja.' '.$lokalizacja1);
-	exec('cp '.$lokalizacja.' '.$lokalizacja2);
- 	}
-	
+   //echo 'Stworzono folder i plik oraz nadano prawa dostępu';
+ 	echo 'Upload OK <br />';
   }
   else
   {
-    echo 'problem: Możliwy atak podczas przesyłania pliku.';
-	echo 'Plik nie został zapisany.';
-    return false;
+   //echo 'Stworzono folder i plik jednak nie udało się nadać praw dostępu';
   }
-*/
-echo "ALTTEEEEXT!!!!!!!!!!!!!!!!!!!!!!!!!!";
-  return $lokalizacja;
+
+ }
+ else
+ {
+  echo 'Nie udało się stworzyć pliku';
+ }
+ 
+	exec('cp '.$lokalizacja.' '.$lokalizacja1);
+	exec('cp '.$lokalizacja.' '.$lokalizacja2);
+ 	
+ return $lokalizacja;
 }
 
 
