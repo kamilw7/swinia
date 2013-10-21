@@ -2,6 +2,10 @@
 
 <?php
 
+require_once("classes/db/db.php");
+require_once("includes/show.php");
+
+
 if (isset($_GET["action"])){
 if ($_GET["action"] == "show"){
 
@@ -16,6 +20,31 @@ echo 'Miasto: '.$_POST['locale']. '<br />';
 echo 'Wiek: '.$_POST['age'] . '<br />';
 echo 'Opis: '.$_POST['fraza'];
 echo '<br /><br />';
+
+$baza = new DBconn;
+$baza->connect();
+$thb = $baza->search($_POST['locale'],$_POST['age'],$_POST['fraza']);
+
+echo '<div id="thumbnails">';
+
+foreach ($thb as $thumb){
+echo '<div id="thumb">';
+echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
+echo '<table align="center"><tr><td>';
+$img = showcatthumb($thumb['fileid']);
+echo $img;
+echo '</td></tr><tr><td height="25" valign="middle"><font size="2">';
+echo $thumb['name'];
+echo '</font></td></tr></table>';
+echo '</a>';
+echo '</div>';
+}
+
+echo '</div>';
+
+
+
+
 
 
 echo '</div>';

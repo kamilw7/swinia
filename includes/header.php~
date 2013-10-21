@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <!--[if !IE]>      <html class="no-js non-ie" lang="en-US"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7" lang="en-US"> <![endif]-->

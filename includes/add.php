@@ -116,7 +116,7 @@ echo '<br /><br /><a href="./?page=show&fileid='.md5($path).'">Przejdź do stron
 $imgid = md5($path);
 
 add_to_db($name, $desc, $fault, $path, $pass);
-add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"]);
+add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"], $name);
 
 }//fi captcha_cond
 else {
@@ -208,7 +208,7 @@ echo '<br /><br /><a href="./?page=show&fileid='.md5($path).'">Przejdź do stron
 $imgid = md5($path);
 
 add_to_db($name, $desc, $fault, $path, $pass);
-add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"]);
+add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"], $name);
 
 }//fi captcha_cond
 else {
@@ -690,13 +690,13 @@ function add_to_db($name, $desc, $fault, $path, $pass){
 }
 //===============================================================================================//
 
-function add_to_meta($fileid, $locale, $age){
+function add_to_meta($fileid, $locale, $age, $name){
 	require_once("classes/db/db.php");
 	
 	$baza = new DBconn;
 
 	$baza->connect();
-	$baza->addcatmeta($fileid, $locale, $age);
+	$baza->addcatmeta($fileid, $locale, $age, $name);
 
 
 }

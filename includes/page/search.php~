@@ -17,6 +17,31 @@ echo 'Wiek: '.$_POST['age'] . '<br />';
 echo 'Opis: '.$_POST['fraza'];
 echo '<br /><br />';
 
+$baza = new DBconn;
+$baza->connect();
+$thb = $baza->search($_POST['locale'],$_POST['age'],$_POST['fraza']);
+
+echo '<div id="thumbnails">';
+
+foreach ($thb as $thumb){
+echo '<div id="thumb">';
+echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
+echo '<table align="center"><tr><td>';
+$img = showcatthumb($thumb['fileid']);
+echo $img;
+echo '</td></tr><tr><td height="25" valign="middle"><font size="2">';
+echo $thumb['name'];
+echo '</font></td></tr></table>';
+echo '</a>';
+echo '</div>';
+}
+
+echo '</div>';
+
+
+
+
+
 
 echo '</div>';
 }
@@ -132,12 +157,12 @@ SZUKAJ:
 <option value="Konin">Konin</option>
 <option value="Kostrzyn">Kostrzyn</option>
 <option value="Koszalin">Koszalin</option>
-<option value="Ko¶cian">Ko¶cian</option>
+<option value="Kościan">Kościan</option>
 <option value="Kozienice">Kozienice</option>
 <option value="Ko źmin Wielkopolski">Ko źmin Wielkopolski</option>
 <option value="Kórnik">Kórnik</option>
 <option value="Kraków">Kraków</option>
-<option value="Kra¶nik">Kra¶nik</option>
+<option value="Kraśnik">Kraśnik</option>
 <option value="Krotoszyn">Krotoszyn</option>
 <option value="Kruszwica">Kruszwica</option>
 <option value="Książ Wielkopolski">Książ Wielkopolski</option>
@@ -157,7 +182,7 @@ SZUKAJ:
 <option value="Lubin">Lubin</option>
 <option value="Lublin">Lublin</option>
 <option value="Lubliniec">Lubliniec</option>
-<option value="Lwówek ¦ląski">Lwówek ¦ląski</option>
+<option value="Lwówek Śląski">Lwówek Śląski</option>
 <option value="Łaskarzew">Łaskarzew</option>
 <option value="Łeba">Łeba</option>
 <option value="Łomża">Łomża</option>
@@ -182,7 +207,7 @@ SZUKAJ:
 <option value="Mszczonów">Mszczonów</option>
 <option value="Mysłowice">Mysłowice</option>
 <option value="Myszków">Myszków</option>
-<option value="My¶lenice">My¶lenice</option>
+<option value="Myślenice">Myślenice</option>
 <option value="Nakło">Nakło</option>
 <option value="Nidzica">Nidzica</option>
 <option value="Niepołomice">Niepołomice</option>
@@ -192,27 +217,27 @@ SZUKAJ:
 <option value="Nowe">Nowe</option>
 <option value="Nowogard">Nowogard</option>
 <option value="Nowy Sącz">Nowy Sącz</option>
-<option value="Nowy Tomy¶l">Nowy Tomy¶l</option>
+<option value="Nowy Tomyśl">Nowy Tomyśl</option>
 <option value="Nysa">Nysa</option>
 <option value="Oborniki">Oborniki</option>
 <option value="Odolanów">Odolanów</option>
-<option value="Ole¶nica">Ole¶nica</option>
+<option value="Oleśnica">Oleśnica</option>
 <option value="Olkusz">Olkusz</option>
 <option value="Olsztyn">Olsztyn</option>
 <option value="Opole">Opole</option>
 <option value="Ostroróg">Ostroróg</option>
-<option value="Ostrowiec ¦więtokrzyski">Ostrowiec ¦więtokrzyski</option>
+<option value="Ostrowiec Świętokrzyski">Ostrowiec Świętokrzyski</option>
 <option value="Ostróda">Ostróda</option>
 <option value="Ostrów Mazowiecka">Ostrów Mazowiecka</option>
 <option value="Ostrów Wielkopolski">Ostrów Wielkopolski</option>
 <option value="Ostrzeszów">Ostrzeszów</option>
-<option value="O¶więcim">O¶więcim</option>
+<option value="Oświęcim">Oświęcim</option>
 <option value="Otwock">Otwock</option>
 <option value="Pabianice">Pabianice</option>
 <option value="Pelplin">Pelplin</option>
 <option value="Piaseczno">Piaseczno</option>
 <option value="Piastów">Piastów</option>
-<option value="Piekary ¦ląskie">Piekary ¦ląskie</option>
+<option value="Piekary Śląskie">Piekary Śląskie</option>
 <option value="Piła">Piła</option>
 <option value="Piława Górna">Piława Górna</option>
 <option value="Pionki">Pionki</option>
@@ -226,7 +251,7 @@ SZUKAJ:
 <option value="Poniec">Poniec</option>
 <option value="Poznań">Poznań</option>
 <option value="Pruszcz Gdański">Pruszcz Gdański</option>
-<option value="Przemy¶l">Przemy¶l</option>
+<option value="Przemyśl">Przemyśl</option>
 <option value="Przeworsk">Przeworsk</option>
 <option value="Puławy">Puławy</option>
 <option value="Puszczykowo">Puszczykowo</option>
@@ -238,7 +263,7 @@ SZUKAJ:
 <option value="Rawicz">Rawicz</option>
 <option value="Reda">Reda</option>
 <option value="Rogo źno">Rogo źno</option>
-<option value="Ruda ¦ląska">Ruda ¦ląska</option>
+<option value="Ruda Śląska">Ruda Śląska</option>
 <option value="Rumia">Rumia</option>
 <option value="Rybnik">Rybnik</option>
 <option value="Rydzyna">Rydzyna</option>
@@ -249,7 +274,7 @@ SZUKAJ:
 <option value="Serock">Serock</option>
 <option value="Sępólno Krajeńskie">Sępólno Krajeńskie</option>
 <option value="Siedlce">Siedlce</option>
-<option value="Siemianowice ¦ląskie">Siemianowice ¦ląskie</option>
+<option value="Siemianowice Śląskie">Siemianowice Śląskie</option>
 <option value="Sieradz">Sieradz</option>
 <option value="Sieraków">Sieraków</option>
 <option value="Skarżysko Kamienna">Skarżysko Kamienna</option>
@@ -281,13 +306,13 @@ SZUKAJ:
 <option value="Szczecin">Szczecin</option>
 <option value="Szczecinek">Szczecinek</option>
 <option value="Szczytno">Szczytno</option>
-<option value="¦lesin">¦lesin</option>
-<option value="¦rem">¦rem</option>
-<option value="¦widnica">¦widnica</option>
-<option value="¦widnik">¦widnik</option>
-<option value="¦wiecie">¦wiecie</option>
-<option value="¦więtochłowice">¦więtochłowice</option>
-<option value="¦winouj¶cie">¦winouj¶cie</option>
+<option value="Ślesin">Ślesin</option>
+<option value="Śrem">Śrem</option>
+<option value="Świdnica">Świdnica</option>
+<option value="Świdnik">Świdnik</option>
+<option value="Świecie">Świecie</option>
+<option value="Świętochłowice">Świętochłowice</option>
+<option value="Świnoujście">Świnoujście</option>
 <option value="Tarnobrzeg">Tarnobrzeg</option>
 <option value="Tarnów">Tarnów</option>
 <option value="Tłuszcz">Tłuszcz</option>
@@ -313,13 +338,13 @@ SZUKAJ:
 <option value="Włocławek">Włocławek</option>
 <option value="Wolsztyn">Wolsztyn</option>
 <option value="Wołomin">Wołomin</option>
-<option value="Wrze¶nia">Wrze¶nia</option>
+<option value="Września">Września</option>
 <option value="Wyrzysk">Wyrzysk</option>
 <option value="Wysokie Mazowieckie">Wysokie Mazowieckie</option>
 <option value="Zabrze">Zabrze</option>
 <option value="Zakopane">Zakopane</option>
 <option value="Zambrów">Zambrów</option>
-<option value="Zamo¶ć">Zamo¶ć</option>
+<option value="Zamość">Zamość</option>
 <option value="Zawidów">Zawidów</option>
 <option value="Zawiercie">Zawiercie</option>
 <option value="Ząbki">Ząbki</option>

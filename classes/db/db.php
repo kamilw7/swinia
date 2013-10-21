@@ -91,17 +91,18 @@ if (!$stmt)
 
 //============================================================================//
 
-public function addcatmeta($fileid, $locale, $age){
+public function addcatmeta($fileid, $locale, $age, $name){
 
 
 $stmt = $this->dbh->exec("
 INSERT INTO `kotkiDB`.`catzmeta` (
 `fileid` ,
 `locale` ,
-`age` 
+`age` ,
+`name`
 )
 VALUES (
-'$fileid' , '$locale', '$age'
+'$fileid' , '$locale', '$age', '$name'
 );
 ");
 //echo $stmt['description'];
@@ -235,6 +236,38 @@ $row = $count->fetch();
 
 return $row["fileid"];
 
+}
+
+//===============================================================================//
+
+public function search($locale, $age, $name){
+
+$locale = '%'.$locale.'%';
+$age = '%'.$age.'%';
+$name = '%'.$name.'%';
+
+//echo $locale;
+//echo $age;
+
+if ($locale == "%all%" && $age != "%każdy%"){
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `age` LIKE '$age' AND `name` LIKE '$name'");
+return $count;
+}
+
+else if ($age == "%każdy%" && $locale != "%all%" ){
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND `name` LIKE '$name'");
+return $count;
+}
+
+else if ($locale != "%all%" && $age != "%każdy%") {
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND  `age` LIKE '$age'");
+return $count;
+}
+else {
+//$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta`");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `name` LIKE '$name'");
+return $count;
+}
 }
 
 //===============================================================================//
