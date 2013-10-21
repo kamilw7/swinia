@@ -3,7 +3,7 @@
 </div>
 
 <div id="ip">
-<?php echo $_SERVER['REMOTE_ADDR']; ?>
+<?php //echo $_SERVER['REMOTE_ADDR']; ?>
 </div>
 
 </div>
