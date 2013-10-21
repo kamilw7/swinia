@@ -748,7 +748,7 @@ function text_as_jpg($filename, $text){
     	$dirpath = dirname($filename);
 
 	$text = addslashes($text);
-	$nowytekst = wordwrap($text, 25, "-");
+	$nowytekst = wordwrap($text, 25, "\n");
 
 
 	
