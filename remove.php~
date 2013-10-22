@@ -23,10 +23,10 @@ $fileid,
 
 
 
-echo "<b>Czy na pewno chcesz usunąć tego kotka?</b> <br />
+echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />
 <br />";
 $img = showcat($fileid);
-echo '<table><tr width="100"><td>'.$img.'</td></tr></table>';
+echo $img;
 echo '<br /><br /><b>Tak?<br /><br />';
 echo '<a href="'.$url.'"> Przejdź do płatności przelewem bankowym (Wszystkie banki w Polsce) </a><br /><br />';
 echo '<a href="sms.php?fid='.$fileid.'"> Przejdź do płatności SMS </a></b>';
