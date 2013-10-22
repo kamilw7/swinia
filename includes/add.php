@@ -717,9 +717,9 @@ function plik_as_poster($filename, $title, $subtitle){
 	//echo $dirpath;
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
-	//exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
-	//exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
-	//exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
+	exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
+	exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+	exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;
@@ -729,7 +729,7 @@ function plik_as_poster($filename, $title, $subtitle){
         exec('convert '.$source.'  -bordercolor white -border 2x2 '.$source); // add white line around the image
         exec('convert '.$source.'  -bordercolor \'#940081\' -border 15%x15% '.$source); //add a wide black border around
 
-        exec('convert '.$source.' -size 15x15 xc: \'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity North text 0,10 \'' .$title. '\'" '.$source);
+        exec('convert '.$source.' -size 15x15 xc:\'#940081\' -background \'#940081\' -append  -pointsize 64 -fill white -draw "gravity North text 0,10 \'' .$title. '\'" '.$source);
 	//exec('convert '.$source.'  -bordercolor \'#940081\' -border 0%x5% text2.ppm'); //add a wide black border around
 
 	$subtitle = wordwrap($subtitle, 40, "\n");

@@ -35,7 +35,7 @@ $plik = fopen($imgid, 'rb');
 $obrazek = fread($plik, filesize($imgid));
 fclose($plik);
 
-$doret =  '<img src="data:image/jpg;base64,'.base64_encode($obrazek).'" width="90" />';
+$doret =  '<img src="data:image/jpg;base64,'.base64_encode($obrazek).'" height="80" />';
 
 return $doret;
 
