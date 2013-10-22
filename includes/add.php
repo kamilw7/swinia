@@ -580,7 +580,7 @@ Miasto: </td>
 Wiek: </td><td>
 
 <select name="kitten_age" style="width: 400px;">
-<option value="każdy"> ------ wszystkie ------ </option>
+<option value="0"> ------ wszystkie ------ </option>
 <?php 
 for($value = 1; $value <= 100; $value++){ 
     echo('<option value="' . $value . '">' . $value . '</option>');

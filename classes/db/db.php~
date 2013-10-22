@@ -246,10 +246,8 @@ $locale = '%'.$locale.'%';
 $age = '%'.$age.'%';
 $name = '%'.$name.'%';
 
-echo $locale;
-echo $age;
-
-
+//echo $locale;
+//echo $age;
 
 if ($locale == "%all%" && $age != "%każdy%"){
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `age` LIKE '$age' AND `name` LIKE '$name'");
