@@ -41,7 +41,7 @@ $imgrate = showrateicons($latest);
 echo $imgrate;
 
 $fault = wordwrap($description["fault"], 60, "<br />\n", true);
-$description = wordwrap($description["description"], 60, "<br />\n", true);
+$description1 = wordwrap($description["description"], 60, "<br />\n", true);
  
 
 echo '
@@ -74,7 +74,7 @@ Czym podpadła:
 Opis świństwa:
 </td>
 <td><b>'
-. $description .
+. $description1 .
 '</b></td>
 </tr>
 <tr>

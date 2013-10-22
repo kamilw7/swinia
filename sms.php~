@@ -1,9 +1,10 @@
 <?php
+
 require_once('includes/header.php');
 require_once('includes/menu.php');
 
 require_once('includes/show.php');
-
+ob_start();
 echo '<div id="add">';
 
 
@@ -14,9 +15,6 @@ $fileid = $_GET["fid"];
 
 echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />
 <br />";
-$img = showcat($fileid);
-echo $img;
-echo '<br /><br />';
 
 echo 'Wyślij sms o treści <b>kodswinia</b> na numer <b>91400</b> (14 PLN netto) i wpisz ponizej otrzymany kod zwrotny.<br/><br/>';
 
@@ -25,6 +23,11 @@ echo '
 Wpisz otrzymany kod: <input type="text" name="check">
 <input type="submit" value="Usuń zdjęcie">
 </form>';
+echo '<br /><br />';
+$img = showcatlower($fileid);
+echo $img;
+echo '<br /><br />';
+
 
 //=============================================================================================================//
 
@@ -74,13 +77,12 @@ if(isset($_POST['check']))
 	$baza->setimgcode($fileid, $aaa); 
 	echo "<br /><br />Podany kod jest poprawny";
 	$strona_ok = './return.php?fid='.$fileid.'&code='.$aaa.'&method=sms'; 
-	echo '<br /><a href="'.$strona_ok.'"><b>Przejdź dalej.</b></a><br /><br /><br />';       
-	//Header("Location: $strona_ok");
-        die();
+	//echo '<br /><a href="'.$strona_ok.'"><b>Przejdź dalej.</b></a><br /><br /><br />';       
+    	header('Location: $strona_ok');
+
     }
 }
 
-Header("Location: $strona_bad");
 die();
 }
 }

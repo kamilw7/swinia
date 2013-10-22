@@ -6,7 +6,6 @@
 * CATZ, KITTENZ, NO DOGZ
 */
 
-
 require_once('includes/header.php');
 
 //------- polaczenie do bazy danych ---------//

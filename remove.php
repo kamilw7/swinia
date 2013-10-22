@@ -25,11 +25,14 @@ $fileid,
 
 echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />
 <br />";
-$img = showcat($fileid);
+echo '<br />';
+echo '<a href="'.$url.'"><img src="content/images/payment.png" width="100" /><br />';
+echo ' Przejdź do płatności przelewem bankowym (Wszystkie banki w Polsce) </a><br /><br />';
+echo '<a href="sms.php?fid='.$fileid.'"><img src="content/images/sms.png" width="100" /><br />';
+echo '<font size="3"> Przejdź do płatności SMS </font> </a><br /><br />';
+$img = showcatlower($fileid);
 echo $img;
-echo '<br /><br /><b>Tak?<br /><br />';
-echo '<a href="'.$url.'"> Przejdź do płatności przelewem bankowym (Wszystkie banki w Polsce) </a><br /><br />';
-echo '<a href="sms.php?fid='.$fileid.'"> Przejdź do płatności SMS </a></b>';
+
 }
 else 
 { echo 'Nie wybrano zdjecia do usuniecia';

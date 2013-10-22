@@ -40,6 +40,10 @@ require_once('classes/rate/imgrate.php');
 $imgrate = showrateicons($latest);
 echo $imgrate;
 
+$fault = wordwrap($description["fault"], 60, "<br />\n", true);
+$description = wordwrap($description["description"], 60, "<br />\n", true);
+ 
+
 echo '
 <table align="center">
 <tr>
@@ -62,7 +66,7 @@ Imie:
 Czym podpadła:
 </td>
 <td><b>'
-. $description["fault"] .
+. $fault .
 '</b></td>
 </tr>
 <tr>
@@ -70,7 +74,7 @@ Czym podpadła:
 Opis świństwa:
 </td>
 <td><b>'
-. $description["description"] .
+. $description .
 '</b></td>
 </tr>
 <tr>
