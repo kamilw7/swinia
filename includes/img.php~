@@ -74,6 +74,24 @@ Opis świństwa:
 '</b></td>
 </tr>
 <tr>
+<tr>
+<td align="left">
+Miasto:
+</td>
+<td><b>'
+. $meta["locale"] .
+'</b></td>
+</tr>
+<tr>
+<td align="left">
+Wiek:
+</td>
+<td><b>'
+. $meta["age"] .
+'</b></td>
+</tr>
+<tr>
+<tr>
 <td align="left">
 Data dodania:
 </td>

@@ -56,7 +56,7 @@ echo '</a>';
 <b><?php echo $thumb['name']; ?></b><br /><br />
 <?php 
 
-$textfault = cS($thumb['fault'], 200);
+$textfault = cS($thumb['fault'], 170);
 $textfault = wordwrap($textfault, 60, "<br />\n", true);
 echo $textfault; 
 

@@ -249,17 +249,17 @@ $name = '%'.$name.'%';
 //echo $locale;
 //echo $age;
 
-if ($locale == "%all%" && $age != "%każdy%"){
+if ($locale == "%all%" && $age != "%0%"){
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `age` LIKE '$age' AND `name` LIKE '$name'");
 return $count;
 }
 
-else if ($age == "%każdy%" && $locale != "%all%" ){
+else if ($age == "%0%" && $locale != "%all%" ){
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND `name` LIKE '$name'");
 return $count;
 }
 
-else if ($locale != "%all%" && $age != "%każdy%") {
+else if ($locale != "%all%" && $age != "%0%") {
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND  `age` LIKE '$age'");
 return $count;
 }
