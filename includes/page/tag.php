@@ -3,6 +3,7 @@
 <?php
 
 require_once("classes/db/db.php");
+require_once("classes/cutter/cut.php");
 require_once("includes/show.php");
 
 $baza = new DBconn;
@@ -15,8 +16,8 @@ foreach ($thb as $thumb){
 echo '<div id="tag">';
 echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
 echo '<table cellspacing="2" align="center">';
-echo '<tr><td><font size="2">';
-echo $thumb['name'];
+echo '<tr><td height="40" width="100"><font size="2">';
+echo cS($thumb['name'], 13);
 echo '</font></td></tr>';
 echo '</table>';
 echo '</a>';

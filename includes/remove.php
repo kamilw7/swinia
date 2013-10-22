@@ -1,7 +1,9 @@
+<?php require_once('includes/menu.php'); ?>
 <div id="add">
 <?php
 
 require_once('classes/db/db.php');
+
 
 if (isset ($_GET["fid"])){
 

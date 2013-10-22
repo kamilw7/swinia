@@ -386,7 +386,7 @@ for($value = 1; $value <= 100; $value++){
 ?>
 </select>
 
-<p>Fraza:</p><input type="text" name="fraza" width="200">
+<p>Imię świnki:</p><input type="text" name="fraza" width="200">
 
 <br /><br /><br /><input type="submit" value="Szukaj">
 

@@ -3,6 +3,7 @@
 <?php
 
 require_once("classes/db/db.php");
+require_once("classes/cutter/cut.php");
 require_once("includes/show.php");
 
 
@@ -34,7 +35,7 @@ echo '<table align="center"><tr><td>';
 $img = showcatthumb($thumb['fileid']);
 echo $img;
 echo '</td></tr><tr><td height="25" valign="middle"><font size="2">';
-echo $thumb['name'];
+echo cS($thumb['name'], 13);
 echo '</font></td></tr></table>';
 echo '</a>';
 echo '</div>';

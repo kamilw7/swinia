@@ -479,7 +479,7 @@ border-radius: 5px;
 width: 1100px;
 }
 
-#pagelatest, #pagerandom, #pagetag, #pagesearch {
+#pagelatest, #pagerandom, #pagetag, #pagesearch, #pagepopular {
 background-color: #c7c8c8;
 }
 
