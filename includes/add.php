@@ -133,7 +133,7 @@ if (isset($_POST["kitten_password"])){
       echo '<input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />'; }
 
 echo '<input type="hidden" name="form_kitten_alttext" value="'.$_POST["kitten_alttext"].'" />';
-echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponownie" />';
+echo '<input style="width: 400px" type="submit" value="Niepoprawny captcha. Wypełnij formularz ponownie" />';
 } //esle fi captcha_cond
 
 
