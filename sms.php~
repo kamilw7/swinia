@@ -12,7 +12,7 @@ echo '<div id="add">';
 if (isset ($_GET["fid"])){
 $fileid = $_GET["fid"];
 
-echo "<b>Czy na pewno chcesz usunąć tego kotka?</b> <br />
+echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />
 <br />";
 $img = showcat($fileid);
 echo $img;

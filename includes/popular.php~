@@ -10,7 +10,7 @@ require_once("includes/show.php");
 
 $baza = new DBconn;
 $baza->connect();
-$thb = $baza->getimgs(9,"rate");
+$thb = $baza->getimgs(9,"`rate`");
 
 echo '<div id="thumbnails">';
 
@@ -21,7 +21,7 @@ echo '<table align="center"><tr><td>';
 $img = showcatthumb($thumb['fileid']);
 echo $img;
 echo '</td></tr><tr><td><font size="2">';
-echo $thumb['name'];
+echo cS($thumb['name'], 13);
 echo '</font></td></tr></table>';
 echo '</a>';
 echo '</div>';

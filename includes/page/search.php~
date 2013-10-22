@@ -2,6 +2,10 @@
 
 <?php
 
+require_once("classes/db/db.php");
+require_once("includes/show.php");
+
+
 if (isset($_GET["action"])){
 if ($_GET["action"] == "show"){
 

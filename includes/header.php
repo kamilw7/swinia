@@ -24,7 +24,7 @@ session_start();
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik_piggs.srv397.pilestro.pw//";
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.nl.pilestro.pw//";
     _paq.push(['setTrackerUrl', u+'piwik.php']);
     _paq.push(['setSiteId', 1]);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
@@ -37,7 +37,7 @@ session_start();
 </head>
 
 <body  onload="document.getElementById('captcha-form').focus()" >
-<noscript><p><img src="http://piwik_piggs.srv397.pilestro.pw/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+<noscript><p><img src="http://piwik.nl.pilestro.pw/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
 <div id="background">
 <div id="center">
 

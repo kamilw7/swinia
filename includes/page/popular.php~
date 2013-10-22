@@ -14,7 +14,7 @@ $thb = $baza->getimgs(20,"`rate`");
 foreach ($thb as $thumb){
 echo '<div id="pagethumb">';
 echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
-echo '<table cellspacing="2" align="left">';
+echo '<table cellspacing="2" align="center">';
 
 echo '<tr><td>';
 $img = showcatthumb($thumb['fileid']);

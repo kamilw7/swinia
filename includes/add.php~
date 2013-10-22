@@ -604,7 +604,10 @@ Portret świnii:
 </tr>
 <tr>
 <td align="left">
-Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_alttext" cols="70" style="height: 60px; width: 400px;"><?php if (isset($_POST['form_kitten_alttext'])) echo $_POST['form_kitten_alttext']; ?>www.swinia.cc</textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
+Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_alttext" cols="70" style="height: 60px; width: 400px;">
+<?php if (isset($_POST['form_kitten_alttext'])) {
+	echo $_POST['form_kitten_alttext']; } 
+      else if ($_POST['form_kitten_alttext'] == "www.swinia.cc") { echo 'www.swinia.cc'; }?></textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
 </tr>
 <?php
 /*
@@ -717,9 +720,9 @@ function plik_as_poster($filename, $title, $subtitle){
 	//echo $dirpath;
 	
 	exec('convert -geometry 500x '.$source.' '.$source);
-	//exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
-	//exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
-	//exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
+	exec('convert -geometry 100x -crop 100x100+0+0+repage '.$thumb.' '.$thumb);
+	exec('convert '.$thumb.' -resize 100x100^ -gravity Center -crop 100x100+0+0 +repage '.$thumb);
+	exec('convert '.$pageimg.' -resize 500x500^ -gravity Center -crop 500x500+0+0 +repage '.$pageimg);
 
 
 	$command = 'composite -dissolve 50% -gravity southeast -quality 100 ' . $znakwodny . ' ' . $source . ' ' . $source;

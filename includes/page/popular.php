@@ -22,7 +22,7 @@ echo $img;
 echo '</td></tr>';
 
 echo '<tr><td><font size="2">';
-echo $thumb['name'];
+echo cS($thumb['name'], 13);
 echo '</font></td></tr>';
 echo '</table>';
 echo '</a>';

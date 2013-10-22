@@ -7,6 +7,7 @@ POPULARNE:
 
 require_once("classes/db/db.php");
 require_once("includes/show.php");
+require_once("classes/cutter/cut.php");
 
 $baza = new DBconn;
 $baza->connect();
@@ -21,7 +22,7 @@ echo '<table align="center"><tr><td>';
 $img = showcatthumb($thumb['fileid']);
 echo $img;
 echo '</td></tr><tr><td><font size="2">';
-echo $thumb['name'];
+echo cS($thumb['name'], 13);
 echo '</font></td></tr></table>';
 echo '</a>';
 echo '</div>';
