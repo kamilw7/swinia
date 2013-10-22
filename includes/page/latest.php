@@ -26,7 +26,7 @@ echo '</a>';
 echo '</div>';
 
 echo '<div id="pagedesc">';
-echo '<table><tr><td width="130">';
+echo '<table><tr><td width="100">';
 echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
 echo $thumb['fault'];
 echo '</a>';

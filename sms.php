@@ -18,7 +18,7 @@ $img = showcat($fileid);
 echo $img;
 echo '<br /><br />';
 
-echo 'Wyślij sms o treści <b>ag.swinka</b> na numer <b>92550</b> i wpisz ponizej otrzymany kod zwrotny.<br/><br/>';
+echo 'Wyślij sms o treści <b>kodswinia</b> na numer <b>91400</b> (16 PLN netto) i wpisz ponizej otrzymany kod zwrotny.<br/><br/>';
 
 echo '
 <form action="sms.php?fid='.$fileid.'&action=check" method="POST">
