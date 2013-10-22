@@ -125,10 +125,14 @@ echo '<form enctype="multipart/form-data" action="?page=add"
       <input type="hidden" name="form_kitten_name" value="'.$_POST["kitten_name"].'" />
       <input type="hidden" name="form_kitten_subtitle" value="'.$_POST["kitten_subtitle"].'" />
       <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
-      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />
-      <input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />
-      <input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />
-      <input type="hidden" name="form_kitten_alttext" value="'.$_POST["kitten_alttext"].'" />';
+      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />';
+
+if (isset($_POST["kitten_file"])){
+      echo '<input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />'; }
+if (isset($_POST["kitten_password"])){
+      echo '<input type="hidden" name="form_kitten_password" value="'.$_POST["kitten_password"].'" />'; }
+
+echo '<input type="hidden" name="form_kitten_alttext" value="'.$_POST["kitten_alttext"].'" />';
 echo '<input type="submit" value="Niepoprawny captcha. Wypełnij formularz ponownie" />';
 } //esle fi captcha_cond
 
@@ -218,6 +222,7 @@ echo '<form enctype="multipart/form-data" action="?page=add"
       <input type="hidden" name="form_kitten_subtitle" value="'.$_POST["kitten_subtitle"].'" />
       <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
       <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />';
+
 if (isset($_POST["kitten_file"])){
       echo '<input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />'; }
 if (isset($_POST["kitten_password"])){
