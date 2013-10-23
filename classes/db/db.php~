@@ -229,7 +229,7 @@ $rate = $ratecount + 1;
 if ($note == "shit"){
 $rate = $ratecount - 1;
 }
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catzcomments` SET `points` = '$rate' WHERE `id` = '$fid'");
+$count = $this->dbh->exec("UPDATE `kotkiDB`.`catzcomments` SET `points` = '$rate' WHERE `id` = '$id'");
 
 }
 

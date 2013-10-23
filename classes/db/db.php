@@ -217,7 +217,7 @@ return $row["points"];
 
 //=============================================================================//
 
-public function setcommentrate($id, $rate){
+public function setcommentrate($id, $note){
 
 $ratecount = $this->getcommentrate($id);
 
