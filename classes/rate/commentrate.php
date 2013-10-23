@@ -10,11 +10,11 @@ $baza->connect();
 $rate = $baza->getcommentrate($cid);
 
 $doret = '<font size="2"><div id="rate"><div id="ratecount">';
-$doret.=  '<a href="?page=show&fileid='.$fileid.'&commentid='.$cid.'&commentrate=git">+ </a></div>';
-$doret.= '<div id="ratecount">';
+$doret.=  '<a href="?page=show&fileid='.$fileid.'&commentid='.$cid.'&commentrate=git">+&nbsp&nbsp</a></div>';
+$doret.= '<div id="ratecount"><a href="">';
 $doret.= $rate;
-$doret.= '</div><div id="ratecount">';
-$doret.= '<a href="?page=show&fileid='.$fileid.'&commentid='.$cid.'&commentrate=shit"> -</a>';
+$doret.= '</a></div><div id="ratecount">';
+$doret.= '<a href="?page=show&fileid='.$fileid.'&commentid='.$cid.'&commentrate=shit">&nbsp&nbsp-</a>';
 $doret.= '</div></div></font>';
 
 return $doret;

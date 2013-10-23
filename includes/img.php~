@@ -18,7 +18,7 @@ $baza->setimgrate($latest, $_GET['rate']);
 }
 
 if (isset($_GET['commentrate'])){
-$baza->setcommentrate($latest, $_GET['rate']);
+$baza->setcommentrate($_GET['commentid'], $_GET['commentrate']);
 }
 
 } 
@@ -137,9 +137,15 @@ echo "Komentarz dodany";
 }
 }
 
+echo '<table width="1000" align="right"><tr><td width="1000"><font size="2"><a href="?page=show&fileid='.$_GET['fileid'].'&order=ASC">Najlepsze</a><a href="?page=show&fileid='.$_GET['fileid'].'&order=DESC"> Najgorsze</a></font></td></tr></table>';
+
+if (isset ($_GET['order'])){ 
+$order = $_GET['order'];
+}
+else $order = "DESC"
 
 require_once('classes/comments/showcomment.php');
-showcomment($latest);
+showcomment($latest, $order);
 require_once("includes/latest.php");
 require_once("includes/random.php");
 

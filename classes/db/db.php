@@ -312,9 +312,9 @@ return $count;
 
 //===============================================================================//
 
-public function getcomments($fileid){
+public function getcomments($fileid, $order){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid' AND `visible` = '1'  ORDER BY `points` $order");
 return $count;
 
 }

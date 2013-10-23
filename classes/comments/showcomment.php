@@ -4,11 +4,11 @@ require_once('classes/rate/commentrate.php');
 
 //===========================================================================//
 
-function showcomment($fileid){
+function showcomment($fileid, $order){
 
 $baza = new DBconn;
 $baza->connect();
-$dane = $baza->getcomments($fileid);
+$dane = $baza->getcomments($fileid, $order);
 
 foreach ($dane as $komentarz){
 

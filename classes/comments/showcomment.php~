@@ -19,7 +19,7 @@ echo '<table align="center" width="700">
 	</td>
 	<td bgcolor="pink" align="left"><font size="2">Komentarz:</font></td>
 	<td bgcolor="pink" width="500" align="left"><font size="2">Dodał: '.$komentarz['author'].'</font></td>
-	<td bgcolor="pink" align="left"><font size="2">'.showcommentrateicons($komentarz['id']).'</font></td>
+	<td bgcolor="pink" align="left"><font size="2">'.showcommentrateicons($fileid, $komentarz['id']).'</font></td>
 	</tr>
 	<tr>
 	<td width="50"><img height="50" src="content/images/avatar.jpg" /></td>
@@ -30,7 +30,5 @@ echo '<table align="center" width="700">
 	<tr><td colspan="3" height="20"></td></tr>
 	</table>';
 }
-
-echo showcommentrateicons($komentarz['id']);
 
 }

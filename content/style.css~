@@ -57,7 +57,8 @@ text-align: right;
 
 #ratecount{
 display: inline-block;
-font-size: 20px;
+font-size: 10px;
+font-family: Verdana;
 //background-color: pink;
 vertical-align: middle;
 }
@@ -71,7 +72,7 @@ width: 600px;
 }
 
 #thumbnails{
-color: black;
+color: #940081;
 margin: 0 auto;
 font-size: 12px;
 width: 1100px;
