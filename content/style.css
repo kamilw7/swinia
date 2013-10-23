@@ -18,7 +18,7 @@ color: #940081;
 }
 
 #background{
-margin: 10px auto 10px auto;
+margin: 0px auto 10px auto;
 padding: 10px 0 10px 0;
 background-color: rgba(0,0,0,0.001);
 #-webkit-border-radius: 50px;
@@ -446,7 +446,7 @@ color: #940081;
 }
 
 #content{
-margin-top:10px;
+margin-top:5px;
 margin-left:auto:margin-right:auto;
 #background-color: rgba(120,120,120, 0.9);
 text-align: center;
@@ -512,7 +512,7 @@ text-align: right;
 #searchtoolbar
 
 {
-margin-left: 720px;
+margin-left: 715px;
 float: right;
 }
 

@@ -18,7 +18,7 @@ color: #940081;
 }
 
 #background{
-margin: 10px auto 10px auto;
+margin: 0px auto 10px auto;
 padding: 10px 0 10px 0;
 background-color: rgba(0,0,0,0.001);
 #-webkit-border-radius: 50px;
@@ -72,6 +72,15 @@ width: 600px;
 }
 
 #thumbnails{
+color: #940081;
+margin: 0 auto;
+font-size: 12px;
+width: 1100px;
+vertical-align: top;
+}
+
+#allthumbnails{
+display: inline-block;
 color: #940081;
 margin: 0 auto;
 font-size: 12px;
@@ -503,7 +512,7 @@ text-align: right;
 #searchtoolbar
 
 {
-margin-left: 720px;
+margin-left: 715px;
 float: right;
 }
 
