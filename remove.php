@@ -23,9 +23,10 @@ $fileid,
 
 
 
-echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />
-<br />";
+echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />";
+echo '<font size="1">Usuwając wpis akceptujesz <a href="./?page=policies">Regulamin</a></font><br /><br />';
 echo '<br />';
+echo 'Promocja do końca listopada!<br /><br />';
 echo '<a href="'.$url.'"><img src="content/images/payment.png" width="100" /><br />';
 echo ' Przejdź do płatności przelewem bankowym (Wszystkie banki w Polsce) </a><br /><br />';
 echo '<a href="sms.php?fid='.$fileid.'"><img src="content/images/sms.png" width="100" /><br />';

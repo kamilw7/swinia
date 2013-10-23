@@ -3,6 +3,7 @@
 require_once('includes/menu.php');
 require_once("includes/popular.php");
 require_once('includes/show.php');
+require_once('includes/prevnext.php');
 
 require_once('classes/db/db.php');
 $baza = new DBconn;
@@ -16,16 +17,23 @@ if (isset($_GET['rate'])){
 $baza->setimgrate($latest, $_GET['rate']);
 }
 
+if (isset($_GET['commentrate'])){
+$baza->setcommentrate($latest, $_GET['rate']);
+}
+
 } 
 else {
 $latest = $baza->getlatest();
 }
+
+showprevnext($_GET['fileid']);
 
 echo '<div id="img">';
 $img = showcat($latest);
 echo $img;
 echo '</div>';
 
+showprevnextarrows($_GET['fileid']);
 /*
 echo '<div id="img">';
 $img = showcatthumb($latest);
@@ -41,7 +49,7 @@ $imgrate = showrateicons($latest);
 echo $imgrate;
 
 $fault = wordwrap($description["fault"], 60, "<br />\n", true);
-$description = wordwrap($description["description"], 60, "<br />\n", true);
+$description1 = wordwrap($description["description"], 60, "<br />\n", true);
  
 
 echo '
@@ -74,7 +82,7 @@ Czym podpadła:
 Opis świństwa:
 </td>
 <td><b>'
-. $description .
+. $description1 .
 '</b></td>
 </tr>
 <tr>

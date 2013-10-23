@@ -28,4 +28,15 @@ else {
 echo '<a href="?page=register">Register</a> | <a href="?page=login">Log In</a>';
 }
 ?>
+
+<div id="searchtoolbar">
+<form id="searchbox" method="post" action="?page=search&action=show">	
+<input id="searcha" type="text" placeholder="Szukaj świnii" name="fraza" >
+<input type="hidden" name="age" value="0">
+<input type="hidden" name="locale" value="all">
+<input id="submit" type="submit" value="Szukaj">
+</form>
 </div>
+</div>
+
+

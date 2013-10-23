@@ -125,7 +125,8 @@ echo '<form enctype="multipart/form-data" action="?page=add"
       <input type="hidden" name="form_kitten_name" value="'.$_POST["kitten_name"].'" />
       <input type="hidden" name="form_kitten_subtitle" value="'.$_POST["kitten_subtitle"].'" />
       <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
-      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />';
+      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />
+	<input type="hidden" name="form_kitten_street" value="'.$_POST["kitten_street"].'" />';
 
 if (isset($_POST["kitten_file"])){
       echo '<input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />'; }
@@ -221,7 +222,8 @@ echo '<form enctype="multipart/form-data" action="?page=add"
       <input type="hidden" name="form_kitten_name" value="'.$_POST["kitten_name"].'" />
       <input type="hidden" name="form_kitten_subtitle" value="'.$_POST["kitten_subtitle"].'" />
       <input type="hidden" name="form_kitten_fault" value="'.$_POST["kitten_fault"].'" />
-      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />';
+      <input type="hidden" name="form_kitten_desc" value="'.$_POST["kitten_desc"].'" />
+	<input type="hidden" name="form_kitten_street" value="'.$_POST["kitten_street"].'" />';
 
 if (isset($_POST["kitten_file"])){
       echo '<input type="hidden" name="form_kitten_file" value="'.$_POST["kitten_file"].'" />'; }
@@ -242,6 +244,7 @@ else {
 ?>
 
 <p align="center"><b>Dodaj nową świnię</b></p>
+<p align="center"><font size="2">Dodanie nowego wpisu wiąże się z akceptacją regulaminu i założeń serwisu www.swinia.cc</font></p>
 <form enctype="multipart/form-data" action="?page=add" 
 		 method="post" >
 <input type="hidden" name="MAX_FILE_SIZE" value="5120000000" />
@@ -580,6 +583,10 @@ Miasto: </td>
 </td>
 </tr>
 
+<td align="left">
+Ulica: </td><td>  <textarea name="kitten_street" maxlength="200" type="text" id="kitten_street" cols="70" style="width: 400px;"><?php if (isset($_POST['form_kitten_street'])) echo $_POST['form_kitten_street']; ?></textarea></td>
+</tr>
+
 <tr height="30">
 <td align="left">
 Wiek: </td><td>
@@ -701,13 +708,13 @@ function add_to_db($name, $desc, $fault, $path, $pass){
 }
 //===============================================================================================//
 
-function add_to_meta($fileid, $locale, $age, $name){
+function add_to_meta($fileid, $locale, $age, $name, $street){
 	require_once("classes/db/db.php");
 	
 	$baza = new DBconn;
 
 	$baza->connect();
-	$baza->addcatmeta($fileid, $locale, $age, $name);
+	$baza->addcatmeta($fileid, $locale, $age, $name, $street);
 
 
 }

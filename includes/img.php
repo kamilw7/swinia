@@ -3,6 +3,7 @@
 require_once('includes/menu.php');
 require_once("includes/popular.php");
 require_once('includes/show.php');
+require_once('includes/prevnext.php');
 
 require_once('classes/db/db.php');
 $baza = new DBconn;
@@ -16,16 +17,23 @@ if (isset($_GET['rate'])){
 $baza->setimgrate($latest, $_GET['rate']);
 }
 
+if (isset($_GET['commentrate'])){
+$baza->setcommentrate($_GET['commentid'], $_GET['commentrate']);
+}
+
 } 
 else {
 $latest = $baza->getlatest();
 }
+
+showprevnext($_GET['fileid']);
 
 echo '<div id="img">';
 $img = showcat($latest);
 echo $img;
 echo '</div>';
 
+showprevnextarrows($_GET['fileid']);
 /*
 echo '<div id="img">';
 $img = showcatthumb($latest);

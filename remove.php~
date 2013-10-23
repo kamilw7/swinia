@@ -23,13 +23,13 @@ $fileid,
 
 
 
-echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />
-<br />";
+echo "<b>Czy na pewno chcesz usunąć ten wpis?</b> <br />";
+echo '<font size="1">Usuwając wpis akceptujesz <a href="./?page=policies">Regulamin</a></font><br /><br />';
 echo '<br />';
-echo '<img src="content/images/payment.png" width="100" /><br />';
-echo '<a href="'.$url.'"> Przejdź do płatności przelewem bankowym (Wszystkie banki w Polsce) </a><br /><br />';
-echo '<img src="content/images/sms.png" width="100" /><br />';
-echo '<a href="sms.php?fid='.$fileid.'"><font size="3"> Przejdź do płatności SMS </font> </a><br /><br />';
+echo '<a href="'.$url.'"><img src="content/images/payment.png" width="100" /><br />';
+echo ' Przejdź do płatności przelewem bankowym (Wszystkie banki w Polsce) </a><br /><br />';
+echo '<a href="sms.php?fid='.$fileid.'"><img src="content/images/sms.png" width="100" /><br />';
+echo '<font size="3"> Przejdź do płatności SMS </font> </a><br /><br />';
 $img = showcatlower($fileid);
 echo $img;
 

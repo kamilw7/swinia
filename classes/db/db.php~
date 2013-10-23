@@ -91,7 +91,7 @@ if (!$stmt)
 
 //============================================================================//
 
-public function addcatmeta($fileid, $locale, $age, $name){
+public function addcatmeta($fileid, $locale, $age, $name, $street){
 
 
 $stmt = $this->dbh->exec("
@@ -99,10 +99,11 @@ INSERT INTO `kotkiDB`.`catzmeta` (
 `fileid` ,
 `locale` ,
 `age` ,
-`name`
+`name`,
+`street`
 )
 VALUES (
-'$fileid' , '$locale', '$age', '$name'
+'$fileid' , '$locale', '$age', '$name', '$street'
 );
 ");
 //echo $stmt['description'];
@@ -202,9 +203,42 @@ if (!$stmt)
 
 }
 
+//=============================================================================//
+
+public function getcommentrate($fid){
+
+$count = $this->dbh->query("SELECT `points` FROM `kotkiDB`.`catzcomments` WHERE `id` = '$fid'");
+$row = $count->fetch();
+
+return $row["points"];
+
+}
 
 
 //=============================================================================//
+
+public function setcommentrate($id, $rate){
+
+$ratecount = $this->getcommentrate($id);
+
+
+if ($note == "git"){
+$rate = $ratecount + 1;
+}
+
+if ($note == "shit"){
+$rate = $ratecount - 1;
+}
+$count = $this->dbh->exec("UPDATE `kotkiDB`.`catzcomments` SET `points` = '$rate' WHERE `id` = '$fid'");
+
+}
+
+
+
+
+//=============================================================================//
+
+
 
 public function isuser($ausername, $apassword){
 $loggedcond = 0;
@@ -263,6 +297,12 @@ else if ($locale != "%all%" && $age != "%0%") {
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND  `age` LIKE '$age'");
 return $count;
 }
+
+else if ($locale == "%all%" && $age == "%0%") {
+$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `name` LIKE '$name'");
+return $count;
+}
+
 else {
 //$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta`");
 $count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `name` LIKE '$name'");
@@ -281,12 +321,45 @@ return $count;
 
 //===============================================================================//
 
+public function getprevnext($fileid){
+
+$aa = $this->dbh->query("SELECT `id` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fileid' AND `visible` = '1'");
+$row = $aa->fetch();
+$bb = $row["id"];
+
+$count1 = $this->dbh->query("SELECT MAX(id) AS `prev` FROM `kotkiDB`.`catz` WHERE `visible` = '1' AND `id` < '$bb'");
+$row1 = $count1->fetch();
+
+$count2 = $this->dbh->query("SELECT MIN(id) AS `next` FROM `kotkiDB`.`catz` WHERE `visible` = '1' AND `id` > '$bb'");
+$row2 = $count2->fetch();
+
+$prevnext = array();
+$prevnext["next"] = $row2["next"];
+$prevnext["prev"] = $row1["prev"];
+
+return $prevnext;
+
+}
+
+//===============================================================================//
+
 public function getimg($fid){
 
 $count = $this->dbh->query("SELECT `path` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
 $row = $count->fetch();
 
 return $row["path"];
+
+}
+
+//===============================================================================//
+
+public function getfilebyid($fid){
+
+$count = $this->dbh->query("SELECT `fileid` FROM `kotkiDB`.`catz` WHERE `id` = '$fid' AND `visible` = '1'");
+$row = $count->fetch();
+
+return $row["fileid"];
 
 }
 

@@ -63,8 +63,12 @@ SZUKAJ:
 </div>
 <div id="search">
 
-<p>Miasto:</p>
+
 <form method="post" action="?page=search&action=show">	
+
+<p>Imię świnki:</p><input type="text" name="fraza" width="200">
+
+<p>Miasto:</p>
 <select name="locale">
 <option value="all"> ------ wszystkie ------ </option>
 <option value="Aleksandrów Łódzki">Aleksandrów Łódzki</option>
@@ -376,7 +380,7 @@ SZUKAJ:
 
 <p>Wiek:</p>
 <select name="age" width="200">
-<option value="każdy"> ------ wszystkie ------ </option>
+<option value="0"> ------ wszystkie ------ </option>
 <?php 
 for($value = 1; $value <= 100; $value++){ 
     echo('<option value="' . $value . '">' . $value . '</option>');
@@ -386,7 +390,7 @@ for($value = 1; $value <= 100; $value++){
 ?>
 </select>
 
-<p>Imię świnki:</p><input type="text" name="fraza" width="200">
+
 
 <br /><br /><br /><input type="submit" value="Szukaj">
 
