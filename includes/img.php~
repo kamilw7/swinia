@@ -142,7 +142,7 @@ echo '<table width="1000" align="right"><tr><td width="1000"><font size="2"><a h
 if (isset ($_GET['order'])){ 
 $order = $_GET['order'];
 }
-else $order = "DESC"
+else $order = "DESC";
 
 require_once('classes/comments/showcomment.php');
 showcomment($latest, $order);

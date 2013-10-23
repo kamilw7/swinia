@@ -96,6 +96,14 @@ Miasto:
 </tr>
 <tr>
 <td align="left">
+Ulica:
+</td>
+<td><b>'
+. $meta["street"] .
+'</b></td>
+</tr>
+<tr>
+<td align="left">
 Wiek:
 </td>
 <td><b>'
