@@ -116,7 +116,7 @@ echo '<br /><br /><a href="./?page=show&fileid='.md5($path).'">Przejdź do stron
 $imgid = md5($path);
 
 add_to_db($name, $desc, $fault, $path, $pass);
-add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"], $name);
+add_to_meta($imgid, $_POST["kitten_locale"], $_POST["kitten_age"], $name, $_POST["kitten_street"]);
 
 }//fi captcha_cond
 else {
