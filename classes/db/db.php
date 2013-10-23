@@ -58,7 +58,7 @@ public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate
 
 
 $stmt = $this->dbh->exec("
-INSERT INTO `kotkiDB`.`catz` (
+INSERT INTO  `catz` (
 `name` ,
 `description` ,
 `path` ,
@@ -95,7 +95,7 @@ public function addcatmeta($fileid, $locale, $age, $name, $street){
 
 
 $stmt = $this->dbh->exec("
-INSERT INTO `kotkiDB`.`catzmeta` (
+INSERT INTO `catzmeta` (
 `fileid` ,
 `locale` ,
 `age` ,
@@ -126,7 +126,7 @@ public function addmessage($topic, $mail, $text, $added){
 
 
 $stmt = $this->dbh->exec("
-INSERT INTO `kotkiDB`.`catzmessages` (
+INSERT INTO  `catzmessages` (
 `topic` ,
 `mail` ,
 `text`,
@@ -156,7 +156,7 @@ if (!$stmt)
 public function adduser($name, $password, $email, $ip, $registertime){
 
 $stmt = $this->dbh->exec("
-INSERT INTO `kotkiDB`.`catzusers` (
+INSERT INTO  `catzusers` (
 `name` ,
 `password` ,
 `email` ,
@@ -184,7 +184,7 @@ $visible = 1;
 $points = 0;
 
 $stmt = $this->dbh->exec("
-INSERT INTO `kotkiDB`.`catzcomments` (
+INSERT INTO  `catzcomments` (
 `fileid` ,
 `text` ,
 `author` ,
@@ -207,7 +207,7 @@ if (!$stmt)
 
 public function getcommentrate($fid){
 
-$count = $this->dbh->query("SELECT `points` FROM `kotkiDB`.`catzcomments` WHERE `id` = '$fid'");
+$count = $this->dbh->query("SELECT `points` FROM  `catzcomments` WHERE `id` = '$fid'");
 $row = $count->fetch();
 
 return $row["points"];
@@ -229,7 +229,7 @@ $rate = $ratecount + 1;
 if ($note == "shit"){
 $rate = $ratecount - 1;
 }
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catzcomments` SET `points` = '$rate' WHERE `id` = '$id'");
+$count = $this->dbh->exec("UPDATE  `catzcomments` SET `points` = '$rate' WHERE `id` = '$id'");
 
 }
 
@@ -251,7 +251,7 @@ $rows = $sth->fetch(PDO::FETCH_NUM);
 echo $rows[0];
 **/
 
-$count = $this->dbh->query("SELECT COUNT(*) FROM `kotkiDB`.`catzusers` WHERE `name` = '$ausername' AND `password` = '$apassword'");
+$count = $this->dbh->query("SELECT COUNT(*) FROM  `catzusers` WHERE `name` = '$ausername' AND `password` = '$apassword'");
 $row = $count->fetch(PDO::FETCH_NUM);
 echo $row[0];
 
@@ -265,7 +265,7 @@ return $loggedcond;
 
 public function getlatest(){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `visible` = '1' ORDER BY `id` DESC LIMIT 1");
+$count = $this->dbh->query("SELECT * FROM  `catz` WHERE `visible` = '1' ORDER BY `id` DESC LIMIT 1");
 $row = $count->fetch();
 
 return $row["fileid"];
@@ -284,28 +284,28 @@ $name = '%'.$name.'%';
 //echo $age;
 
 if ($locale == "%all%" && $age != "%0%"){
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `age` LIKE '$age' AND `name` LIKE '$name'");
+$count = $this->dbh->query("SELECT * FROM  `catzmeta` WHERE `age` LIKE '$age' AND `name` LIKE '$name'");
 return $count;
 }
 
 else if ($age == "%0%" && $locale != "%all%" ){
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND `name` LIKE '$name'");
+$count = $this->dbh->query("SELECT * FROM  `catzmeta` WHERE `locale` LIKE '$locale' AND `name` LIKE '$name'");
 return $count;
 }
 
 else if ($locale != "%all%" && $age != "%0%") {
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `locale` LIKE '$locale' AND  `age` LIKE '$age'");
+$count = $this->dbh->query("SELECT * FROM  `catzmeta` WHERE `locale` LIKE '$locale' AND  `age` LIKE '$age'");
 return $count;
 }
 
 else if ($locale == "%all%" && $age == "%0%") {
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `name` LIKE '$name'");
+$count = $this->dbh->query("SELECT * FROM  `catzmeta` WHERE `name` LIKE '$name'");
 return $count;
 }
 
 else {
-//$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta`");
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `name` LIKE '$name'");
+//$count = $this->dbh->query("SELECT * FROM  `catzmeta`");
+$count = $this->dbh->query("SELECT * FROM  `catzmeta` WHERE `name` LIKE '$name'");
 return $count;
 }
 }
@@ -314,7 +314,7 @@ return $count;
 
 public function getcomments($fileid, $order){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzcomments` WHERE `fileid` = '$fileid' AND `visible` = '1'  ORDER BY `points` $order");
+$count = $this->dbh->query("SELECT * FROM  `catzcomments` WHERE `fileid` = '$fileid' AND `visible` = '1'  ORDER BY `points` $order");
 return $count;
 
 }
@@ -323,14 +323,14 @@ return $count;
 
 public function getprevnext($fileid){
 
-$aa = $this->dbh->query("SELECT `id` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fileid' AND `visible` = '1'");
+$aa = $this->dbh->query("SELECT `id` FROM  `catz` WHERE `fileid` = '$fileid' AND `visible` = '1'");
 $row = $aa->fetch();
 $bb = $row["id"];
 
-$count1 = $this->dbh->query("SELECT MAX(id) AS `prev` FROM `kotkiDB`.`catz` WHERE `visible` = '1' AND `id` < '$bb'");
+$count1 = $this->dbh->query("SELECT MAX(id) AS `prev` FROM  `catz` WHERE `visible` = '1' AND `id` < '$bb'");
 $row1 = $count1->fetch();
 
-$count2 = $this->dbh->query("SELECT MIN(id) AS `next` FROM `kotkiDB`.`catz` WHERE `visible` = '1' AND `id` > '$bb'");
+$count2 = $this->dbh->query("SELECT MIN(id) AS `next` FROM  `catz` WHERE `visible` = '1' AND `id` > '$bb'");
 $row2 = $count2->fetch();
 
 $prevnext = array();
@@ -345,7 +345,7 @@ return $prevnext;
 
 public function getimg($fid){
 
-$count = $this->dbh->query("SELECT `path` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT `path` FROM  `catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
 $row = $count->fetch();
 
 return $row["path"];
@@ -356,7 +356,7 @@ return $row["path"];
 
 public function getfilebyid($fid){
 
-$count = $this->dbh->query("SELECT `fileid` FROM `kotkiDB`.`catz` WHERE `id` = '$fid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT `fileid` FROM  `catz` WHERE `id` = '$fid' AND `visible` = '1'");
 $row = $count->fetch();
 
 return $row["fileid"];
@@ -367,7 +367,7 @@ return $row["fileid"];
 
 public function getimgmeta($fid){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catzmeta` WHERE `fileid` = '$fid'");
+$count = $this->dbh->query("SELECT * FROM  `catzmeta` WHERE `fileid` = '$fid'");
 $row = $count->fetch();
 
 return $row;
@@ -378,7 +378,7 @@ return $row;
 
 public function getimgs($fid, $order){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `visible` = '1' ORDER BY $order DESC LIMIT $fid");
+$count = $this->dbh->query("SELECT * FROM  `catz` WHERE `visible` = '1' ORDER BY $order DESC LIMIT $fid");
 return $count; 
 
 }
@@ -387,7 +387,7 @@ return $count;
 
 public function getrecord($fid){
 
-$count = $this->dbh->query("SELECT * FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
+$count = $this->dbh->query("SELECT * FROM  `catz` WHERE `fileid` = '$fid' AND `visible` = '1'");
 $row = $count->fetch();
 
 return $row;
@@ -398,7 +398,7 @@ return $row;
 
 public function getimgrate($fid){
 
-$count = $this->dbh->query("SELECT `rate` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
+$count = $this->dbh->query("SELECT `rate` FROM  `catz` WHERE `fileid` = '$fid'");
 $row = $count->fetch();
 
 return $row["rate"];
@@ -419,7 +419,7 @@ $rate = $ratecount + 1;
 if ($note == "shit"){
 $rate = $ratecount - 1;
 }
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `rate` = '$rate' WHERE `fileid` = '$fid'");
+$count = $this->dbh->exec("UPDATE  `catz` SET `rate` = '$rate' WHERE `fileid` = '$fid'");
 
 }
 
@@ -427,7 +427,7 @@ $count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `rate` = '$rate' WHERE `f
 
 public function getimgcode($fid){
 
-$count = $this->dbh->query("SELECT `code` FROM `kotkiDB`.`catz` WHERE `fileid` = '$fid'");
+$count = $this->dbh->query("SELECT `code` FROM  `catz` WHERE `fileid` = '$fid'");
 $row = $count->fetch();
 
 return $row["code"];
@@ -438,7 +438,7 @@ return $row["code"];
 
 public function setimgcode($fid, $code){
 
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `code` = '$code' WHERE `fileid` = '$fid'");
+$count = $this->dbh->exec("UPDATE  `catz` SET `code` = '$code' WHERE `fileid` = '$fid'");
 
 }
 
@@ -446,7 +446,7 @@ $count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `code` = '$code' WHERE `f
 
 public function setimgvisibility($fid, $value){
 
-$count = $this->dbh->exec("UPDATE `kotkiDB`.`catz` SET `visible` = '$value' WHERE `fileid` = '$fid'");
+$count = $this->dbh->exec("UPDATE  `catz` SET `visible` = '$value' WHERE `fileid` = '$fid'");
 
 }
 

@@ -1,5 +1,3 @@
-
-
 <?php
 
 require_once("classes/db/db.php");
@@ -8,6 +6,12 @@ require_once("includes/show.php");
 
 
 if (isset($_GET["action"])){
+
+if ($_GET["action"] == "main"){
+require_once('includes/menu.php');
+echo '<div id="add">';
+}
+
 if ($_GET["action"] == "show"){
 
 require_once('includes/menu.php');
@@ -55,7 +59,12 @@ echo '</div>';
 
 }//fi action
 else { 
-
+if (isset ($_GET["set"])){
+if ($_GET["set"] == "main"){
+require_once('includes/menu.php');
+echo '<div id="add">';
+}
+}
 ?>
 
 <div id="headerbox">

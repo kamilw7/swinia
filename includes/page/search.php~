@@ -1,5 +1,3 @@
-
-
 <?php
 
 require_once("classes/db/db.php");
@@ -8,6 +6,12 @@ require_once("includes/show.php");
 
 
 if (isset($_GET["action"])){
+
+if ($_GET["action"] == "main"){
+require_once('includes/menu.php');
+echo '<div id="add">';
+}
+
 if ($_GET["action"] == "show"){
 
 require_once('includes/menu.php');
@@ -55,7 +59,12 @@ echo '</div>';
 
 }//fi action
 else { 
-
+if (isset ($_GET["action"])){
+if ($_GET["action"] == "main"){
+require_once('includes/menu.php');
+echo '<div id="add">';
+}
+}
 ?>
 
 <div id="headerbox">
@@ -380,7 +389,7 @@ SZUKAJ:
 
 <p>Wiek:</p>
 <select name="age" width="200">
-<option value="każdy"> ------ wszystkie ------ </option>
+<option value="0"> ------ wszystkie ------ </option>
 <?php 
 for($value = 1; $value <= 100; $value++){ 
     echo('<option value="' . $value . '">' . $value . '</option>');

@@ -31,13 +31,13 @@ break;
 $thb = $baza->getimgs(100,"id");
 }//fi
 
-echo '<div id="thumbnails">';
+echo '<div id="allthumbnails">';
 
 foreach ($thb as $thumb){
 
 $meta = $baza->getimgmeta($thumb["fileid"]);
 
-echo '<table align="center" width="400"><tr><td width="125">';
+echo '<table align="left" width="350"><tr><td width="125">';
 
 echo '<div id="thumb">';
 echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
@@ -63,7 +63,7 @@ echo $meta['locale'];
 echo '<br /><br />'.$thumb["fault"];
 
 
-echo '</td></tr></table><br />';
+echo '</td></tr></table>';
 
 }
 echo '</div>';
