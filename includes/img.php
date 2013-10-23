@@ -145,7 +145,7 @@ echo "Komentarz dodany";
 }
 }
 
-echo '<table width="1000" align="right"><tr><td width="1000"><font size="2"><a href="?page=show&fileid='.$_GET['fileid'].'&order=ASC">Najlepsze</a><a href="?page=show&fileid='.$_GET['fileid'].'&order=DESC"> Najgorsze</a></font></td></tr></table>';
+echo '<table width="1000" align="right"><tr><td width="1000"><font size="2"><a href="?page=show&fileid='.$_GET['fileid'].'&order=DESC">Najlepsze</a><a href="?page=show&fileid='.$_GET['fileid'].'&order=ASC"> Najgorsze</a></font></td></tr></table>';
 
 if (isset ($_GET['order'])){ 
 $order = $_GET['order'];

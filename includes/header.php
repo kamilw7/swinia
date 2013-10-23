@@ -48,7 +48,7 @@ require_once('includes/toolbar.php');
 <div id="top1">
 
 <div id="top">
-<a href="./"><img src="content/images/top/top1.png" height="80" /></a>
+<a href="./"><img src="content/images/top/top1.png" height="82" /></a>
 </div>
 </div>
 

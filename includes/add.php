@@ -48,7 +48,7 @@ HTML;
 
 if (isset ($_POST['kitten_alttext'])) {
 
-if ($_POST['kitten_alttext']=="www.swinia.cc") {
+if (strlen($_POST['kitten_alttext']) < 2) {
 
 if (isset($_FILES['nazwa_pliku'])) {
 
@@ -619,7 +619,7 @@ Portret świnii:
 Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_alttext" cols="70" style="height: 60px; width: 400px;">
 <?php if (isset($_POST['form_kitten_alttext'])) {
 	echo $_POST['form_kitten_alttext']; } 
-      else { echo 'www.swinia.cc'; }?></textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
+      else { echo ''; }?></textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
 </tr>
 <?php
 /*

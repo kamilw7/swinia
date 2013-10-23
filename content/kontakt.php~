@@ -62,13 +62,13 @@ Zapytanie do Administratora :
 <tr><td>
 Temat:
 </td><td>
-<input type="text" style="width: 400px" name="mail_topic" value="tu wpisz temat">
+<input type="text" style="width: 400px" name="mail_topic" placeholder="tu wpisz temat">
 </td></tr>
 
 <tr><td>
 Twój e-mail:
 </td><td>
-<input type="text" style="width: 400px" name="mail_mail" value="tu wpisz Twoj mail">
+<input type="text" style="width: 400px" name="mail_mail" placeholder="tu wpisz Twoj mail">
 </td></tr>
 
 
