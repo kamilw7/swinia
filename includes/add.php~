@@ -244,7 +244,7 @@ else {
 ?>
 
 <p align="center"><b>Dodaj nową świnię</b></p>
-<p align="center"><b>Dodanie nowego wpisu wiąże się z akceptacją regulaminu i założeń serwisu www.swinia.cc</b></p>
+<p align="center"><font size="2">Dodanie nowego wpisu wiąże się z akceptacją regulaminu i założeń serwisu www.swinia.cc</font></p>
 <form enctype="multipart/form-data" action="?page=add" 
 		 method="post" >
 <input type="hidden" name="MAX_FILE_SIZE" value="5120000000" />
