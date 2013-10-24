@@ -41,12 +41,18 @@ echo $img;
 echo '</div>';
 */
 
+
+
 $description = showcatdesc($latest);
 $meta = showcatmeta($latest);
 
 require_once('classes/rate/imgrate.php');
 $imgrate = showrateicons($latest);
 echo $imgrate;
+
+echo '
+<div class="fb-like" id="fblike" data-href="http://www.swinia.cc/?page=show&fileid='.$latest.'" data-width="600" data-height="The pixel height of the plugin" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+';
 
 $fault = wordwrap($description["fault"], 60, "<br />\n", true);
 $description1 = wordwrap($description["description"], 60, "<br />\n", true);
@@ -150,7 +156,7 @@ echo '<table width="1000" align="right"><tr><td width="1000"><font size="2"><a h
 if (isset ($_GET['order'])){ 
 $order = $_GET['order'];
 }
-else $order = "ASC";
+else $order = "DESC";
 
 require_once('classes/comments/showcomment.php');
 showcomment($latest, $order);

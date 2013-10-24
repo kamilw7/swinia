@@ -17,6 +17,16 @@ session_start();
 
 <link rel="stylesheet" type="text/css" href="content/style.css" />
 
+<!-- FB -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End FB code -->
 
 <!-- Piwik -->
 <script type="text/javascript">
@@ -52,7 +62,7 @@ require_once('includes/toolbar.php');
 <div style="height: 60px; width: 10%; float: left; ">
 <a href="./"><img src="content/images/top/top1.png" height="82" /></a>
 </div>
-<div style="height: 60px; margin-left: 630px">
+<div style="height: 65px; margin-left: 630px">
 <!-- START CLIENT.YESADVERTISING CODE -->
 <script language="javascript" type="text/javascript" charset="utf-8">
 var cpxcenter_banner_border = 'rgba(100,100,100,0.1)';

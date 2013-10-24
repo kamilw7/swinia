@@ -17,6 +17,16 @@ session_start();
 
 <link rel="stylesheet" type="text/css" href="content/style.css" />
 
+<!-- FB -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End FB code -->
 
 <!-- Piwik -->
 <script type="text/javascript">

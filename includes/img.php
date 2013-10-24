@@ -32,7 +32,9 @@ echo '<div id="img">';
 $img = showcat($latest);
 echo $img;
 echo '</div>';
-
+echo '
+<div class="fb-like" id="fblike" data-href="http://www.swinia.cc/?page=show&fileid='.$latest.'" data-width="600" data-height="The pixel height of the plugin" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+';
 showprevnextarrows($_GET['fileid']);
 /*
 echo '<div id="img">';
@@ -41,12 +43,16 @@ echo $img;
 echo '</div>';
 */
 
+
+
 $description = showcatdesc($latest);
 $meta = showcatmeta($latest);
 
 require_once('classes/rate/imgrate.php');
 $imgrate = showrateicons($latest);
 echo $imgrate;
+
+
 
 $fault = wordwrap($description["fault"], 60, "<br />\n", true);
 $description1 = wordwrap($description["description"], 60, "<br />\n", true);

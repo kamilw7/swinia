@@ -59,8 +59,8 @@ echo '</div>';
 
 }//fi action
 else { 
-if (isset ($_GET["action"])){
-if ($_GET["action"] == "main"){
+if (isset ($_GET["set"])){
+if ($_GET["set"] == "main"){
 require_once('includes/menu.php');
 echo '<div id="add">';
 }
@@ -405,6 +405,8 @@ for($value = 1; $value <= 100; $value++){
 
 </form>
 </div>
+
+<div class="fb-like" id="fblikemain" data-href="http://www.swinia.cc/" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
 
 <?php
 }
