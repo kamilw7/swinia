@@ -2,7 +2,18 @@
 require_once("includes/menu.php");
 require_once("includes/popular.php");
 ?>
-
+<!-- START CLIENT.YESADVERTISING CODE -->
+<script language="javascript" type="text/javascript" charset="utf-8">
+var cpxcenter_banner_border = '#990033';
+var cpxcenter_banner_text = '#000000';
+var cpxcenter_banner_bg = '#FFFFFF';
+var cpxcenter_banner_link = '#000000';
+cpxcenter_width = 468;
+cpxcenter_height = 60;
+</script>
+<script language="JavaScript" type="text/javascript" src="//ads.cpxcenter.com/cpxcenter/showAd.php?nid=4&amp;zone=35165&amp;type=banner&amp;sid=26848&amp;pid=26563&amp;subid=">
+</script>
+<!-- END CLIENT.YESADVERTISING CODE -->
 <div id="add">
 <?php
 //-------------------------------------------------CAPTCHA----------------------------------------------------//
@@ -619,7 +630,7 @@ Portret świnii:
 Tekst alternatywny: </td><td>  <textarea name="kitten_alttext" maxlength="200" type="text" id="kitten_alttext" cols="70" style="height: 60px; width: 400px;">
 <?php if (isset($_POST['form_kitten_alttext'])) {
 	echo $_POST['form_kitten_alttext']; } 
-      else { echo 'www.swinia.cc'; }?></textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
+      else { echo ''; }?></textarea><font size="2">To pole pozostaw niezmienione, jeśli dodałeś portret świnii. W przeciwnym razie, użyj formy opisowej, np. "Chuck Norris w kapeluszu".</font></td></td>
 </tr>
 <?php
 /*

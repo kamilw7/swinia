@@ -48,7 +48,25 @@ require_once('includes/toolbar.php');
 <div id="top1">
 
 <div id="top">
-<a href="./"><img src="content/images/top/top1.png" height="83" /></a>
+
+<div style="width: 10%; float: left; ">
+<a href="./"><img src="content/images/top/top1.png" height="82" /></a>
+</div>
+<div style="margin-left: 600px">
+<!-- START CLIENT.YESADVERTISING CODE -->
+<script language="javascript" type="text/javascript" charset="utf-8">
+var cpxcenter_banner_border = 'rgba(100,100,100,0.1)';
+var cpxcenter_banner_text = '#3d3d3d';
+var cpxcenter_banner_bg = 'rgba(100,100,100,0.1)';
+var cpxcenter_banner_link = 'rgba(100,100,100,0.1)';
+cpxcenter_width = 468;
+cpxcenter_height = 60;
+</script>
+<script language="JavaScript" type="text/javascript" src="//ads.cpxcenter.com/cpxcenter/showAd.php?nid=4&amp;zone=35165&amp;type=banner&amp;sid=26848&amp;pid=26563&amp;subid=">
+</script>
+</div>
+<!-- END CLIENT.YESADVERTISING CODE -->
+
 </div>
 </div>
 
