@@ -45,8 +45,28 @@ echo '</div>';
 </div>
 </div>
 
+
 <?php
-$img = @showcatmain($thumb['fileid']);
+/* SWINIA NA STALE */
+$sswinia = $baza->getrecord("f5bfe88280d417d9497f8413cd2a1f34");
+
+$img = showcatmain($sswinia['fileid']);
+echo '<a href="?page=show&fileid='.$sswinia['fileid'].'">';
+echo $img;
+echo '</a>';
+?>
+<div id="mainimginside">
+<div id="mainimgtext">
+<b><?php echo $sswinia['name']; ?></b><br /><br />
+<?php 
+
+$textfault = cS($sswinia['fault'], 150);
+$textfault = wordwrap($textfault, 60, "<br />\n", true);
+echo $textfault; 
+/* END OF SWINIA NA STALE */
+
+/*
+$img = showcatmain($thumb['fileid']);
 echo '<a href="?page=show&fileid='.$thumb['fileid'].'">';
 echo $img;
 echo '</a>';
@@ -59,6 +79,7 @@ echo '</a>';
 $textfault = cS($thumb['fault'], 170);
 $textfault = wordwrap($textfault, 60, "<br />\n", true);
 echo $textfault; 
+*/
 
 
 ?>
