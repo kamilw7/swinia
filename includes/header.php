@@ -108,7 +108,7 @@ require_once('includes/toolbar.php');
 <div style="height: 60px; width: 10%; float: left; ">
 <a href="./"><img src="content/images/top/top1.png" height="82" /></a>
 </div>
-<div style="height: 65px; margin-left: 630px">
+<div style="height: 65px; margin-left: 530px">
 <!-- START CLIENT.YESADVERTISING CODE -->
 <script language="javascript" type="text/javascript" charset="utf-8">
 var cpxcenter_banner_border = 'rgba(100,100,100,0.1)';

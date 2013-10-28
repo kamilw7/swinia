@@ -41,7 +41,6 @@ require_once("includes/menu.php");
     return false;">
   <img src="content/images/share.gif" />
 </a>
-
 </div>
 
 <?php

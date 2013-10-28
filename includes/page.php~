@@ -2,9 +2,7 @@
 
 require_once("includes/menu.php");
 ?>
-<div style="float: left; position: relative;">
-<a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad1.gif"/></a>
-</div>
+
 <div id="content">
    <div id="firstrow">
 	<div id="pagerandom">
