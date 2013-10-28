@@ -77,7 +77,7 @@ require_once('includes/page.php');
 }
 
 
-require_once('includes/footer.php');
+//require_once('includes/footer.php');
 
 
 

@@ -10,7 +10,7 @@ session_start();
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
 <head>
 
-<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="Keywords" content="Swinia, świnia, świnia.cc, podkładanie świnii, świnie" />
 <meta name="Description" content="www.swinia.cc - Podłóż komuś świnię!" />
 
@@ -83,11 +83,11 @@ Swinia.cc - podloz komus swinie!</title>
 
 <body  onload="document.getElementById('captcha-form').focus()" >
 <noscript><p><img src="http://piwik.nl.pilestro.pw/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-<div style="float: left; position: fixed; z-index: 0; margin-top: 200px;">
+<div style="float: right; position: fixed; z-index: 0; margin-top: 200px;">
 <a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad1.gif"/></a>
 </div>
 
-<div style="float: right; position: fixed; z-index: 0; margin-top: 200px; margin-left: 1200px">
+<div style="width: 100%; margin-left: auto; position: fixed; z-index: 0; margin-top: 200px; text-align: right;">
 <a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad2.gif"/></a>
 </div>
 

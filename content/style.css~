@@ -279,7 +279,7 @@ width: 500px;
 }
 
 #mainheaderboxinside{
-top: 204px;
+top: 199px;
     background-color: rgba(0,0,0,0.65);
 position: absolute;
 text-align: left;
@@ -289,7 +289,7 @@ vertical-align: middle;
 }
 
 #mainimginside {
-    margin-top: 296px;
+    margin-top: 276px;
     background-color: rgba(0,0,0,0.65);
     position: absolute;
     height: 100px;
@@ -357,7 +357,7 @@ border-radius: 5px;
 -webkit-border-radius: 5px; 
 border: 1px dashed #ff309a;
 height: 520px;
-width: 335px;
+width: 235px;
 }
 
 
