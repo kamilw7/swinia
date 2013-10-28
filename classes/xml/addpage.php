@@ -2,7 +2,7 @@
 
 function add_xml($fid){
 
-$fid = "http://www.swinia.cc/?page=show&fileid=".$fid;
+$fid = "http://www.swinia.cc/?page=show&amp;fileid=".$fid;
 
 $filename = 'sitemap.xml';
 

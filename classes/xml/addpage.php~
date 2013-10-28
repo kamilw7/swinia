@@ -10,7 +10,6 @@ $filepath = fopen($filename, 'rb');
 $mapa = fread($filepath, filesize($filename));
 $mapa = substr($mapa, 0, -10);
 $mapa = $mapa."\r\n".'<url><loc>'.$fid.'</loc><lastmod>'.date('o-m-j').'</lastmod><changefreq>always</changefreq><priority>0.5</priority></url>'."\r\n".'</urlset>';
-echo $mapa;
 // zapisanie danych do pliku
 //fwrite($filepath, $mapa); 
 fclose($filepath);
