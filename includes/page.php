@@ -29,7 +29,7 @@ require_once("includes/menu.php");
 </div>
 
 
-<div class="fb-like" id="fblikemain" data-href="http://www.swinia.cc/" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
 
 <?php
 

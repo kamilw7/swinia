@@ -11,9 +11,42 @@ session_start();
 <head>
 
 <meta charset="UTF-8" />
-<meta name='robots' content='noindex,nofollow' />
+<meta name="Keywords" content="Swinia, świnia, świnia.cc, podkładanie świnii, świnie" />
+<meta name="Description" content="www.swinia.cc - Podłóż komuś świnię!" />
 
-<title>Swinia.cc - podloz komus swinie!</title>
+<?php 
+if (isset ($_GET['fileid'])){
+
+require_once('classes/db/db.php');
+require_once('includes/show.php');
+$baza = new DBconn;
+$baza->connect();
+
+$latest = $_GET['fileid'];
+$description = showcatdesc($latest);
+$meta = showcatmeta($latest);
+
+if ($meta["age"] == "0"){
+$meta["age"] = " ";
+}
+else {
+$meta["age"] = $meta["age"].', ';
+}
+
+if ($meta["locale"] == "all"){
+$meta["locale"] = "Polska - ";
+}
+else {
+$meta["locale"] = $meta["locale"].' - ';
+}
+
+echo '<title>'.$description["name"].', '.$meta["age"].$meta["locale"];
+}
+else {
+echo '<title>';
+}
+?>
+Swinia.cc - podloz komus swinie!</title>
 
 <link rel="stylesheet" type="text/css" href="content/style.css" />
 
