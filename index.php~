@@ -27,7 +27,7 @@ require_once('content/all.php');
 break;
 
 case "search":
-require_once('includes/page/search.php?action=main');
+require_once('includes/page/search.php');
 break;
 
 case "login":

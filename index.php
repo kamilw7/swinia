@@ -22,6 +22,11 @@ case "add":
 require_once('includes/add.php');
 break;
 
+case "sitemap":
+require_once('classes/xml/addpage.php');
+break;
+
+
 case "all":
 require_once('content/all.php');
 break;

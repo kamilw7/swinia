@@ -6,6 +6,7 @@ require_once('includes/show.php');
 require_once('includes/prevnext.php');
 
 require_once('classes/db/db.php');
+
 $baza = new DBconn;
 $baza->connect();
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once('classes/xml/addpage.php');
+
 /**
 * DATABASE CONF HERE:
 **/
@@ -56,6 +58,7 @@ catch(PDOException $e) {
 
 public function addcat($name, $desc, $path, $fileid, $user, $added, $pass, $rate, $fault, $visible, $code){
 
+add_xml($fileid);
 
 $stmt = $this->dbh->exec("
 INSERT INTO  `catz` (
