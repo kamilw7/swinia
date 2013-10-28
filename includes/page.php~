@@ -2,7 +2,9 @@
 
 require_once("includes/menu.php");
 ?>
-
+<div style="float: left; position: relative;">
+<a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad1.gif"/></a>
+</div>
 <div id="content">
    <div id="firstrow">
 	<div id="pagerandom">
@@ -29,7 +31,7 @@ require_once("includes/menu.php");
 </div>
 
 
-<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
 
 <div id="fbsharemain">
 <a href="#" 

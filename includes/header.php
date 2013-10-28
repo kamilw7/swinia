@@ -83,12 +83,23 @@ Swinia.cc - podloz komus swinie!</title>
 
 <body  onload="document.getElementById('captcha-form').focus()" >
 <noscript><p><img src="http://piwik.nl.pilestro.pw/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+<div style="float: left; position: fixed; z-index: 0; margin-top: 200px;">
+<a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad1.gif"/></a>
+</div>
+
+<div style="float: right; position: fixed; z-index: 0; margin-top: 200px; margin-left: 1200px">
+<a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad2.gif"/></a>
+</div>
+
 <div id="background">
+
 <div id="center">
 
 <?php
 require_once('includes/toolbar.php');
 ?>
+
+
 
 <div id="top1">
 
@@ -114,5 +125,6 @@ cpxcenter_height = 60;
 
 </div>
 </div>
+
 
 
