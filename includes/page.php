@@ -29,7 +29,20 @@ require_once("includes/menu.php");
 </div>
 
 
-<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
+
+<div id="fbsharemain">
+<a href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  <img src="content/images/share.gif" />
+</a>
+
+</div>
 
 <?php
 

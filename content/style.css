@@ -38,8 +38,23 @@ width: 1100px;
 
 }
 
-#fblike{
+#fb{
 margin: 0 auto;
+width: 600px;
+
+}
+
+#fblike{
+float: left;
+width: 600px;
+height: 30px;
+
+}
+
+#fbshare{
+display: inline-block;
+float: right;
+text-align: right;
 width: 600px;
 
 }
@@ -51,6 +66,11 @@ width: 300px;
 
 }
 
+#fbsharemain{
+margin: 0 auto;
+width: 300px;
+margin-bottom: 20px;
+}
 
 
 #toolbar a{
@@ -105,7 +125,7 @@ vertical-align: top;
 
 color: black;
 margin: 0 auto;
-margin-top: 20px;
+margin-top: 50px;
 font-size: 12px;
 width: 600px;
 vertical-align: top;

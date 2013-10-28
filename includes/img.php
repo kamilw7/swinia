@@ -33,9 +33,27 @@ echo '<div id="img">';
 $img = showcat($latest);
 echo $img;
 echo '</div>';
-echo '
-<div class="fb-like" id="fblike" data-href="http://www.swinia.cc/?page=show&fileid='.$latest.'" data-width="600" data-height="The pixel height of the plugin" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
-';
+
+echo '<div id="fb">
+<div class="fb-like" id="fblike" data-href="http://www.swinia.cc/?page=show&fileid='.$latest.'" data-width="600" data-height="The pixel height of the plugin" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"> ';
+echo'</div>';
+?>
+
+<div id="fbshare">
+<a href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  <img src="content/images/share.gif" />
+</a>
+
+</div>
+</div>
+<?php
+
 showprevnextarrows($_GET['fileid']);
 /*
 echo '<div id="img">';
