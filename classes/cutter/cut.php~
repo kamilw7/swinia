@@ -6,8 +6,8 @@
 function cS($string,$end) {
 
 if(strlen($string)>$end){
-$string=preg_replace('/s+?(S+)?$/','',substr($string,0,$end+1));
-$string=substr($string,0,$end)."...";
+//$string=preg_replace('/s+?(S+)?$/','',substr($string,0,$end+1));
+$string=mb_substr($string,0,$end)."...";
 }
 return $string;
 }

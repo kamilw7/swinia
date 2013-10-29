@@ -12,7 +12,7 @@ session_start();
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="Keywords" content="Swinia, świnia, świnia.cc, podkładanie świnii, świnie" />
-<meta name="Description" content="www.swinia.cc - Podłóż komuś świnię!" />
+<meta name="Description" content="www.swinia.cc - Podłóż komuś świnię! - portal, na którym każdy może wyrazić swoją opinię!" />
 
 <?php 
 if (isset ($_GET['fileid'])){

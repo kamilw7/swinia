@@ -29,22 +29,11 @@ require_once("includes/menu.php");
 </div>
 
 
-<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
-
-<div id="fbsharemain">
-<a href="#" 
-  onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-      'facebook-share-dialog', 
-      'width=626,height=436'); 
-    return false;">
-  <img src="content/images/share.gif" />
-</a>
-</div>
 
 <?php
 
 require_once("includes/random.php");
 ?>
-
+<center>
+<iframe src="http://www.cpmleader.com/b_300x250.php?id=10419" width="300" height="250" frameborder="no" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+</center>

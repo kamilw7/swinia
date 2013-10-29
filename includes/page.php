@@ -28,8 +28,7 @@ require_once("includes/menu.php");
 
 </div>
 
-
-<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="300" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
+<div class="fb-like" id="fblikemain" data-href="http://www.facebook.com/swinia.cc" data-width="1000" data-height="40" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
 
 <div id="fbsharemain">
 <a href="#" 
@@ -42,6 +41,8 @@ require_once("includes/menu.php");
   <img src="content/images/share.gif" />
 </a>
 </div>
+
+
 
 <?php
 
