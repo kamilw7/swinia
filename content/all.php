@@ -37,7 +37,7 @@ foreach ($thb as $thumb){
 
 $meta = $baza->getimgmeta($thumb["fileid"]);
 
-echo '<table align="left" width="350"><tr><td width="125">';
+echo '<table align="left" width="320"><tr><td width="125">';
 
 echo '<div id="thumb">';
 echo '<a href="./?page=show&fileid='.$thumb['fileid'].'">';
