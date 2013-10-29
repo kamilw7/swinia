@@ -11,8 +11,7 @@ session_start();
 <head>
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="Keywords" content="Swinia, świnia, świnia.cc, podkładanie świnii, świnie" />
-<meta name="Description" content="www.swinia.cc - Podłóż komuś świnię! - portal, na którym każdy może wyrazić swoją opinię!" />
+
 
 <?php 
 if (isset ($_GET['fileid'])){
@@ -25,6 +24,10 @@ $baza->connect();
 $latest = $_GET['fileid'];
 $description = showcatdesc($latest);
 $meta = showcatmeta($latest);
+
+echo '<meta name="Keywords" content="'.$description["name"].' - Swinia, świnia, świnia.cc, świnia.pl, swinia.pl, swinia.net, zemsta, anonimowa zemsta, podkładanie świnii, świnie, swinia.cc" />';
+
+echo '<meta name="Description" content="'.$description["name"].' - www.swinia.cc - Podłóż komuś świnię! - portal, na którym każdy może wyrazić swoją opinię - anonimowa zemsta, podkładanie świnii - www.swinia.cc" />';
 
 if ($meta["age"] == "0"){
 $meta["age"] = " ";
@@ -43,7 +46,12 @@ $meta["locale"] = $meta["locale"].' - ';
 echo '<title>'.$description["name"].', '.$meta["age"].$meta["locale"];
 }
 else {
+echo '
+<meta name="Keywords" content="Swinia, świnia, świnia.cc, świnia.pl, swinia.pl, swinia.net, zemsta, anonimowa zemsta, podkładanie świnii, świnie, swinia.cc" />';
+echo '
+<meta name="Description" content="www.swinia.cc - Podłóż komuś świnię! - portal, na którym każdy może wyrazić swoją opinię - anonimowa zemsta, podkładanie świnii - www.swinia.cc" />';
 echo '<title>';
+
 }
 ?>
 Swinia.cc - podloz komus swinie!</title>
