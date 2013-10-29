@@ -47,7 +47,8 @@ echo '<title>'.$description["name"].', '.$meta["age"].$meta["locale"];
 }
 else {
 echo '
-<meta name="Keywords" content="Swinia, świnia, świnia.cc, świnia.pl, swinia.pl, swinia.net, zemsta, anonimowa zemsta, podkładanie świnii, świnie, swinia.cc" />
+<meta name="Keywords" content="Swinia, świnia, świnia.cc, świnia.pl, swinia.pl, swinia.net, zemsta, anonimowa zemsta, podkładanie świnii, świnie, swinia.cc" />';
+echo '
 <meta name="Description" content="www.swinia.cc - Podłóż komuś świnię! - portal, na którym każdy może wyrazić swoją opinię - anonimowa zemsta, podkładanie świnii - www.swinia.cc" />';
 echo '<title>';
 
