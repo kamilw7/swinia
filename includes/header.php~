@@ -87,8 +87,11 @@ Swinia.cc - podloz komus swinie!</title>
 <a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad1.gif"/></a>
 </div>
 
-<div style="float: right; margin-left: auto; position: fixed; z-index: 0; margin-top: 200px; text-align: right;">
-<a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad2.gif"/></a>
+<div style="width: 98%; margin-left: auto; margin-right: 100px; position: fixed; z-index: 0; margin-top: 200px; text-align: right;">
+<iframe src="http://www.cpmleader.com/b_160x600.php?id=10419" width="160" height="600" frameborder="no" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+<?php
+//<a href="http://www.stargames.com/bridge.asp?idr=49155&lang=pl" target="_blank"/><img src="content/images/ad2.gif"/></a>
+?>
 </div>
 
 <div id="background">
@@ -109,6 +112,10 @@ require_once('includes/toolbar.php');
 <a href="./"><img src="content/images/top/top1.png" height="82" /></a>
 </div>
 <div style="height: 65px; margin-left: 530px">
+<iframe src="http://www.cpmleader.com/b_468x60.php?id=10419" width="468" height="60" frameborder="no" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+<?php
+
+/*
 <!-- START CLIENT.YESADVERTISING CODE -->
 <script language="javascript" type="text/javascript" charset="utf-8">
 var cpxcenter_banner_border = 'rgba(100,100,100,0.1)';
@@ -122,7 +129,8 @@ cpxcenter_height = 60;
 </script>
 </div>
 <!-- END CLIENT.YESADVERTISING CODE -->
-
+*/
+?>
 </div>
 </div>
 

@@ -34,7 +34,7 @@ width: 1000px;
 
 #center{
 margin: 0 auto;
-width: 1000px;
+width: 1050px;
 z-index: 1;
 position: absolute;
 
@@ -279,7 +279,7 @@ width: 500px;
 }
 
 #mainheaderboxinside{
-top: 199px;
+top: 178px;
     background-color: rgba(0,0,0,0.65);
 position: absolute;
 text-align: left;

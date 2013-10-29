@@ -47,3 +47,6 @@ require_once("includes/menu.php");
 
 require_once("includes/random.php");
 ?>
+<center>
+<iframe src="http://www.cpmleader.com/b_300x250.php?id=10419" width="300" height="250" frameborder="no" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+</center>
