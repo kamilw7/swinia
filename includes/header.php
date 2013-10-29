@@ -48,6 +48,7 @@ echo '<title>';
 ?>
 Swinia.cc - podloz komus swinie!</title>
 
+<link rel="Shortcut icon" href="content/images/favico.ico" />
 <link rel="stylesheet" type="text/css" href="content/style.css" />
 
 <!-- FB -->
